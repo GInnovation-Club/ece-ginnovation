@@ -40,7 +40,7 @@ const Blogs = () => {
   return (
     <section className='blog'>
       <Row>
-        <Col md={{ span: 10, order: 2 }}>
+        <Col md={{ span: 10, order: 1 }}>
           <Row>
             <Col md={12}>
               <div
@@ -145,7 +145,7 @@ const Blogs = () => {
             </Col>
           </Row>
         </Col>
-        <Col md={{ span: 2, order: 1 }}>
+        <Col md={{ span: 2, order: 2 }}>
           <div
             data-aos='zoom-in'
             data-aos-duration='600'
