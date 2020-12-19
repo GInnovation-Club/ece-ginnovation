@@ -40,7 +40,18 @@ const Blogs = () => {
   return (
     <section className='blog'>
       <Row>
-        <Col md={{ span: 10, order: 1 }}>
+        <Col md={{ span: 2, order: 2 }} sm={{ order: 1 }}>
+          <div
+            data-aos='zoom-in'
+            data-aos-duration='600'
+            data-aos-delay='100'
+            className='title'
+          >
+            <h2>Blog Point</h2>
+            <img src={bulbImg} alt='idea' />
+          </div>
+        </Col>
+        <Col md={{ span: 10, order: 1 }} sm={{ order: 2 }}>
           <Row>
             <Col md={12}>
               <div
@@ -144,17 +155,6 @@ const Blogs = () => {
               </div>
             </Col>
           </Row>
-        </Col>
-        <Col md={{ span: 2, order: 2 }}>
-          <div
-            data-aos='zoom-in'
-            data-aos-duration='600'
-            data-aos-delay='100'
-            className='title'
-          >
-            <h2>Blog Point</h2>
-            <img src={bulbImg} alt='idea' />
-          </div>
         </Col>
       </Row>
     </section>

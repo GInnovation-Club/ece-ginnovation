@@ -486,13 +486,23 @@ button {
   //-----section
   //home
   .home {
-    height: 100vh;
-    padding: 0.5em;
+    height: 90vh;
+    padding: 0.5em 1em;
+    header {
+      margin-bottom: 1.3em;
+    }
+    .social-bar {
+      right: 4%;
+    }
   }
   //moto
   .moto {
     .title {
       padding: 1em 0;
+      background-color: transparent;
+      border: 2px solid $pink;
+      width: 95%;
+      margin: auto;
       h2 {
         transform: rotate(0deg);
         margin: 0;
@@ -541,6 +551,20 @@ button {
     .video-cards {
       width: 100%;
       z-index: 999;
+    }
+  }
+  //blogs
+  .blog {
+    .title {
+      h2 {
+        transform: rotate(0deg);
+        width: 100%;
+        margin: auto;
+        text-align: center;
+      }
+      img {
+        display: none;
+      }
     }
   }
 }
