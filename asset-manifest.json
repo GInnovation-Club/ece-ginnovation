@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/ece-ginnovation/static/css/main.46d91d29.chunk.css",
+    "main.js": "/ece-ginnovation/static/js/main.2153061f.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.2153061f.chunk.js.map",
+    "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.09313c84.js",
+    "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.09313c84.js.map",
+    "static/css/2.4b84fa70.chunk.css": "/ece-ginnovation/static/css/2.4b84fa70.chunk.css",
+    "static/js/2.94e28215.chunk.js": "/ece-ginnovation/static/js/2.94e28215.chunk.js",
+    "static/js/2.94e28215.chunk.js.map": "/ece-ginnovation/static/js/2.94e28215.chunk.js.map",
+    "static/js/3.fd98ac9b.chunk.js": "/ece-ginnovation/static/js/3.fd98ac9b.chunk.js",
+    "static/js/3.fd98ac9b.chunk.js.map": "/ece-ginnovation/static/js/3.fd98ac9b.chunk.js.map",
+    "index.html": "/ece-ginnovation/index.html",
+    "static/css/2.4b84fa70.chunk.css.map": "/ece-ginnovation/static/css/2.4b84fa70.chunk.css.map",
+    "static/css/main.46d91d29.chunk.css.map": "/ece-ginnovation/static/css/main.46d91d29.chunk.css.map",
+    "static/js/2.94e28215.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.94e28215.chunk.js.LICENSE.txt",
+    "static/media/bulb.8452f075.png": "/ece-ginnovation/static/media/bulb.8452f075.png",
+    "static/media/implement.827ed8ec.svg": "/ece-ginnovation/static/media/implement.827ed8ec.svg",
+    "static/media/innovate.7a81439f.svg": "/ece-ginnovation/static/media/innovate.7a81439f.svg",
+    "static/media/learn.74067307.svg": "/ece-ginnovation/static/media/learn.74067307.svg",
+    "static/media/project-demo.6a556f38.jpg": "/ece-ginnovation/static/media/project-demo.6a556f38.jpg",
+    "static/media/project.ad857dfd.svg": "/ece-ginnovation/static/media/project.ad857dfd.svg",
+    "static/media/student1.c19e5a27.jpg": "/ece-ginnovation/static/media/student1.c19e5a27.jpg",
+    "static/media/student2.4a7c117d.jpg": "/ece-ginnovation/static/media/student2.4a7c117d.jpg",
+    "static/media/student3.c34dfd7f.jpg": "/ece-ginnovation/static/media/student3.c34dfd7f.jpg",
+    "static/media/think.6e12ce7a.svg": "/ece-ginnovation/static/media/think.6e12ce7a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09313c84.js",
+    "static/css/2.4b84fa70.chunk.css",
+    "static/js/2.94e28215.chunk.js",
+    "static/css/main.46d91d29.chunk.css",
+    "static/js/main.2153061f.chunk.js"
+  ]
+}
