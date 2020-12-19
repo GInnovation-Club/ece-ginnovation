@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ece-ginnovation/static/css/main.ed13bf6d.chunk.css",
-    "main.js": "/ece-ginnovation/static/js/main.2ac56eb5.chunk.js",
-    "main.js.map": "/ece-ginnovation/static/js/main.2ac56eb5.chunk.js.map",
+    "main.js": "/ece-ginnovation/static/js/main.96891dd1.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.96891dd1.chunk.js.map",
     "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.09313c84.js",
     "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.09313c84.js.map",
     "static/css/2.4b84fa70.chunk.css": "/ece-ginnovation/static/css/2.4b84fa70.chunk.css",
@@ -20,9 +20,9 @@
     "static/media/learn.74067307.svg": "/ece-ginnovation/static/media/learn.74067307.svg",
     "static/media/project-demo.6a556f38.jpg": "/ece-ginnovation/static/media/project-demo.6a556f38.jpg",
     "static/media/project.ad857dfd.svg": "/ece-ginnovation/static/media/project.ad857dfd.svg",
-    "static/media/student1.c19e5a27.jpg": "/ece-ginnovation/static/media/student1.c19e5a27.jpg",
-    "static/media/student2.4a7c117d.jpg": "/ece-ginnovation/static/media/student2.4a7c117d.jpg",
-    "static/media/student3.c34dfd7f.jpg": "/ece-ginnovation/static/media/student3.c34dfd7f.jpg",
+    "static/media/student1.2596cb96.jpg": "/ece-ginnovation/static/media/student1.2596cb96.jpg",
+    "static/media/student2.be7404cd.jpg": "/ece-ginnovation/static/media/student2.be7404cd.jpg",
+    "static/media/student3.913d6aaf.jpg": "/ece-ginnovation/static/media/student3.913d6aaf.jpg",
     "static/media/think.6e12ce7a.svg": "/ece-ginnovation/static/media/think.6e12ce7a.svg"
   },
   "entrypoints": [
@@ -30,6 +30,6 @@
     "static/css/2.4b84fa70.chunk.css",
     "static/js/2.94e28215.chunk.js",
     "static/css/main.ed13bf6d.chunk.css",
-    "static/js/main.2ac56eb5.chunk.js"
+    "static/js/main.96891dd1.chunk.js"
   ]
 }
