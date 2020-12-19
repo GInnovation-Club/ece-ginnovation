@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section {
+  padding: 0.5em 5em;
+  position: relative;
+  width: 95%;
+  margin: 1em auto 0.5em auto;
+  border-radius: 25px;
+}
+
+button {
+  padding: 0.3em 1em;
+  background-color: transparent;
+  border-radius: 25px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+button:focus {
+  outline: transparent;
+}
+
+.icon {
+  margin: 0 0.2em;
+}
+
+.btn1 {
+  border: 1px solid #ec615b;
+}
+
+.btn1:hover {
+  background-color: #ec615b;
+  color: #fff;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.25) !important;
+  -webkit-box-shadow: 0 2px 22px 0 rgba(102, 102, 102, 0.37);
+          box-shadow: 0 2px 22px 0 rgba(102, 102, 102, 0.37);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #ec615b;
+}
+
+.nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0.8em;
+}
+
+.home {
+  height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f9d9eb;
+}
+
+.home .social-bar {
+  position: absolute;
+  bottom: 1%;
+  right: 2%;
+  list-style: none;
+}
+
+.home .social-bar li {
+  margin: 1em 0;
+}
+
+.home .social-bar li img {
+  width: 1.3em;
+}
+
+.moto {
+  width: 95%;
+  margin: auto;
+  padding: 0.5em;
+}
+
+.moto .title {
+  background-color: #f9d9eb;
+  border-radius: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.moto .title h2 {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.moto .card {
+  margin: 90%;
+  padding: 1em;
+  margin: 0.5em auto;
+  border-radius: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.moto .card-1 {
+  background-color: #aac6fc;
+}
+
+.moto .card-2 {
+  background-color: #7fd6c2;
+}
+
+.moto .card-3 {
+  background-color: #f6e049;
+}
+
+.moto .card-4 {
+  background-color: #eebed3;
+}
+/*# sourceMappingURL=main.css.map */
