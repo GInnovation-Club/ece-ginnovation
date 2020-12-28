@@ -2,10 +2,17 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { LoginOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom';
 const Navigation = () => {
   return (
     <Navbar bg='light' expand='lg' sticky='top' className='navigation'>
-      <Navbar.Brand href='/'>
+      <Navbar.Brand as={Link} to='/ece-ginnovation'>
         <img src={logo} alt='logo' className='nav-logo' />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -44,7 +51,7 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
           </NavDropdown> */}
-          <Nav.Link href='/login'>
+          <Nav.Link as={Link} to='/ece-ginnovation/login'>
             <LoginOutlined className='icon' /> LogIn/SignUp
           </Nav.Link>
         </Nav>

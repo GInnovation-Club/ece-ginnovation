@@ -16,8 +16,8 @@ function App() {
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/login' component={Login} />
+          <Route exact path='/ece-ginnovation' component={Home} />
+          <Route exact path='/ece-ginnovation/login' component={Login} />
         </Switch>
       </Router>
     </div>
