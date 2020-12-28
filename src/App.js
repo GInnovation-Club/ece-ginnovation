@@ -13,8 +13,8 @@ import Login from './PageComponets/Login';
 function App() {
   return (
     <div className='App'>
-      <Navigation />
       <Router>
+        <Navigation />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={Login} />
