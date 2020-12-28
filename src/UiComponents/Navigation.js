@@ -44,7 +44,7 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
           </NavDropdown> */}
-          <Nav.Link href='/login'>
+          <Nav.Link href='/ece-ginnovation/login'>
             <LoginOutlined className='icon' /> LogIn/SignUp
           </Nav.Link>
         </Nav>
