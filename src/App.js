@@ -17,8 +17,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/ece-ginnovation/login' component={Login} />
-          <Redirect to='/' />
+          <Route exact path='/login' component={Login} />
         </Switch>
       </Router>
     </div>
