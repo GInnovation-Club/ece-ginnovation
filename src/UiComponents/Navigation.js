@@ -5,7 +5,7 @@ import logo from '../assets/logo.png';
 const Navigation = () => {
   return (
     <Navbar bg='light' expand='lg' sticky='top' className='navigation'>
-      <Navbar.Brand href='/ece-ginnovation'>
+      <Navbar.Brand href='/'>
         <img src={logo} alt='logo' className='nav-logo' />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -44,7 +44,7 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
           </NavDropdown> */}
-          <Nav.Link href='/ece-ginnovation/login'>
+          <Nav.Link href='/login'>
             <LoginOutlined className='icon' /> LogIn/SignUp
           </Nav.Link>
         </Nav>

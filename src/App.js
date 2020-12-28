@@ -10,8 +10,9 @@ function App() {
       <Navigation />
       <Router>
         <Switch>
-          <Route exact path='/ece-ginnovation' component={Home} />
-          <Route exact path='/ece-ginnovation/login' component={Login} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route component={Home} />
         </Switch>
       </Router>
     </div>
