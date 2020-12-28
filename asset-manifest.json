@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ece-ginnovation/static/css/main.1ad1166a.chunk.css",
-    "main.js": "/ece-ginnovation/static/js/main.e66701ea.chunk.js",
-    "main.js.map": "/ece-ginnovation/static/js/main.e66701ea.chunk.js.map",
+    "main.js": "/ece-ginnovation/static/js/main.8fb4154f.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.8fb4154f.chunk.js.map",
     "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.8e6e8db4.js",
     "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.8e6e8db4.js.map",
     "static/css/2.e24bce36.chunk.css": "/ece-ginnovation/static/css/2.e24bce36.chunk.css",
@@ -33,6 +33,6 @@
     "static/css/2.e24bce36.chunk.css",
     "static/js/2.de339c2f.chunk.js",
     "static/css/main.1ad1166a.chunk.css",
-    "static/js/main.e66701ea.chunk.js"
+    "static/js/main.8fb4154f.chunk.js"
   ]
 }
