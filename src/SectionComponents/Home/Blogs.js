@@ -1,42 +1,11 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import Avatar from '@material-ui/core/Avatar';
+import { ArrowRightOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { Avatar } from 'antd';
 import studentImg from '../../assets/student1.jpg';
-import { makeStyles } from '@material-ui/core/styles';
 import bulbImg from '../../assets/bulb.png';
-import {
-  deepOrange,
-  deepPurple,
-  lightGreen,
-  teal,
-} from '@material-ui/core/colors';
+
 const Blogs = () => {
-  const useStyles = makeStyles((theme) => ({
-    orange: {
-      color: theme.palette.getContrastText(deepOrange[500]),
-      backgroundColor: deepOrange[500],
-    },
-    purple: {
-      color: theme.palette.getContrastText(deepPurple[500]),
-      backgroundColor: deepPurple[500],
-    },
-    green: {
-      color: '#fff',
-      backgroundColor: lightGreen[500],
-    },
-    teal: {
-      color: '#fff',
-      backgroundColor: teal[500],
-    },
-    large: {
-      width: theme.spacing(9),
-      height: theme.spacing(9),
-      margin: 'auto',
-      transform: 'translate(0,-40%)',
-    },
-  }));
-  const classes = useStyles();
   return (
     <section className='blog'>
       <Row>
@@ -62,14 +31,10 @@ const Blogs = () => {
               >
                 <div className='cover-img'>
                   <button>
-                    <PlayArrowIcon />
+                    <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar
-                  alt='Cindy Baker'
-                  src={studentImg}
-                  className={classes.large}
-                />
+                <Avatar alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -88,14 +53,10 @@ const Blogs = () => {
               >
                 <div className='cover-img'>
                   <button>
-                    <PlayArrowIcon />
+                    <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar
-                  alt='Cindy Baker'
-                  src={studentImg}
-                  className={classes.large}
-                />
+                <Avatar alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -113,14 +74,10 @@ const Blogs = () => {
               >
                 <div className='cover-img'>
                   <button>
-                    <PlayArrowIcon />
+                    <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar
-                  alt='Cindy Baker'
-                  src={studentImg}
-                  className={classes.large}
-                />
+                <Avatar alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -138,14 +95,10 @@ const Blogs = () => {
               >
                 <div className='cover-img'>
                   <button>
-                    <PlayArrowIcon />
+                    <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar
-                  alt='Cindy Baker'
-                  src={studentImg}
-                  className={classes.large}
-                />
+                <Avatar alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>

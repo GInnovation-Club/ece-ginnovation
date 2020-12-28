@@ -1,25 +1,17 @@
 import React from 'react';
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
-import BookOutlinedIcon from '@material-ui/icons/BookOutlined';
-import FilterVintageOutlinedIcon from '@material-ui/icons/FilterVintageOutlined';
-import EmojiObjectsOutlinedIcon from '@material-ui/icons/EmojiObjectsOutlined';
-import QuestionAnswerOutlinedIcon from '@material-ui/icons/QuestionAnswerOutlined';
-import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { LoginOutlined } from '@ant-design/icons';
+import logo from '../assets/logo.png';
 const Navigation = () => {
   return (
-    <Navbar bg='light' expand='lg' sticky='top'>
-      <Navbar.Brand href='#home'>Ginnovation</Navbar.Brand>
+    <Navbar bg='light' expand='lg' sticky='top' className='navigation'>
+      <Navbar.Brand href='/ece-ginnovation'>
+        <img src={logo} alt='logo' className='nav-logo' />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='ml-auto'>
-          <Nav.Link href='#home'>
+          {/* <Nav.Link href='/'>
             <BookOutlinedIcon className='icon' />
             Exams
           </Nav.Link>
@@ -27,7 +19,7 @@ const Navigation = () => {
             <FilterVintageOutlinedIcon className='icon' />
             Blogs
           </Nav.Link>
-          <Nav.Link href='#home'>
+          <Nav.Link href='/'>
             <EmojiObjectsOutlinedIcon className='icon' />
             Mentors
           </Nav.Link>
@@ -51,9 +43,9 @@ const Navigation = () => {
               Team Ginnovation
             </NavDropdown.Item>
             <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
-          </NavDropdown>
-          <Nav.Link href='#home'>
-            <HowToRegOutlinedIcon className='icon' /> LogIn/SignUp
+          </NavDropdown> */}
+          <Nav.Link href='/login'>
+            <LoginOutlined className='icon' /> LogIn/SignUp
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

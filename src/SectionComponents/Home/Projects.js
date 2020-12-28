@@ -1,37 +1,10 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
+import { Avatar } from 'antd';
 import projectSvg from '../../assets/project.svg';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import {
-  deepOrange,
-  deepPurple,
-  lightGreen,
-  teal,
-} from '@material-ui/core/colors';
+import { ArrowRightOutlined, PlayCircleOutlined } from '@ant-design/icons';
 
 const Projects = () => {
-  const useStyles = makeStyles((theme) => ({
-    orange: {
-      color: theme.palette.getContrastText(deepOrange[500]),
-      backgroundColor: deepOrange[500],
-    },
-    purple: {
-      color: theme.palette.getContrastText(deepPurple[500]),
-      backgroundColor: deepPurple[500],
-    },
-    green: {
-      color: '#fff',
-      backgroundColor: lightGreen[500],
-    },
-    teal: {
-      color: '#fff',
-      backgroundColor: teal[500],
-    },
-  }));
-  const classes = useStyles();
   return (
     <section className='projects'>
       <Row>
@@ -51,11 +24,15 @@ const Projects = () => {
               >
                 <div className='top'>
                   <div className='name'>
-                    <Avatar className={classes.orange}>H</Avatar>
+                    <Avatar
+                      style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+                    >
+                      U
+                    </Avatar>
                     <span>Team Innovation Geeks</span>
                   </div>
                   <div className='more'>
-                    <KeyboardArrowRightIcon />
+                    <ArrowRightOutlined />
                   </div>
                 </div>
                 <h4 className='title'>Salinedo</h4>
@@ -65,7 +42,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayArrowIcon />
+                  More Info <PlayCircleOutlined />
                 </button>
               </div>
             </Col>
@@ -78,11 +55,15 @@ const Projects = () => {
               >
                 <div className='top'>
                   <div className='name'>
-                    <Avatar className={classes.purple}>T</Avatar>
+                    <Avatar
+                      style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+                    >
+                      T
+                    </Avatar>
                     <span>Team Titans</span>
                   </div>
                   <div className='more'>
-                    <KeyboardArrowRightIcon />
+                    <ArrowRightOutlined />
                   </div>
                 </div>
                 <h4 className='title'>Agro Robot</h4>
@@ -92,7 +73,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayArrowIcon />
+                  More Info <PlayCircleOutlined />
                 </button>
               </div>
             </Col>
@@ -105,11 +86,15 @@ const Projects = () => {
               >
                 <div className='top'>
                   <div className='name'>
-                    <Avatar className={classes.green}>V</Avatar>
+                    <Avatar
+                      style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+                    >
+                      V
+                    </Avatar>
                     <span>Team Vikings</span>
                   </div>
                   <div className='more'>
-                    <KeyboardArrowRightIcon />
+                    <ArrowRightOutlined />
                   </div>
                 </div>
                 <h4 className='title'>Bluetooh Tracker</h4>
@@ -119,7 +104,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayArrowIcon />
+                  More Info <PlayCircleOutlined />
                 </button>
               </div>
             </Col>
@@ -132,11 +117,15 @@ const Projects = () => {
               >
                 <div className='top'>
                   <div className='name'>
-                    <Avatar className={classes.teal}>P</Avatar>
+                    <Avatar
+                      style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
+                    >
+                      P
+                    </Avatar>
                     <span>Team Pistons</span>
                   </div>
                   <div className='more'>
-                    <KeyboardArrowRightIcon />
+                    <ArrowRightOutlined />
                   </div>
                 </div>
                 <h4 className='title'>Spider Robot</h4>
@@ -146,7 +135,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayArrowIcon />
+                  More Info <PlayCircleOutlined />
                 </button>
               </div>
             </Col>
