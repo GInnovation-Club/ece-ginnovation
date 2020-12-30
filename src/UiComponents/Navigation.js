@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Avatar, Image } from 'antd';
 import { LoginOutlined } from '@ant-design/icons';
 import logo from '../assets/logo.png';
 import {
@@ -51,8 +52,21 @@ const Navigation = () => {
             </NavDropdown.Item>
             <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
           </NavDropdown> */}
+
           <Nav.Link as={Link} to='/ece-ginnovation/login'>
             <LoginOutlined className='icon' /> LogIn/SignUp
+          </Nav.Link>
+          <Nav.Link as={Link} to='/ece-ginnovation/profile'>
+            Ashutosh
+            <Avatar
+              className='icon'
+              style={{
+                color: '#fff',
+                background: 'linear-gradient(to right, #373b44, #4286f4)',
+              }}
+            >
+              A
+            </Avatar>
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

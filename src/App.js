@@ -10,6 +10,7 @@ import '../src/Sass/main.scss';
 import Home from './PageComponets/Home';
 import Navigation from './UiComponents/Navigation';
 import Login from './PageComponets/Login';
+import ProfilePage from './PageComponets/ProfilePage';
 function App() {
   return (
     <div className='App'>
@@ -18,6 +19,11 @@ function App() {
         <Switch>
           <Route exact path='/ece-ginnovation' component={Home} />
           <Route exact path='/ece-ginnovation/login' component={Login} />
+          <Route
+            exact
+            path='/ece-ginnovation/profile'
+            component={ProfilePage}
+          />
         </Switch>
       </Router>
     </div>

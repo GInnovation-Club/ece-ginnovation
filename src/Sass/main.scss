@@ -26,8 +26,13 @@ $primary-color: #ec615b;
 $blue: #5222d0;
 $white: #fff;
 $pink: #f9d9eb;
+$light-fade: rgb(94, 94, 94);
+$fade: rgb(82, 82, 82);
+$orange: #ff6900;
 $light-pink: #eebed3;
 $light-blue: #aac6fc;
+$light-sky: #d5f2fd;
+$deep-sky: #10a3ff;
 $light-green: #7fd6c2;
 $light-yellow: #f6e049;
 //others
@@ -403,17 +408,6 @@ button {
           font-size: 3em;
           z-index: 2;
         }
-        // &:hover {
-        //   &::before {
-        //     content: '';
-        //     position: absolute;
-        //     top: 0;
-        //     left: 0;
-        //     height: 100%;
-        //     width: 100%;
-        //     background-color: $light-blue;
-        //   }
-        // }
       }
       .name {
         display: flex;
@@ -504,9 +498,9 @@ button {
     .image {
       height: 100%;
       width: 100%;
-      background: #8360c3;
-      background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
-      background: linear-gradient(to right, #2ebf91, #8360c3);
+      // background: #8360c3;
+      // background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
+      // background: linear-gradient(to right, #2ebf91, #8360c3);
       padding: 1em;
       @include flex-center();
       img {
@@ -547,7 +541,225 @@ button {
     }
   }
 }
-
+//profile page design
+.profile-page {
+  section {
+    width: 100%;
+    margin: 1em auto;
+  }
+  .top {
+    background-color: $light-sky;
+    padding: 1em 1em 0 1em;
+    .container {
+      display: flex;
+      .profile-picture {
+        width: min-content;
+        @include flex-center();
+        margin: 1em 0;
+        .dp {
+          height: 250px;
+          width: 250px;
+          border-radius: 50%;
+          background-size: cover;
+          // background-position: center;
+        }
+      }
+      .profile-details {
+        width: 100%;
+        position: relative;
+        padding-left: 3em;
+        header {
+          padding: 1em 0;
+          .headline {
+            color: $fade;
+          }
+          .role {
+            width: min-content;
+            margin: 1em 0;
+            span {
+              padding: 0.1em 0.5em;
+              margin-right: 0.3em;
+              background-color: lightgray;
+              border: 1px solid gray;
+              opacity: 0.5;
+            }
+            span.active {
+              background-color: $light-pink;
+              border: 1px solid $primary-color;
+              opacity: 1;
+            }
+          }
+          .bio {
+            p {
+              margin-bottom: 0.3em;
+              display: flex;
+              align-items: center;
+              color: $light-fade;
+            }
+          }
+        }
+        .action-bar {
+          width: 98%;
+          background-color: $white;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          .bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            border: 1px solid gray;
+            border-bottom: none;
+            padding: 0.3em 0;
+            h4 {
+              margin: 0;
+            }
+            button {
+              width: 100%;
+              height: 100%;
+              border: none;
+              border-radius: 0;
+              background-color: $deep-sky;
+              color: $white;
+              @include flex-center();
+            }
+          }
+          .btn-bar {
+            padding: 0;
+            border: none;
+          }
+        }
+        .social-media {
+          width: 25%;
+          display: flex;
+          justify-content: space-around;
+          position: absolute;
+          top: 0;
+          right: 0;
+          img {
+            width: 11%;
+            margin: 0 0.2em;
+          }
+        }
+        .message {
+          border-radius: 0;
+          border: none;
+          background-color: $white;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+          @include flex-center();
+        }
+      }
+    }
+  }
+  .skills {
+    .container {
+      display: flex;
+      h5 {
+        margin: 0 1em 0 0;
+        width: 30%;
+        @include flex-center();
+      }
+      .skill-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .skill-tab {
+          background-color: $orange;
+          color: $white;
+          @include flex-center();
+          padding: 0.2em 0.5em;
+        }
+      }
+    }
+  }
+  .about-section {
+    .container {
+      h4 {
+        border-bottom: 3px solid $light-green;
+        padding-bottom: 0.5em;
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 0.5em;
+        }
+      }
+      .bio {
+        border: 1px solid #cccccc;
+        padding: 1em;
+      }
+      .achievements {
+        border: 1px solid #cccccc;
+        height: 100%;
+        padding: 1em;
+        table {
+          width: 100%;
+          tr {
+            margin-top: 1em;
+          }
+        }
+      }
+    }
+  }
+  .projects {
+    background-color: transparent;
+    .container {
+      h4 {
+        margin-bottom: 1em;
+        background-color: $primary-color;
+        color: $white;
+        padding: 0.3em;
+        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+      }
+    }
+  }
+  .performance {
+    .container {
+      h4 {
+        text-align: center;
+        background-color: $blue;
+        color: $white;
+        border-radius: 25px;
+        padding: 0.3em;
+        width: 30%;
+        margin: 0 auto 2em auto;
+        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+      }
+      .ant-steps-item-finish
+        > .ant-steps-item-container
+        > .ant-steps-item-tail::after {
+        background-color: $primary-color;
+      }
+      .ant-steps-item-finish
+        .ant-steps-item-icon
+        > .ant-steps-icon
+        .ant-steps-icon-dot {
+        background: $primary-color;
+      }
+      .ant-steps-item-process
+        .ant-steps-item-icon
+        > .ant-steps-icon
+        .ant-steps-icon-dot {
+        background: $primary-color;
+      }
+    }
+  }
+  .blogs {
+    .container {
+      h4 {
+        margin-bottom: 2em;
+        background-color: $light-green;
+        color: $white;
+        padding: 0.3em;
+        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+      }
+    }
+  }
+}
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
@@ -686,6 +898,116 @@ button {
             margin-top: 1em;
             margin-right: 0.5em;
           }
+        }
+      }
+    }
+  }
+  //profile page design
+  .profile-page {
+    section {
+      width: 100%;
+      margin: 1em auto;
+    }
+    .top {
+      padding: 1em 1em 0 1em;
+      height: 95vh;
+      .container {
+        flex-direction: column;
+        height: 100%;
+        .profile-picture {
+          margin: 1em auto;
+          .dp {
+            height: 130px;
+            width: 130px;
+          }
+        }
+        .profile-details {
+          padding-top: 2em;
+          height: 100%;
+          padding-left: 0;
+          text-align: center;
+          header {
+            padding: 0;
+            .role {
+              margin: 1em auto;
+            }
+            .bio {
+              p {
+                margin-bottom: 0.3em;
+                @include flex-center();
+              }
+              .crown {
+                display: none;
+              }
+            }
+          }
+          .action-bar {
+            width: 100%;
+            background-color: $white;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex !important;
+            flex-direction: row !important;
+            margin: auto;
+          }
+          .social-media {
+            width: 100%;
+            img {
+              width: 8%;
+              margin: 0 0.2em;
+            }
+          }
+          .message {
+            top: 50%;
+            right: -30%;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+    .skills {
+      .container {
+        flex-direction: column;
+        text-align: center;
+        h5 {
+          margin: 0 0 1em 0;
+          width: 100%;
+        }
+        .skill-container {
+          justify-content: space-around;
+          .skill-tab {
+            width: 100%;
+            margin: 0.2em auto;
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+    .about-section {
+      .container {
+        h4 {
+          img {
+            width: 15%;
+          }
+        }
+        .bio {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+    .projects {
+      padding: 0;
+      .container {
+        h4 {
+          text-align: center;
+        }
+      }
+    }
+    .performance {
+      .container {
+        h4 {
+          width: 100%;
         }
       }
     }

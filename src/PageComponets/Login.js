@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import LoginPanel from '../SectionComponents/Login/LoginPanel';
 import LoginImg from '../assets/login.svg';
+import RegistrationImg from '../assets/registration.svg';
 import logo from '../assets/logo.png';
 import RegistrationPanel from '../SectionComponents/Login/RegistrationPanel';
 import { motion } from 'framer-motion';
@@ -11,6 +12,17 @@ const Login = () => {
 
   const fetchData = (loginValue) => {
     setLogin(loginValue);
+  };
+
+  const registrationStyle = {
+    background: '#00f260',
+    background: '-webkit-linear-gradient(to right, #00f260, #0575e6)',
+    background: 'linear-gradient(to right, #00f260, #0575e6)',
+  };
+  const loginStyle = {
+    background: '#8360c3',
+    background: '-webkit-linear-gradient(to right, #2ebf91, #8360c3)',
+    background: 'linear-gradient(to right, #2ebf91, #8360c3)',
   };
 
   return (
@@ -23,8 +35,9 @@ const Login = () => {
               animate={{ x: 0 }}
               transition={{ delay: 0.5 }}
               className='image'
+              style={login ? loginStyle : registrationStyle}
             >
-              <img src={LoginImg} alt='login' />
+              <img src={login ? LoginImg : RegistrationImg} alt='login' />
             </motion.div>
           </Col>
           <Col md={6} className='col-div'>
