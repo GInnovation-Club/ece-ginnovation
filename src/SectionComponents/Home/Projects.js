@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Avatar } from 'antd';
 import projectSvg from '../../assets/project.svg';
-import { ArrowRightOutlined, PlayCircleOutlined } from '@ant-design/icons';
+import { InfoCircleOutlined, PlayCircleOutlined } from '@ant-design/icons';
 
 const Projects = () => {
   return (
@@ -29,11 +29,9 @@ const Projects = () => {
                     >
                       U
                     </Avatar>
-                    <span>Team Innovation Geeks</span>
+                    <h6>Team Innovation Geeks</h6>
                   </div>
-                  <div className='more'>
-                    <ArrowRightOutlined />
-                  </div>
+                  <PlayCircleOutlined className='more' />
                 </div>
                 <h4 className='title'>Salinedo</h4>
                 <p className='subtitle'>Smart saline system</p>
@@ -42,7 +40,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayCircleOutlined />
+                  More Info <InfoCircleOutlined className='icon' />
                 </button>
               </div>
             </Col>
@@ -58,13 +56,11 @@ const Projects = () => {
                     <Avatar
                       style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
                     >
-                      T
+                      U
                     </Avatar>
-                    <span>Team Titans</span>
+                    <h6>Team Titans</h6>
                   </div>
-                  <div className='more'>
-                    <ArrowRightOutlined />
-                  </div>
+                  <PlayCircleOutlined className='more' />
                 </div>
                 <h4 className='title'>Agro Robot</h4>
                 <p className='subtitle'>All purpose agriculture robot</p>
@@ -73,7 +69,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayCircleOutlined />
+                  More Info <InfoCircleOutlined className='icon' />
                 </button>
               </div>
             </Col>
@@ -87,15 +83,14 @@ const Projects = () => {
                 <div className='top'>
                   <div className='name'>
                     <Avatar
+                      className='avatar'
                       style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
                     >
                       V
                     </Avatar>
-                    <span>Team Vikings</span>
+                    <h6>Team Vikings</h6>
                   </div>
-                  <div className='more'>
-                    <ArrowRightOutlined />
-                  </div>
+                  <PlayCircleOutlined className='more' />
                 </div>
                 <h4 className='title'>Bluetooh Tracker</h4>
                 <p className='subtitle'>A advanced contact tracing device</p>
@@ -104,7 +99,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayCircleOutlined />
+                  More Info <InfoCircleOutlined className='icon' />
                 </button>
               </div>
             </Col>
@@ -118,15 +113,14 @@ const Projects = () => {
                 <div className='top'>
                   <div className='name'>
                     <Avatar
+                      className='avatar'
                       style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}
                     >
                       P
                     </Avatar>
-                    <span>Team Pistons</span>
+                    <h6>Team Pistons</h6>
                   </div>
-                  <div className='more'>
-                    <ArrowRightOutlined />
-                  </div>
+                  <PlayCircleOutlined className='more' />
                 </div>
                 <h4 className='title'>Spider Robot</h4>
                 <p className='subtitle'>A tiny powerful robo spider</p>
@@ -135,7 +129,7 @@ const Projects = () => {
                   typesetting industry. Lorem Ipsum has been
                 </p>
                 <button className='btn2'>
-                  More Info <PlayCircleOutlined />
+                  More Info <InfoCircleOutlined className='icon' />
                 </button>
               </div>
             </Col>

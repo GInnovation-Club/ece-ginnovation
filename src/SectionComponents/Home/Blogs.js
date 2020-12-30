@@ -34,7 +34,7 @@ const Blogs = () => {
                     <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar alt='Cindy Baker' src={studentImg} />
+                <Avatar size={60} alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -56,7 +56,7 @@ const Blogs = () => {
                     <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar alt='Cindy Baker' src={studentImg} />
+                <Avatar size={60} alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -77,7 +77,7 @@ const Blogs = () => {
                     <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar alt='Cindy Baker' src={studentImg} />
+                <Avatar size={60} alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>
@@ -98,7 +98,7 @@ const Blogs = () => {
                     <ArrowRightOutlined />
                   </button>
                 </div>
-                <Avatar alt='Cindy Baker' src={studentImg} />
+                <Avatar size={60} alt='Cindy Baker' src={studentImg} />
                 <h4>Recent trends in IoT</h4>
                 <span>By Anuradha Basu</span>
                 <p>

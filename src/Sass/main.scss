@@ -327,18 +327,16 @@ button {
       .name {
         display: flex;
         align-items: center;
-        span {
-          margin-left: 0.5em;
+        h6 {
+          margin: 0 0 0 0.5em;
         }
       }
       .more {
-        background-color: $white;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        @include flex-center();
-        border: 1px solid #000;
+        font-size: 1.5em;
       }
+    }
+    button {
+      @include flex-center();
     }
   }
   .pc3,
@@ -413,8 +411,8 @@ button {
         display: flex;
         align-items: center;
         margin-bottom: 0.5em;
-        span {
-          margin-left: 0.5em;
+        h6 {
+          margin: 0 0 0 0.5em;
         }
       }
     }
@@ -910,7 +908,7 @@ button {
     }
     .top {
       padding: 1em 1em 0 1em;
-      height: 95vh;
+      height: 90vh;
       .container {
         flex-direction: column;
         height: 100%;

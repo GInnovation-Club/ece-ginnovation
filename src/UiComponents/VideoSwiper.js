@@ -55,7 +55,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -75,7 +75,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -95,7 +95,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -115,7 +115,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -135,7 +135,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -155,7 +155,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -175,7 +175,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
@@ -195,7 +195,7 @@ const VideoSwiper = () => {
               <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
                 P
               </Avatar>
-              <span>Team Pistons</span>
+              <h6>Team Pistons</h6>
             </div>
             <h4>How to make a spyder robot</h4>
             <p>
