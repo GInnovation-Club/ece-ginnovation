@@ -7,7 +7,7 @@ import logo from '../assets/logo.png';
 import RegistrationPanel from '../SectionComponents/Login/RegistrationPanel';
 import { motion } from 'framer-motion';
 
-const Login = () => {
+const Signup = () => {
   const [login, setLogin] = useState(true);
 
   const fetchData = (loginValue) => {
@@ -50,12 +50,10 @@ const Login = () => {
               <img src={logo} alt={logo} />
               <div className='login-board'>
                 <header>
-                  <h2>Log In</h2>
-                  <small>
-                    Enter the email and password to login your dashboard
-                  </small>
+                  <h2>Sign Up</h2>
+                  <small>Enter the details to register</small>
                 </header>
-                <LoginPanel sendData={fetchData} />
+                <RegistrationPanel sendData={fetchData} />
               </div>
             </motion.div>
           </Col>
@@ -64,5 +62,4 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
-// Enter the details to register
+export default Signup;

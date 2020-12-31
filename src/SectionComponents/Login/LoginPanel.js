@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 const LoginPanel = (props) => {
-  const [login, setLogin] = useState();
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
+    console.log('usename: ', values.username);
     message.success('Done');
   };
   return (
@@ -62,15 +63,9 @@ const LoginPanel = (props) => {
           Log in
         </Button>
         Or
-        <button
-          onClick={() => {
-            setLogin(false);
-            props.sendData(login);
-          }}
-          className='trans-btn'
-        >
-          register now!
-        </button>
+        <Link to='/ece-ginnovation/signup'>
+          <button className='trans-btn'>register now!</button>
+        </Link>
       </Form.Item>
     </Form>
   );

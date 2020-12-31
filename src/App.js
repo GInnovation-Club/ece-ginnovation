@@ -11,6 +11,7 @@ import Home from './PageComponets/Home';
 import Navigation from './UiComponents/Navigation';
 import Login from './PageComponets/Login';
 import ProfilePage from './PageComponets/ProfilePage';
+import Signup from './PageComponets/Signup';
 function App() {
   return (
     <div className='App'>
@@ -19,6 +20,7 @@ function App() {
         <Switch>
           <Route exact path='/ece-ginnovation' component={Home} />
           <Route exact path='/ece-ginnovation/login' component={Login} />
+          <Route exact path='/ece-ginnovation/signup' component={Signup} />
           <Route
             exact
             path='/ece-ginnovation/profile'

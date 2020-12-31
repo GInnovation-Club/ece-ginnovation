@@ -12,6 +12,7 @@ import {
   AutoComplete,
 } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 const formItemLayout = {
@@ -46,7 +47,6 @@ const tailFormItemLayout = {
 };
 
 const RegistrationPanel = (props) => {
-  const [login, setLogin] = useState(true);
   const [form] = Form.useForm();
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
@@ -176,15 +176,9 @@ const RegistrationPanel = (props) => {
             Register
           </Button>
           Or
-          <button
-            onClick={() => {
-              setLogin(true);
-              props.sendData(login);
-            }}
-            className='trans-btn'
-          >
-            You are already a member!
-          </button>
+          <Link to='/ece-ginnovation/login'>
+            <button className='trans-btn'>You are already a member!</button>
+          </Link>
         </div>
       </div>
     </Form>
