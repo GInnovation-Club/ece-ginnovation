@@ -1,25 +1,29 @@
 import React from 'react';
-import dp from '../assets/student2.jpg';
-import fb from '../assets/SM-Icons/facebook.png';
-import li from '../assets/SM-Icons/linkedin.png';
-import gh from '../assets/SM-Icons/github.png';
-import yt from '../assets/SM-Icons/youtube.png';
-import ig from '../assets/SM-Icons/instagram.png';
-import tt from '../assets/SM-Icons/twitter.png';
-import trophy from '../assets/Icons/trophy.png';
+//bootstrap imports
 import { Col, Row } from 'react-bootstrap';
+//antd imports
+import { Steps, Popover, Divider, Empty } from 'antd';
+//icons import
 import {
   PlusOutlined,
   PushpinFilled,
   CrownFilled,
   MessageFilled,
-  StarFilled,
-  TrophyFilled,
+  MailFilled,
+  InfoCircleTwoTone,
 } from '@ant-design/icons';
-import { Empty } from 'antd';
+//image imports
+import dp from '../assets/student2.jpg';
+import fb from '../assets/SM-Icons/facebook.png';
+import li from '../assets/SM-Icons/linkedin.png';
+import gh from '../assets/SM-Icons/github.png';
+import yt from '../assets/SM-Icons/youtube.png';
+import trophy from '../assets/Icons/trophy.png';
+//components import
 import ProfileProjectSwiper from '../UiComponents/ProfileProjectSwiper';
-import { Steps, Popover } from 'antd';
+import SkillCard from '../UiComponents/ProfilePage/SkillCard';
 const { Step } = Steps;
+//---------------------------------------------------------------------
 const ProfilePage = () => {
   const customDot = (dot, { status, index }) => (
     <Popover
@@ -50,6 +54,10 @@ const ProfilePage = () => {
               </div>
               <div className='bio'>
                 <p>
+                  <MailFilled className='icon' />
+                  amarjit158@gmail.com
+                </p>
+                <p>
                   <CrownFilled className='icon crown' />
                   5th sem, Electronics and Communication Engineering
                 </p>
@@ -74,42 +82,15 @@ const ProfilePage = () => {
               </Col>
             </Row>
             <div className='social-media'>
-              <img src={fb} alt='facebook icon' />
               <img src={li} alt='linkedin icon' />
               <img src={gh} alt='github icon' />
               <img src={yt} alt='youtube icon' />
-              <img src={ig} alt='instagram icon' />
-              <img src={tt} alt='twitter icon' />
+              <img src={fb} alt='facebook icon' />
             </div>
             <button className='message'>
               <MessageFilled className='icon' />
               Send Message
             </button>
-          </div>
-        </div>
-      </section>
-      <section className='skills'>
-        <div className='container'>
-          <h5>My Core Skills:</h5>
-          <div className='skill-container'>
-            <div className='skill-tab'>
-              Adobe Photoshop <StarFilled className='icon' />
-              <StarFilled className='icon' />
-              <StarFilled className='icon' />
-              <StarFilled className='icon' />
-            </div>
-            <div className='skill-tab'>
-              Adobe Illustrator <StarFilled className='icon' />
-              <StarFilled className='icon' />
-              <StarFilled className='icon' />
-            </div>
-            <div className='skill-tab'>
-              Android Studio <StarFilled className='icon' />
-              <StarFilled className='icon' />
-            </div>
-            <div className='skill-tab'>
-              Graphic Designing <StarFilled className='icon' />
-            </div>
           </div>
         </div>
       </section>
@@ -134,25 +115,102 @@ const ProfilePage = () => {
                   <img src={trophy} alt='trophy icon' />
                   Top Achievements
                 </h4>
-                <table>
-                  <tr>
-                    <td>Top 10 Python</td>
-                    <td>Tech</td>
-                  </tr>
-                  <tr>
-                    <td>2nd Position in Inter level Essay</td>
-                    <td>Litreture</td>
-                  </tr>
-                  <tr>
-                    <td>1st in debate competition</td>
-                    <td>GD</td>
-                  </tr>
-                </table>
+                <div>
+                  <div className='achievement'>
+                    <span>Top 10 Python Coder</span>
+                    <InfoCircleTwoTone className='icon' />
+                  </div>
+                  <div className='achievement'>
+                    <span>Top 10 Python Coder</span>
+                    <InfoCircleTwoTone className='icon' />
+                  </div>
+                  <div className='achievement'>
+                    <span>Top 10 Python Coder</span>
+                    <InfoCircleTwoTone className='icon' />
+                  </div>
+                </div>
+                {/* <table>
+                  <tbody>
+                    <tr>
+                      <td>Top 10 Python</td>
+                      <td>
+                        <span>
+                          <InfoCircleTwoTone className='icon' />
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2nd Position in Inter level Essay</td>
+                      <td>
+                        <span>
+                          <InfoCircleTwoTone className='icon' />
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>1st in debate competition</td>
+                      <td>
+                        <span>
+                          <InfoCircleTwoTone className='icon' />
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table> */}
               </div>
             </Col>
           </Row>
         </div>
       </section>
+      <section className='skills'>
+        <div className='container'>
+          <h4>Amarjit's Skills</h4>
+          <Row className='skill-container'>
+            <SkillCard skillName='Photoshop' stars={5} percent={80} />
+            <SkillCard skillName='Illustrator' stars={4} percent={75} />
+            <SkillCard skillName='Node JS' stars={2} percent={57} />
+            <SkillCard skillName='Video Editing' stars={1} percent={30} />
+          </Row>
+        </div>
+      </section>
+      {/* <section className='skills'>
+        <div className='container'>
+          <h5>My Core Skills:</h5>
+          <div className='skill-container'>
+            <div className='skill-tab'>
+              Adobe Photoshop <StarFilled className='icon' />
+              <StarFilled className='icon' />
+              <StarFilled className='icon' />
+              <StarFilled className='icon' />
+            </div>
+            <div className='skill-tab'>
+              Adobe Illustrator <StarFilled className='icon' />
+              <StarFilled className='icon' />
+              <StarFilled className='icon' />
+            </div>
+            <div className='skill-tab'>
+              Android Studio <StarFilled className='icon' />
+              <StarFilled className='icon' />
+            </div>
+            <div className='skill-tab'>
+              Graphic Designing <StarFilled className='icon' />
+            </div>
+          </div>
+        </div>
+      </section> */}
+      {/* <section className='experience'>
+        <div className='container'>
+          <h4>Experience</h4>
+          <Steps progressDot current={10} direction='vertical'>
+            <Step
+              title='App developer and motion graphic designer'
+              description='Teckat Service Pvt. Ltd.'
+            />
+            <Step title='Campus Ambassador' description='Campus Ninja' />
+            <Step title='Campus Ambassador' description='What after college' />
+          </Steps>
+        </div>
+      </section> */}
       <section className='projects'>
         <div className='container'>
           <h4>Projects done by Amarjit</h4>

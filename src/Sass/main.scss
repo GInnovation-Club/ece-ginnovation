@@ -8,6 +8,10 @@
   justify-content: center;
   align-items: center;
 }
+@mixin align-center {
+  display: flex;
+  align-items: center;
+}
 @mixin demo-card($bg, $content, $bottom) {
   background-color: $bg;
   &::before {
@@ -25,6 +29,7 @@
 $primary-color: #ec615b;
 $blue: #5222d0;
 $white: #fff;
+$smoke: #ebebfd;
 $pink: #f9d9eb;
 $light-fade: rgb(94, 94, 94);
 $fade: rgb(82, 82, 82);
@@ -653,28 +658,6 @@ button {
       }
     }
   }
-  .skills {
-    .container {
-      display: flex;
-      h5 {
-        margin: 0 1em 0 0;
-        width: 30%;
-        @include flex-center();
-      }
-      .skill-container {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        .skill-tab {
-          background-color: $orange;
-          color: $white;
-          @include flex-center();
-          padding: 0.2em 0.5em;
-        }
-      }
-    }
-  }
   .about-section {
     .container {
       h4 {
@@ -689,15 +672,59 @@ button {
       .bio {
         border: 1px solid #cccccc;
         padding: 1em;
+        p {
+          color: $fade;
+        }
       }
       .achievements {
         border: 1px solid #cccccc;
         height: 100%;
-        padding: 1em;
-        table {
-          width: 100%;
-          tr {
-            margin-top: 1em;
+        padding: 0.5em;
+        .achievement {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: $smoke;
+          margin-bottom: 0.3em;
+          padding: 0 0.2em;
+        }
+      }
+    }
+  }
+  .skills {
+    .container {
+      h4 {
+        border-bottom: 3px solid $primary-color;
+        padding: 0.3em;
+        margin-bottom: 1em;
+      }
+      .skill-container {
+        display: flex;
+        justify-content: space-around;
+        .skill-card {
+          background-color: $smoke;
+          padding: 1em;
+          margin-bottom: 1em;
+          border-radius: 25px;
+          height: 270px;
+          .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5em;
+            h5 {
+              margin: 0;
+            }
+            .icon-container {
+              display: flex;
+              align-items: center;
+              .icon {
+                color: #ff6900;
+              }
+            }
+          }
+          p {
+            height: 150px;
+            color: $fade;
           }
         }
       }
@@ -908,7 +935,7 @@ button {
     }
     .top {
       padding: 1em 1em 0 1em;
-      height: 90vh;
+      height: 95vh;
       .container {
         flex-direction: column;
         height: 100%;
@@ -964,24 +991,6 @@ button {
         }
       }
     }
-    .skills {
-      .container {
-        flex-direction: column;
-        text-align: center;
-        h5 {
-          margin: 0 0 1em 0;
-          width: 100%;
-        }
-        .skill-container {
-          justify-content: space-around;
-          .skill-tab {
-            width: 100%;
-            margin: 0.2em auto;
-            justify-content: flex-start;
-          }
-        }
-      }
-    }
     .about-section {
       .container {
         h4 {
@@ -991,6 +1000,18 @@ button {
         }
         .bio {
           margin-bottom: 0.5em;
+        }
+      }
+    }
+    .skills {
+      .container {
+        .skill-container {
+          .skill-card {
+            height: auto;
+            p {
+              height: auto;
+            }
+          }
         }
       }
     }
