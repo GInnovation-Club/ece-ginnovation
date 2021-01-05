@@ -4,16 +4,13 @@ import LoginPanel from '../SectionComponents/Login/LoginPanel';
 import LoginImg from '../assets/login.svg';
 import RegistrationImg from '../assets/registration.svg';
 import logo from '../assets/logo.png';
-import RegistrationPanel from '../SectionComponents/Login/RegistrationPanel';
 import { motion } from 'framer-motion';
-
-const Login = () => {
+const Login = (props) => {
   const [login, setLogin] = useState(true);
-
   const fetchData = (loginValue) => {
     setLogin(loginValue);
+    console.log(login);
   };
-
   const registrationStyle = {
     background: '#00f260',
     background: '-webkit-linear-gradient(to right, #00f260, #0575e6)',

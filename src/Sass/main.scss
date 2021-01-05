@@ -374,18 +374,18 @@ button {
     z-index: 99999;
     margin-bottom: 0.5em;
   }
-  .square {
-    width: 80%;
-    margin: auto;
-    height: 95%;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    background-color: $light-green;
-    border-radius: 17px;
-    opacity: 0.5;
-  }
+  // .square {
+  //   width: 80%;
+  //   margin: auto;
+  //   height: 95%;
+  //   position: absolute;
+  //   top: 60%;
+  //   left: 50%;
+  //   transform: translate(-50%, -60%);
+  //   background-color: $light-green;
+  //   border-radius: 17px;
+  //   opacity: 0.5;
+  // }
   .swiper-container {
     padding: 1em;
   }
@@ -424,53 +424,48 @@ button {
   }
 }
 .blog {
-  .cards {
-    width: 100%;
-    padding: 0.8em;
+  header {
+    width: 60%;
+    margin: 1em auto 2em auto;
     text-align: center;
-    border-radius: 17px;
-    background-color: rgb(233, 233, 233);
-    margin-bottom: 1em;
-    .cover-img {
-      width: 100%;
-      height: 120px;
-      background-color: $light-blue;
-      border-radius: 17px 17px 0 0;
-      position: relative;
-      button {
-        position: absolute;
-        width: 12%;
-        top: 5%;
-        right: 2%;
-        padding: 0.3em;
-        background-color: $white;
-      }
+    p {
+      color: $fade;
     }
   }
-  .title {
-    padding: 1em;
-    height: 100%;
-    position: relative;
-    @include flex-center();
-    border-left: 5px solid $light-blue;
-    &::before {
-      content: '';
-      height: 60%;
-      width: 4px;
-      position: absolute;
-      top: 0;
-      left: 4%;
-      background-color: $light-green;
+  .blog-card {
+    // background-color: $light-blue;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 10px 10px 10px #d9d9d9, -10px -10px 10px #ffffff;
+    border-radius: 25px;
+    overflow: hidden;
+    .cover-image {
+      height: 130px;
+      background-color: $orange;
     }
-    h2 {
-      transform: rotate(90deg);
-    }
-    img {
-      width: 80%;
-      position: absolute;
-      bottom: 2%;
-      left: 50%;
-      transform: translateX(-50%);
+    .content {
+      position: relative;
+      padding: 3em 1em 1em;
+      text-align: center;
+      color: $fade;
+      .profile-image {
+        height: 85px;
+        width: 85px;
+        border-radius: 50%;
+        margin: auto;
+        background-color: $light-pink;
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .head {
+        .badge {
+          margin: 0 0.5em 0.5em;
+        }
+      }
+      .description {
+        margin: 0;
+      }
     }
   }
 }
@@ -851,6 +846,7 @@ button {
   }
   //projects
   .projects {
+    padding: 2em 0.8em;
     .title-container {
       margin-bottom: 1em;
     }
@@ -863,9 +859,6 @@ button {
   }
   //videos
   .videos {
-    .swiper-container {
-      padding: 1em;
-    }
     h2 {
       width: 100%;
     }
@@ -879,16 +872,11 @@ button {
   }
   //blogs
   .blog {
-    .title {
-      h2 {
-        transform: rotate(0deg);
-        width: 100%;
-        margin: auto;
-        text-align: center;
-      }
-      img {
-        display: none;
-      }
+    header {
+      width: 100%;
+    }
+    .blog-card {
+      margin-bottom: 1.3em;
     }
   }
   //login

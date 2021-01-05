@@ -1,13 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, Checkbox, message } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+//redux
+import { useSelector, useDispatch } from 'react-redux';
+import { authFunction } from '../../store';
+
 const LoginPanel = (props) => {
+  const [authentication, setAuthentication] = useState();
+  const auth = useSelector((state) => state.loginReducer.isAuth); //to get data from redux
+  console.log(auth);
+  const dispatch = useDispatch();
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
-    console.log('usename: ', values.username);
+    props.sendData(values);
     message.success('Done');
+    axios
+      .post('https://reqres.in/api/login', {
+        email: values.username,
+        password: values.password,
+      })
+      .then((res) => {
+        console.log('success', res.data);
+        message.success('Login Successful');
+        setAuthentication(true);
+        dispatch(authFunction(true)); //setting data in redux
+      })
+      .catch((err) => {
+        console.log(err);
+        message.error('Oops! something went wrong');
+      });
   };
+
   return (
     <Form
       name='normal_login'
@@ -42,6 +66,7 @@ const LoginPanel = (props) => {
           prefix={<LockOutlined className='site-form-item-icon' />}
           type='password'
           placeholder='Password'
+          // cityslicka
         />
       </Form.Item>
       <Form.Item>
