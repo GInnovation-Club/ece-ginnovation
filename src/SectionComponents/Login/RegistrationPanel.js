@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
-import {
-  Form,
-  Input,
-  Tooltip,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-} from 'antd';
+import { Form, Input, Select, Button, AutoComplete, message } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 const formItemLayout = {
@@ -47,9 +39,32 @@ const tailFormItemLayout = {
 };
 
 const RegistrationPanel = (props) => {
+  let history = useHistory();
   const [form] = Form.useForm();
+
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
+    axios
+      .post(`https://ginnovation-server.herokuapp.com/api/register`, {
+        fullname: values.Name,
+        email: values.email,
+        mobile: values.phone,
+        password: values.password,
+      })
+      .then((resp) => {
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          message.success('This is a success message');
+          alert('Successfully Registered');
+          history.push('/ece-ginnovation/login');
+        } else {
+          alert('Oops! There is a error');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('Something went wrong!');
+      });
   };
 
   const prefixSelector = (

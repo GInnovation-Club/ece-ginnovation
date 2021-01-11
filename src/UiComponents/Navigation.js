@@ -24,40 +24,6 @@ const Navigation = () => {
       <Navbar.Toggle aria-controls='basic-navbar-nav' />
       <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='ml-auto'>
-          {/* <Nav.Link href='/'>
-            <BookOutlinedIcon className='icon' />
-            Exams
-          </Nav.Link>
-          <Nav.Link href='#link'>
-            <FilterVintageOutlinedIcon className='icon' />
-            Blogs
-          </Nav.Link>
-          <Nav.Link href='/'>
-            <EmojiObjectsOutlinedIcon className='icon' />
-            Mentors
-          </Nav.Link>
-          <Nav.Link href='#link'>
-            <QuestionAnswerOutlinedIcon className='icon' />
-            Chats
-          </Nav.Link>
-          <NavDropdown title='Teams' id='basic-nav-dropdown'>
-            <NavDropdown.Item href='#action/3.1'>Team Udaan</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.2'>
-              Team Robosocors
-            </NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.3'>Team Sparx</NavDropdown.Item>
-          </NavDropdown>
-          <NavDropdown title='More' id='basic-nav-dropdown'>
-            <NavDropdown.Item href='#action/3.1'>Alumni</NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.2'>
-              Faculty Advisors
-            </NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.3'>
-              Team Ginnovation
-            </NavDropdown.Item>
-            <NavDropdown.Item href='#action/3.4'>About Us</NavDropdown.Item>
-          </NavDropdown> */}
-
           {auth && (
             <Nav.Link as={Link} to='/ece-ginnovation/profile'>
               Ashutosh
@@ -76,7 +42,10 @@ const Navigation = () => {
           {auth && (
             <Nav.Link
               as={Link}
-              onClick={() => dispatch(authFunction(false))}
+              onClick={() => {
+                dispatch(authFunction(false));
+                localStorage.removeItem('token');
+              }}
               to='/ece-ginnovation/'
             >
               <LogoutOutlined className='icon' /> LogOut

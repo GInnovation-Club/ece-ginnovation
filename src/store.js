@@ -6,7 +6,7 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   : (f) => f;
 
 const initialState = {
-  isAuth: false,
+  isAuth: localStorage.getItem('token'),
   name: 'Ashutosh Bisoyi',
 };
 

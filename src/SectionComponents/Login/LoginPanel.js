@@ -5,30 +5,36 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 //redux
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { authFunction } from '../../store';
 
 const LoginPanel = (props) => {
   const [authentication, setAuthentication] = useState();
   const auth = useSelector((state) => state.loginReducer.isAuth); //to get data from redux
-  console.log(auth);
+  let history = useHistory();
   const dispatch = useDispatch();
   const onFinish = (values) => {
-    props.sendData(values);
-    message.success('Done');
+    console.log(values);
     axios
-      .post('https://reqres.in/api/login', {
-        email: values.username,
+      .post(`https://ginnovation-server.herokuapp.com/api/login`, {
+        email: values.email,
         password: values.password,
       })
-      .then((res) => {
-        console.log('success', res.data);
-        message.success('Login Successful');
-        setAuthentication(true);
-        dispatch(authFunction(true)); //setting data in redux
+      .then((resp) => {
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          message.success('LogIn Successful');
+          alert('LogIn Successful');
+          localStorage.setItem('token', resp.data.token);
+          dispatch(authFunction(true));
+          history.push('/ece-ginnovation/profile');
+        } else {
+          alert('Oops! There is a error');
+        }
       })
       .catch((err) => {
         console.log(err);
-        message.error('Oops! something went wrong');
+        alert('Something went wrong!');
       });
   };
 
@@ -40,17 +46,18 @@ const LoginPanel = (props) => {
       onFinish={onFinish}
     >
       <Form.Item
-        name='username'
+        name='email'
         rules={[
           {
             required: true,
-            message: 'Please input your Username!',
+            message: 'Please input your Email!',
           },
         ]}
       >
         <Input
           prefix={<UserOutlined className='site-form-item-icon' />}
-          placeholder='Username'
+          type='email'
+          placeholder='Email'
         />
       </Form.Item>
       <Form.Item
@@ -66,7 +73,6 @@ const LoginPanel = (props) => {
           prefix={<LockOutlined className='site-form-item-icon' />}
           type='password'
           placeholder='Password'
-          // cityslicka
         />
       </Form.Item>
       <Form.Item>
