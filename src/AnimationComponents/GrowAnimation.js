@@ -8,7 +8,7 @@ const GrowAnimation = () => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../assets/Growth Animation.json'),
+      animationData: require('../assets/Animations/Growth Animation.json'),
     });
   }, []);
   return (

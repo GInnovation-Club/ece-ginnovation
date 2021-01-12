@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Form, Input, Select, Button, AutoComplete, message, Spin } from 'antd';
+import { Form, Input, Select, Button, message, Spin } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import RegistrationImg from '../assets/registration.svg';
 import logo from '../assets/logo.png';
 import { motion } from 'framer-motion';
+import popAnimation from '../assets/Animations/signupSuccess.png';
 
 const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -48,10 +47,11 @@ const tailFormItemLayout = {
 
 const Signup = () => {
   const [spin, setSpin] = useState(false);
-  let history = useHistory();
+  const [popConfirm, setPopConfirm] = useState(false);
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
+    setSpin(true);
     console.log('Received values of form: ', values);
     axios
       .post(`https://ginnovation-server.herokuapp.com/api/register`, {
@@ -64,9 +64,8 @@ const Signup = () => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          message.success('This is a success message');
-          alert('Successfully Registered');
-          history.push('/ece-ginnovation/login');
+          message.success('Registration Complete');
+          setPopConfirm(true);
         } else {
           alert('Oops! There is a error');
         }
@@ -99,6 +98,27 @@ const Signup = () => {
   };
   return (
     <div className='login-page'>
+      {spin && (
+        <div className='modal-container'>
+          <Spin size='large' />
+        </div>
+      )}
+      {popConfirm ? (
+        <div className='modal-container'>
+          <div className='pop-confirm registration'>
+            <img src={popAnimation} />
+            <p>You have Registered Successfully</p>
+            <h4>Just a step remain ;)</h4>
+            <div className='btn-container'>
+              <Link to='/ece-ginnovation/login'>
+                <button>Headback to LogIn</button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ''
+      )}
       <div className='login-container'>
         <Row className='row'>
           <Col md={6} className='col-div'>

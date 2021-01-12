@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { authFunction } from '../store';
 //
-import popAnimation from '../assets/popAnimation.png';
+import popAnimation from '../assets/Animations/popAnimation.png';
 import LoginImg from '../assets/login.svg';
 import logo from '../assets/logo.png';
 import { motion } from 'framer-motion';

@@ -8,7 +8,7 @@ const LoginAnimation = (props) => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../assets/Blogging Animation.json'),
+      animationData: require('../assets/Animations/Blogging Animation.json'),
     });
   }, []);
   return (

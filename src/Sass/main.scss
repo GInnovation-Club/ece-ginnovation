@@ -528,7 +528,7 @@ button {
       .login-board {
         width: 100%;
         header {
-          margin-bottom: 2em;
+          margin-bottom: 1em;
           small {
             margin: 0;
             color: rgb(122, 122, 122);
@@ -821,9 +821,16 @@ button {
       }
     }
   }
+  .pop-confirm.registration {
+    width: 500px;
+    img {
+      width: 55%;
+    }
+  }
   .pop-confirm.logout {
     p {
       color: $alert;
+      margin: 0;
     }
     button {
       width: 120px;
@@ -1087,10 +1094,8 @@ button {
         width: 60%;
       }
     }
-    .pop-confirm.logout {
-      p {
-        margin: 0;
-      }
+    .pop-confirm.registration {
+      width: 95%;
     }
   }
   //global

@@ -8,7 +8,7 @@ const TestingAnimation = () => {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../assets/Testig.json'),
+      animationData: require('../assets/Animations/Testig.json'),
     });
   }, []);
   return (
