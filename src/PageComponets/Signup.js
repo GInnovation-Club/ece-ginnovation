@@ -1,30 +1,102 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import LoginPanel from '../SectionComponents/Login/LoginPanel';
-import LoginImg from '../assets/login.svg';
+import { Form, Input, Select, Button, AutoComplete, message, Spin } from 'antd';
+import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import RegistrationImg from '../assets/registration.svg';
 import logo from '../assets/logo.png';
-import RegistrationPanel from '../SectionComponents/Login/RegistrationPanel';
 import { motion } from 'framer-motion';
 
-const Signup = () => {
-  const [login, setLogin] = useState(true);
+const { Option } = Select;
+const AutoCompleteOption = AutoComplete.Option;
+const formItemLayout = {
+  labelCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 8,
+    },
+  },
+  wrapperCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 16,
+    },
+  },
+};
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
+  },
+};
 
-  const fetchData = (loginValue) => {
-    setLogin(loginValue);
+// import { useHistory } from 'react-router-dom';
+// let history = useHistory();
+// history.push('/ece-ginnovation/login');
+
+const Signup = () => {
+  const [spin, setSpin] = useState(false);
+  let history = useHistory();
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+    axios
+      .post(`https://ginnovation-server.herokuapp.com/api/register`, {
+        fullname: values.Name,
+        email: values.email,
+        mobile: values.phone,
+        password: values.password,
+      })
+      .then((resp) => {
+        setSpin(false);
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          message.success('This is a success message');
+          alert('Successfully Registered');
+          history.push('/ece-ginnovation/login');
+        } else {
+          alert('Oops! There is a error');
+        }
+      })
+      .catch((err) => {
+        setSpin(false);
+        console.log(err);
+        alert('Something went wrong!');
+      });
   };
 
+  const prefixSelector = (
+    <Form.Item name='prefix' noStyle>
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
+        <Option value='91'>+91</Option>
+        <Option value='977'>+977</Option>
+      </Select>
+    </Form.Item>
+  );
+  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+  //
   const registrationStyle = {
     background: '#00f260',
     background: '-webkit-linear-gradient(to right, #00f260, #0575e6)',
     background: 'linear-gradient(to right, #00f260, #0575e6)',
   };
-  const loginStyle = {
-    background: '#8360c3',
-    background: '-webkit-linear-gradient(to right, #2ebf91, #8360c3)',
-    background: 'linear-gradient(to right, #2ebf91, #8360c3)',
-  };
-
   return (
     <div className='login-page'>
       <div className='login-container'>
@@ -35,9 +107,9 @@ const Signup = () => {
               animate={{ x: 0 }}
               transition={{ delay: 0.5 }}
               className='image'
-              style={login ? loginStyle : registrationStyle}
+              style={registrationStyle}
             >
-              <img src={login ? LoginImg : RegistrationImg} alt='login' />
+              <img src={RegistrationImg} alt='login' />
             </motion.div>
           </Col>
           <Col md={6} className='col-div'>
@@ -53,7 +125,124 @@ const Signup = () => {
                   <h2>Sign Up</h2>
                   <small>Enter the details to register</small>
                 </header>
-                <RegistrationPanel sendData={fetchData} />
+                <Form
+                  {...formItemLayout}
+                  form={form}
+                  name='register'
+                  onFinish={onFinish}
+                  initialValues={{
+                    prefix: '91',
+                  }}
+                  scrollToFirstError
+                >
+                  <Form.Item
+                    name='Name'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your Name!',
+                      },
+                    ]}
+                  >
+                    <Input
+                      prefix={<UserOutlined className='site-form-item-icon' />}
+                      placeholder='Full Name'
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    name='email'
+                    rules={[
+                      {
+                        type: 'email',
+                        message: 'The input is not valid E-mail!',
+                      },
+                      {
+                        required: true,
+                        message: 'Please input your E-mail!',
+                      },
+                    ]}
+                  >
+                    <Input
+                      prefix={<MailOutlined className='site-form-item-icon' />}
+                      placeholder='Email'
+                    />
+                  </Form.Item>
+                  <Form.Item
+                    name='phone'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your phone number!',
+                      },
+                    ]}
+                  >
+                    <Input
+                      addonBefore={prefixSelector}
+                      style={{
+                        width: '100%',
+                      }}
+                      placeholder='Mobile Number'
+                    />
+                  </Form.Item>
+
+                  <Form.Item
+                    name='password'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please input your password!',
+                      },
+                    ]}
+                    hasFeedback
+                  >
+                    <Input.Password
+                      prefix={<LockOutlined className='site-form-item-icon' />}
+                      placeholder='Password'
+                    />
+                  </Form.Item>
+
+                  <Form.Item
+                    name='confirm'
+                    dependencies={['password']}
+                    hasFeedback
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please confirm your password!',
+                      },
+                      ({ getFieldValue }) => ({
+                        validator(rule, value) {
+                          if (!value || getFieldValue('password') === value) {
+                            return Promise.resolve();
+                          }
+
+                          return Promise.reject(
+                            'The two passwords that you entered do not match!'
+                          );
+                        },
+                      }),
+                    ]}
+                  >
+                    <Input.Password
+                      prefix={<LockOutlined className='site-form-item-icon' />}
+                      placeholder='Confirm Password'
+                    />
+                  </Form.Item>
+
+                  <div {...tailFormItemLayout} className='form-btn-row'>
+                    <div className='register-btn-container'>
+                      <Button type='primary' htmlType='submit'>
+                        Register
+                      </Button>
+                      Or
+                      <Link to='/ece-ginnovation/login'>
+                        <button className='trans-btn'>
+                          You are already a member!
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </Form>
               </div>
             </motion.div>
           </Col>

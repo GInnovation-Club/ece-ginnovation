@@ -31,6 +31,7 @@ $blue: #5222d0;
 $white: #fff;
 $smoke: #ebebfd;
 $pink: #f9d9eb;
+$dark-fade: #494949;
 $light-fade: rgb(94, 94, 94);
 $fade: rgb(82, 82, 82);
 $orange: #ff6900;
@@ -40,6 +41,8 @@ $light-sky: #d5f2fd;
 $deep-sky: #10a3ff;
 $light-green: #7fd6c2;
 $light-yellow: #f6e049;
+$success-green: #82d135;
+$alert: #fd9a40;
 //others
 $mobile-break-point: 600px;
 $tablet-break-point: 992px;
@@ -780,6 +783,62 @@ button {
     }
   }
 }
+//global
+.modal-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  backdrop-filter: blur(3px);
+  @include flex-center();
+  z-index: 9999;
+  .ant-spin-dot-item {
+    background-color: $white;
+  }
+  .pop-confirm {
+    background-color: $white;
+    padding: 2em 1em;
+    text-align: center;
+    img {
+      width: 35%;
+    }
+    p {
+      color: green;
+    }
+    h4 {
+      color: #494949;
+    }
+    button {
+      border: 1px solid $success-green;
+      color: $success-green;
+      margin: 0.5em;
+      &:hover {
+        background-color: $success-green;
+        color: $white;
+      }
+    }
+  }
+  .pop-confirm.logout {
+    p {
+      color: $alert;
+    }
+    button {
+      width: 120px;
+    }
+    button.yes {
+      border: 1px solid $alert;
+      color: $alert;
+      &:hover {
+        background-color: $alert;
+        color: $white;
+      }
+    }
+  }
+}
+//global
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
@@ -1019,4 +1078,20 @@ button {
       }
     }
   }
+  //global
+  .modal-container {
+    .pop-confirm {
+      padding: 1em 0;
+      width: 95%;
+      img {
+        width: 60%;
+      }
+    }
+    .pop-confirm.logout {
+      p {
+        margin: 0;
+      }
+    }
+  }
+  //global
 }
