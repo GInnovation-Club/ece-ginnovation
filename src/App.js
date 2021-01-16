@@ -8,6 +8,7 @@ import ProfilePage from './PageComponets/ProfilePage';
 import Signup from './PageComponets/Signup';
 import { Provider } from 'react-redux';
 import store from './store';
+import Error from './PageComponets/Error';
 function App() {
   return (
     <Provider store={store}>
@@ -23,6 +24,7 @@ function App() {
               path='/ece-ginnovation/profile'
               component={ProfilePage}
             />
+            <Route component={Error} />
           </Switch>
         </Router>
       </div>

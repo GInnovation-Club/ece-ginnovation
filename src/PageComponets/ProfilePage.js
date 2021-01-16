@@ -110,7 +110,7 @@ const ProfilePage = () => {
                 onClick={() => {
                   dispatch(authFunction(false));
                   localStorage.removeItem('token');
-                  localStorage.removeItem('username');
+                  localStorage.setItem('username', 'User');
                   history.push('/ece-ginnovation');
                   setPopConfirm(false);
                 }}
