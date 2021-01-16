@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import BlogAnimation from '../../AnimationComponents/BlogAnimation';
 import StudentSwiper from '../../UiComponents/StudentsSwiper';
 const Members = () => {

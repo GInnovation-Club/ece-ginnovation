@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 const MotoCardFrame = (props) => {
   return (
     <Col md={6}>

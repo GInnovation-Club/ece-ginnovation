@@ -91,9 +91,15 @@ button {
     outline: transparent;
   }
 }
+a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}
 //common class styles
 .icon {
-  margin: 0 0.2em;
+  margin: 0 0.3em;
 }
 .trans-btn {
   border: none;
@@ -509,6 +515,16 @@ button {
         margin: auto;
       }
     }
+    .image.login {
+      background: #8360c3;
+      background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
+      background: linear-gradient(to right, #2ebf91, #8360c3);
+    }
+    .image.signup {
+      background: #00f260;
+      background: -webkit-linear-gradient(to right, #00f260, #0575e6);
+      background: linear-gradient(to right, #00f260, #0575e6);
+    }
     .col-div {
       padding: 0;
     }
@@ -639,7 +655,7 @@ button {
           top: 0;
           right: 0;
           img {
-            width: 11%;
+            width: 50%;
             margin: 0 0.2em;
           }
         }
@@ -650,6 +666,18 @@ button {
           position: absolute;
           top: 50%;
           right: 0;
+          width: 160px;
+          transform: translateY(-50%);
+          @include flex-center();
+        }
+        .edit-btn {
+          border-radius: 0;
+          border: none;
+          background-color: $white;
+          position: absolute;
+          top: 35%;
+          right: 0;
+          width: 160px;
           transform: translateY(-50%);
           @include flex-center();
         }
@@ -670,6 +698,8 @@ button {
       .bio {
         border: 1px solid #cccccc;
         padding: 1em;
+        height: 100%;
+        position: relative;
         p {
           color: $fade;
         }
@@ -678,6 +708,7 @@ button {
         border: 1px solid #cccccc;
         height: 100%;
         padding: 0.5em;
+        position: relative;
         .achievement {
           display: flex;
           justify-content: space-between;
@@ -691,38 +722,40 @@ button {
   }
   .skills {
     .container {
+      position: relative;
       h4 {
         border-bottom: 3px solid $primary-color;
         padding: 0.3em;
         margin-bottom: 1em;
       }
       .skill-container {
-        display: flex;
-        justify-content: space-around;
         .skill-card {
           background-color: $smoke;
           padding: 1em;
           margin-bottom: 1em;
           border-radius: 25px;
-          height: 270px;
-          .header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5em;
-            h5 {
-              margin: 0;
-            }
-            .icon-container {
+          // height: 270px;
+          .content {
+            padding-left: 0.5em;
+            .header {
               display: flex;
-              align-items: center;
-              .icon {
-                color: #ff6900;
+              justify-content: space-between;
+              margin-bottom: 0.5em;
+              h5 {
+                margin: 0;
+              }
+              .icon-container {
+                display: flex;
+                align-items: center;
+                .icon {
+                  color: #ff6900;
+                }
               }
             }
-          }
-          p {
-            height: 150px;
-            color: $fade;
+            p {
+              // height: 150px;
+              color: $fade;
+            }
           }
         }
       }
@@ -731,12 +764,24 @@ button {
   .projects {
     background-color: transparent;
     .container {
+      position: relative;
       h4 {
         margin-bottom: 1em;
         background-color: $primary-color;
         color: $white;
         padding: 0.3em;
         box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+      }
+      button {
+        border-radius: 0;
+        border: 1px solid $light-fade;
+        margin-top: 1em;
+        @include align-center();
+        width: 100%;
+        opacity: 0.5;
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -782,6 +827,114 @@ button {
       }
     }
   }
+  .more-options {
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    position: fixed;
+    list-style: none;
+    li {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-bottom: 0.5em;
+      @include flex-center();
+      transition: color 1s ease;
+      cursor: pointer;
+    }
+    li.edit {
+      border: 2px solid $dark-fade;
+      color: $dark-fade;
+      &::before {
+        content: 'Edit';
+        position: absolute;
+        left: -40px;
+        color: $light-fade;
+        opacity: 0;
+        transition: all 1s ease;
+      }
+      &:hover {
+        background-color: $dark-fade;
+        color: $white;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    li.logout {
+      border: 2px solid #d84b4b;
+      color: #d84b4b;
+      &::before {
+        content: 'Logout';
+        position: absolute;
+        left: -30px;
+        transform: translateX(-30px);
+        color: $light-fade;
+        opacity: 0;
+        transition: all 1s ease;
+      }
+      &:hover {
+        background-color: #d84b4b;
+        color: $white;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .edit-btn {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid $smoke;
+    @include flex-center();
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    transition: all 1s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: $smoke;
+    }
+  }
+  .edit-modal {
+    background-color: $white;
+    width: 800px;
+    padding: 1em;
+
+    h4 {
+      padding-bottom: 0.5em;
+      border-bottom: 2px solid $light-green;
+      margin-bottom: 1em;
+      color: $fade;
+      @include align-center();
+      position: relative;
+    }
+    .form-container {
+      width: 100%;
+      .ant-row {
+        padding-bottom: 0 !important;
+      }
+    }
+    .btn-container {
+      text-align: right;
+    }
+    .close-btn {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      font-size: 0.5em;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      @include flex-center();
+      background-color: $smoke;
+    }
+  }
+  .skill-edit-modal {
+    width: 1000px;
+  }
 }
 //global
 .modal-container {
@@ -790,11 +943,11 @@ button {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   backdrop-filter: blur(3px);
   @include flex-center();
-  z-index: 9999;
+  z-index: 99999;
   .ant-spin-dot-item {
     background-color: $white;
   }
@@ -844,6 +997,9 @@ button {
       }
     }
   }
+}
+.ant-select-dropdown {
+  z-index: 9999999;
 }
 //global
 //-------------------media query for responsive design--------------------
@@ -1015,7 +1171,7 @@ button {
                 margin-bottom: 0.3em;
                 @include flex-center();
               }
-              .crown {
+              .education {
                 display: none;
               }
             }
@@ -1033,7 +1189,7 @@ button {
           .social-media {
             width: 100%;
             img {
-              width: 8%;
+              width: 30%;
               margin: 0 0.2em;
             }
           }
@@ -1041,6 +1197,17 @@ button {
             top: 50%;
             right: -30%;
             transform: rotate(90deg);
+          }
+          .edit-btn {
+            border-radius: 0;
+            border: none;
+            background-color: $white;
+            position: absolute;
+            top: 30%;
+            right: -10%;
+            width: 40px;
+            transform: translateY(-50%);
+            @include flex-center();
           }
         }
       }
@@ -1084,9 +1251,26 @@ button {
         }
       }
     }
+    .more-options {
+      li.edit {
+        background-color: $dark-fade;
+        color: $white;
+        &::before {
+          content: '';
+        }
+      }
+      li.logout {
+        background-color: #d84b4b;
+        color: $white;
+        &::before {
+          content: '';
+        }
+      }
+    }
   }
   //global
   .modal-container {
+    overflow-y: scroll;
     .pop-confirm {
       padding: 1em 0;
       width: 95%;
@@ -1096,6 +1280,10 @@ button {
     }
     .pop-confirm.registration {
       width: 95%;
+    }
+    .edit-modal {
+      width: 95%;
+      margin: auto;
     }
   }
   //global

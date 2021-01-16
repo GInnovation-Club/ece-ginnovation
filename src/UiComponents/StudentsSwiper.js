@@ -5,7 +5,6 @@ import 'swiper/swiper.scss';
 import student1 from '../assets/student1.jpg';
 import student2 from '../assets/student2.jpg';
 import student3 from '../assets/student3.jpg';
-import ScreenWidth from '../CommonFunctions/ScreenWidth';
 const StudentSwiper = () => {
   SwiperCore.use([Autoplay]);
   function getWindowDimensions() {
@@ -27,14 +26,14 @@ const StudentSwiper = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  console.log(windowDimensions.width);
+  // console.log(windowDimensions.width);
   return (
     <Swiper
       spaceBetween={50}
       slidesPerView={windowDimensions.width < 600 ? 1 : 3}
-      onSlideChange={() => console.log('slide change')}
+      // onSlideChange={() => console.log('slide change')}
       loop={true}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
       autoplay={{
         delay: 1500,
         disableOnInteraction: false,

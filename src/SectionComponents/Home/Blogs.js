@@ -1,21 +1,9 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Badge } from 'antd';
-import img1 from '../../assets/bg1.jpg';
-import student1 from '../../assets/student1.jpg';
 import BlogCard from '../../UiComponents/HomePage/BlogCard';
 
 const Blogs = () => {
-  const coverImgStyle = {
-    backgroundImage: `linear-gradient(rgba(245, 246, 252, 0.73), rgba(0, 0, 0, 0.73)),url(${img1})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
-  const profileImgStyle = {
-    backgroundImage: `url(${student1})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
   return (
     <section className='blog'>
       <header>

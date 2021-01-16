@@ -3,64 +3,57 @@ import { Col } from 'react-bootstrap';
 import { Progress } from 'antd';
 import { StarFilled } from '@ant-design/icons';
 const SkillCard = (props) => {
+  const starRatings = <StarFilled className='icon' />;
   return (
-    <Col md={3}>
+    <Col md={6}>
       <div className='skill-card'>
-        <div className='header'>
-          <h5>{props.skillName}</h5>
-          <div className='icon-container'>
-            {props.stars == 5 ? (
-              <>
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-              </>
-            ) : (
-              ''
-            )}
-            {props.stars == 4 ? (
-              <>
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-              </>
-            ) : (
-              ''
-            )}
-            {props.stars == 3 ? (
-              <>
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-              </>
-            ) : (
-              ''
-            )}
-            {props.stars == 2 ? (
-              <>
-                <StarFilled className='icon' />
-                <StarFilled className='icon' />
-              </>
-            ) : (
-              ''
-            )}
-            {props.stars == 1 ? (
-              <>
-                <StarFilled className='icon' />
-              </>
-            ) : (
-              ''
-            )}
+        <div className='content'>
+          <div className='header'>
+            <h5>{props.skillName}</h5>
+            <div className='icon-container'>
+              {props.stars === 5 ? (
+                <>
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                </>
+              ) : (
+                ''
+              )}
+              {props.stars === 4 ? (
+                <>
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                </>
+              ) : (
+                ''
+              )}
+              {props.stars === 3 ? (
+                <>
+                  {starRatings}
+                  {starRatings}
+                  {starRatings}
+                </>
+              ) : (
+                ''
+              )}
+              {props.stars === 2 ? (
+                <>
+                  {starRatings}
+                  {starRatings}
+                </>
+              ) : (
+                ''
+              )}
+              {props.stars === 1 ? <>{starRatings}</> : ''}
+            </div>
           </div>
+          <p>{props.description}</p>
         </div>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
-        </p>
         <Progress
           strokeColor={{
             from: '#108ee9',

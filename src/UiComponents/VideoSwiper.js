@@ -27,7 +27,7 @@ const VideoSwiper = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  console.log(windowDimensions.width);
+  // console.log(windowDimensions.width);
 
   const imgStyle = {
     backgroundImage: `url( ${projectDemo} )`,
@@ -36,9 +36,9 @@ const VideoSwiper = () => {
     <Swiper
       spaceBetween={50}
       slidesPerView={windowDimensions.width < 600 ? 1 : 3}
-      onSlideChange={() => console.log('slide change')}
+      // onSlideChange={() => console.log('slide change')}
       loop={true}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
       autoplay={{
         delay: 2000,
         disableOnInteraction: false,

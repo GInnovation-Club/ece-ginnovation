@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Card } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import think from '../../assets/think.svg';
 import learn from '../../assets/learn.svg';
 import implement from '../../assets/implement.svg';

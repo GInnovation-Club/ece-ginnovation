@@ -1,9 +1,9 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import GrowAnimation from '../../AnimationComponents/GrowAnimation';
-import FbIcon from '../../assets/facebook.png';
-import IgIcon from '../../assets/instagram.png';
-import YtIcon from '../../assets/youtube.png';
+import FbIcon from '../../assets/Icons/facebook.png';
+import IgIcon from '../../assets/Icons/instagram.png';
+import YtIcon from '../../assets/Icons/youtube.png';
 import { motion } from 'framer-motion';
 const LandingPage = () => {
   return (
@@ -56,7 +56,7 @@ const LandingPage = () => {
           animate={{ x: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <a href='#'>
+          <a href='https://www.facebook.com/AshutoshBisoyiFB'>
             <img src={FbIcon} alt='ginnovation-facebook' />
           </a>
         </motion.li>
@@ -65,8 +65,8 @@ const LandingPage = () => {
           animate={{ x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <a href='#'>
-            <img src={YtIcon} alt='ginnovation-facebook' />
+          <a href='https://www.youtube.com/channel/UC53GDmiSYagG-cdZeMHuINw'>
+            <img src={YtIcon} alt='ginnovation-youtube' />
           </a>
         </motion.li>
         <motion.li
@@ -74,8 +74,8 @@ const LandingPage = () => {
           animate={{ x: 0 }}
           transition={{ delay: 0.6 }}
         >
-          <a href='#'>
-            <img src={IgIcon} alt='ginnovation-facebook' />
+          <a href='https://www.instagram.com/ashutoshbisoyi/'>
+            <img src={IgIcon} alt='ginnovation-instagram' />
           </a>
         </motion.li>
       </ul>

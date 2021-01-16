@@ -7,10 +7,12 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
-  name: 'Ashutosh Bisoyi',
+  userName: localStorage.getItem('username'),
 };
 
 const USER_AUTH = 'USER_AUTH';
+const USER_NAME = 'USER_NAME';
+
 //action
 export const authFunction = (data) => (dispatch) => {
   dispatch({
@@ -18,7 +20,14 @@ export const authFunction = (data) => (dispatch) => {
     payload: data,
   });
 };
+export const userNameChange = (data) => (dispatch) => {
+  dispatch({
+    type: USER_NAME,
+    payload: data,
+  });
+};
 
+//reducer
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_AUTH':
@@ -31,9 +40,14 @@ const loginReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const userReducer = (state = initialState, action) => {
+const userNameReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'USER_NAME':
+      console.log(action.payload);
+      return {
+        ...state,
+        userName: action.payload,
+      };
     default:
       return state;
   }
@@ -42,7 +56,7 @@ const userReducer = (state = initialState, action) => {
 const store = createStore(
   combineReducers({
     loginReducer,
-    userReducer,
+    userNameReducer,
   }),
   compose(applyMiddleware(thunk), devTools)
 );

@@ -89,13 +89,7 @@ const Signup = () => {
       </Select>
     </Form.Item>
   );
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
   //
-  const registrationStyle = {
-    background: '#00f260',
-    background: '-webkit-linear-gradient(to right, #00f260, #0575e6)',
-    background: 'linear-gradient(to right, #00f260, #0575e6)',
-  };
   return (
     <div className='login-page'>
       {spin && (
@@ -106,7 +100,7 @@ const Signup = () => {
       {popConfirm ? (
         <div className='modal-container'>
           <div className='pop-confirm registration'>
-            <img src={popAnimation} />
+            <img src={popAnimation} alt='success' />
             <p>You have Registered Successfully</p>
             <h4>Just a step remain ;)</h4>
             <div className='btn-container'>
@@ -126,8 +120,7 @@ const Signup = () => {
               initial={{ x: -1000 }}
               animate={{ x: 0 }}
               transition={{ delay: 0.5 }}
-              className='image'
-              style={registrationStyle}
+              className='image signup'
             >
               <img src={RegistrationImg} alt='login' />
             </motion.div>

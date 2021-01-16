@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { Form, Input, Button, Checkbox, message, Spin, Alert } from 'antd';
+import { Form, Input, Button, Checkbox, message, Spin } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -44,12 +44,6 @@ const Login = (props) => {
       });
   };
 
-  const loginStyle = {
-    background: '#8360c3',
-    background: '-webkit-linear-gradient(to right, #2ebf91, #8360c3)',
-    background: 'linear-gradient(to right, #2ebf91, #8360c3)',
-  };
-
   return (
     <div className='login-page'>
       {spin && (
@@ -60,7 +54,7 @@ const Login = (props) => {
       {popConfirm ? (
         <div className='modal-container'>
           <div className='pop-confirm'>
-            <img src={popAnimation} />
+            <img src={popAnimation} alt='success' />
             <p>You have Successfully loggedIn</p>
             <h4>Welcome to Ginnovation :)</h4>
             <div className='btn-container'>
@@ -80,8 +74,7 @@ const Login = (props) => {
               initial={{ x: -1000 }}
               animate={{ x: 0 }}
               transition={{ delay: 0.5 }}
-              className='image'
-              style={loginStyle}
+              className='image login'
             >
               <img src={LoginImg} alt='login' />
             </motion.div>
@@ -142,7 +135,10 @@ const Login = (props) => {
                       <Checkbox>Remember me</Checkbox>
                     </Form.Item>
 
-                    <a className='login-form-forgot' href=''>
+                    <a
+                      className='login-form-forgot'
+                      href='https://www.dictionary.com/e/wp-content/uploads/2020/01/Zip_Zero_Zilch_1000x700_jpg_2ZuoCxRf.jpg'
+                    >
                       Forgot password
                     </a>
                   </Form.Item>
