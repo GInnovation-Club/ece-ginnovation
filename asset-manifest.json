@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ece-ginnovation/static/css/main.f87f6c44.chunk.css",
-    "main.js": "/ece-ginnovation/static/js/main.a21e4ef4.chunk.js",
-    "main.js.map": "/ece-ginnovation/static/js/main.a21e4ef4.chunk.js.map",
-    "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.4c24d651.js",
-    "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.4c24d651.js.map",
+    "main.css": "/ece-ginnovation/static/css/main.8340334f.chunk.css",
+    "main.js": "/ece-ginnovation/static/js/main.dc362540.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.dc362540.chunk.js.map",
+    "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.1386aedc.js",
+    "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.1386aedc.js.map",
     "static/css/2.e24bce36.chunk.css": "/ece-ginnovation/static/css/2.e24bce36.chunk.css",
-    "static/js/2.0de56017.chunk.js": "/ece-ginnovation/static/js/2.0de56017.chunk.js",
-    "static/js/2.0de56017.chunk.js.map": "/ece-ginnovation/static/js/2.0de56017.chunk.js.map",
-    "static/js/3.5cb81fd7.chunk.js": "/ece-ginnovation/static/js/3.5cb81fd7.chunk.js",
-    "static/js/3.5cb81fd7.chunk.js.map": "/ece-ginnovation/static/js/3.5cb81fd7.chunk.js.map",
+    "static/js/2.c2305768.chunk.js": "/ece-ginnovation/static/js/2.c2305768.chunk.js",
+    "static/js/2.c2305768.chunk.js.map": "/ece-ginnovation/static/js/2.c2305768.chunk.js.map",
+    "static/js/3.644b7111.chunk.js": "/ece-ginnovation/static/js/3.644b7111.chunk.js",
+    "static/js/3.644b7111.chunk.js.map": "/ece-ginnovation/static/js/3.644b7111.chunk.js.map",
     "index.html": "/ece-ginnovation/index.html",
     "static/css/2.e24bce36.chunk.css.map": "/ece-ginnovation/static/css/2.e24bce36.chunk.css.map",
-    "static/css/main.f87f6c44.chunk.css.map": "/ece-ginnovation/static/css/main.f87f6c44.chunk.css.map",
-    "static/js/2.0de56017.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.0de56017.chunk.js.LICENSE.txt",
+    "static/css/main.8340334f.chunk.css.map": "/ece-ginnovation/static/css/main.8340334f.chunk.css.map",
+    "static/js/2.c2305768.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.c2305768.chunk.js.LICENSE.txt",
     "static/media/alertPop.50da1a61.png": "/ece-ginnovation/static/media/alertPop.50da1a61.png",
     "static/media/bg1.9decca57.jpg": "/ece-ginnovation/static/media/bg1.9decca57.jpg",
     "static/media/implement.827ed8ec.svg": "/ece-ginnovation/static/media/implement.827ed8ec.svg",
@@ -33,10 +33,10 @@
     "static/media/think.6e12ce7a.svg": "/ece-ginnovation/static/media/think.6e12ce7a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4c24d651.js",
+    "static/js/runtime-main.1386aedc.js",
     "static/css/2.e24bce36.chunk.css",
-    "static/js/2.0de56017.chunk.js",
-    "static/css/main.f87f6c44.chunk.css",
-    "static/js/main.a21e4ef4.chunk.js"
+    "static/js/2.c2305768.chunk.js",
+    "static/css/main.8340334f.chunk.css",
+    "static/js/main.dc362540.chunk.js"
   ]
 }
