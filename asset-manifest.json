@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ece-ginnovation/static/css/main.8340334f.chunk.css",
-    "main.js": "/ece-ginnovation/static/js/main.f3b57d2b.chunk.js",
-    "main.js.map": "/ece-ginnovation/static/js/main.f3b57d2b.chunk.js.map",
+    "main.css": "/ece-ginnovation/static/css/main.34f3c8b4.chunk.css",
+    "main.js": "/ece-ginnovation/static/js/main.f417521a.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.f417521a.chunk.js.map",
     "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.1386aedc.js",
     "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.1386aedc.js.map",
     "static/css/2.e24bce36.chunk.css": "/ece-ginnovation/static/css/2.e24bce36.chunk.css",
-    "static/js/2.c2305768.chunk.js": "/ece-ginnovation/static/js/2.c2305768.chunk.js",
-    "static/js/2.c2305768.chunk.js.map": "/ece-ginnovation/static/js/2.c2305768.chunk.js.map",
+    "static/js/2.0c4f25b3.chunk.js": "/ece-ginnovation/static/js/2.0c4f25b3.chunk.js",
+    "static/js/2.0c4f25b3.chunk.js.map": "/ece-ginnovation/static/js/2.0c4f25b3.chunk.js.map",
     "static/js/3.644b7111.chunk.js": "/ece-ginnovation/static/js/3.644b7111.chunk.js",
     "static/js/3.644b7111.chunk.js.map": "/ece-ginnovation/static/js/3.644b7111.chunk.js.map",
     "index.html": "/ece-ginnovation/index.html",
     "static/css/2.e24bce36.chunk.css.map": "/ece-ginnovation/static/css/2.e24bce36.chunk.css.map",
-    "static/css/main.8340334f.chunk.css.map": "/ece-ginnovation/static/css/main.8340334f.chunk.css.map",
-    "static/js/2.c2305768.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.c2305768.chunk.js.LICENSE.txt",
+    "static/css/main.34f3c8b4.chunk.css.map": "/ece-ginnovation/static/css/main.34f3c8b4.chunk.css.map",
+    "static/js/2.0c4f25b3.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.0c4f25b3.chunk.js.LICENSE.txt",
     "static/media/alertPop.50da1a61.png": "/ece-ginnovation/static/media/alertPop.50da1a61.png",
     "static/media/bg1.9decca57.jpg": "/ece-ginnovation/static/media/bg1.9decca57.jpg",
     "static/media/implement.827ed8ec.svg": "/ece-ginnovation/static/media/implement.827ed8ec.svg",
@@ -35,8 +35,8 @@
   "entrypoints": [
     "static/js/runtime-main.1386aedc.js",
     "static/css/2.e24bce36.chunk.css",
-    "static/js/2.c2305768.chunk.js",
-    "static/css/main.8340334f.chunk.css",
-    "static/js/main.f3b57d2b.chunk.js"
+    "static/js/2.0c4f25b3.chunk.js",
+    "static/css/main.34f3c8b4.chunk.css",
+    "static/js/main.f417521a.chunk.js"
   ]
 }
