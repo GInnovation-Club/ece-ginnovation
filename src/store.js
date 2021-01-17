@@ -7,7 +7,7 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
-  userName: localStorage.getItem('username'),
+  userName: 'Username',
 };
 const USER_AUTH = 'USER_AUTH';
 const USER_NAME = 'USER_NAME';

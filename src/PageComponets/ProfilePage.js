@@ -27,7 +27,7 @@ import ProfileProjectSwiper from '../UiComponents/ProfileProjectSwiper';
 import SkillCard from '../UiComponents/ProfilePage/SkillCard';
 //redux
 import { useDispatch, useSelector } from 'react-redux';
-import { authFunction } from '../store';
+import { authFunction, userNameChange } from '../store';
 //others
 import { Redirect, useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -84,7 +84,7 @@ const ProfilePage = () => {
         // console.log(resp.data);
         setUserData(resp.data);
         localStorage.setItem('username', resp.data.fullname);
-        // dispatch(userNameChange(resp.data.fullname));
+        dispatch(userNameChange(resp.data.fullname));
       })
       .catch((err) => {
         setSpin(false);
@@ -110,7 +110,7 @@ const ProfilePage = () => {
                 onClick={() => {
                   dispatch(authFunction(false));
                   localStorage.removeItem('token');
-                  localStorage.setItem('username', 'User');
+                  localStorage.setItem('username', 'Username');
                   history.push('/ece-ginnovation');
                   setPopConfirm(false);
                 }}
