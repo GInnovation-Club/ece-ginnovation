@@ -1,6 +1,7 @@
-import React from 'react';
-import { Form, Input, Button, Row, Col, Select } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Row, Col, Select, Spin } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
+import axios from 'axios';
 
 const layout = {
   labelCol: { span: 8 },
@@ -17,13 +18,64 @@ const branches = [
   'Electrical and Electronics Engineering',
 ];
 const HeaderEditModal = (props) => {
+  const [spin, setSpin] = useState(false);
   const [form] = Form.useForm();
+  const data = props.data;
+  const token = localStorage.getItem('token');
   const onFinish = (values) => {
-    console.log(values);
+    const updatedData = {
+      fullname: values.fullname,
+      designation: values.designation,
+      role: values.role,
+      education: [
+        {
+          semester: values.semester ? values.semester : '',
+          branch: values.branch ? values.branch : '',
+        },
+      ],
+      address: [
+        {
+          district: values.district ? values.district : '',
+          state: values.state ? values.state : '',
+        },
+      ],
+    };
+    // console.log(values);
+    // console.log(token);
+    // console.log(updatedData);
+    setSpin(true);
+    axios
+      .put(
+        `https://ginnovation-server.herokuapp.com/api/profile/data`,
+        updatedData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((resp) => {
+        setSpin(false);
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          alert('Successfully Edited Data');
+          props.handleClose();
+        } else {
+          alert('Oops! There is a error');
+        }
+      })
+      .catch((err) => {
+        setSpin(false);
+        console.log(err);
+        alert('Something went wrong!');
+      });
   };
 
   return (
     <div className='modal-container'>
+      {spin && (
+        <div className='modal-container'>
+          <Spin size='large' />
+        </div>
+      )}
       <div className='edit-modal'>
         <h4>
           Edit Your Details <EditOutlined className='icon' />
@@ -36,45 +88,58 @@ const HeaderEditModal = (props) => {
             form={form}
             name='control-hooks'
             onFinish={onFinish}
+            initialValues={{
+              fullname: data.fullname,
+              designation: data.designation,
+              role: data.role,
+              semester: data.education[0].semester,
+              branch: data.education[0].branch,
+              district: data.address[0].district,
+              state: data.address[0].state,
+            }}
           >
-            <Form.Item name='fullname'>
-              <Input
-                placeholder='Full Name'
-                defaultValue={props.data.fullname}
-              />
+            <Form.Item
+              name='fullname'
+              rules={[
+                { required: true, message: 'Please input your fullname!' },
+              ]}
+            >
+              <Input placeholder='Full Name' />
             </Form.Item>
             <Form.Item>
               <Row gutter={8}>
                 <Col span={12}>
-                  <Form.Item name='designation'>
-                    <Input
-                      placeholder='Designation'
-                      defaultValue={props.data.designation}
-                    />
+                  <Form.Item
+                    name='designation'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'This field can not be blank!',
+                      },
+                    ]}
+                  >
+                    <Input placeholder='Designation' />
                   </Form.Item>
                 </Col>
                 <Col span={12}>
-                  <Form.Item name='role'>
-                    <Input
-                      disabled
-                      placeholder='Role'
-                      defaultValue={props.data.role}
-                    />
+                  <Form.Item
+                    name='role'
+                    rules={[
+                      {
+                        required: true,
+                        message: 'Please select a role!',
+                      },
+                    ]}
+                  >
+                    <Select placeholder='Select your role'>
+                      <Option value='Student'>Student</Option>
+                      <Option value='Mentor'>Mentor</Option>
+                      <Option value='Teacher'>Teacher</Option>
+                    </Select>
                   </Form.Item>
                 </Col>
               </Row>
             </Form.Item>
-            <Form.Item name='address'>
-              <Input
-                placeholder='Address'
-                defaultValue={
-                  props.data.address[0].district +
-                  ', ' +
-                  props.data.address[0].state
-                }
-              />
-            </Form.Item>
-
             <Form.Item>
               <Row gutter={8}>
                 <Col span={9}>
@@ -93,7 +158,10 @@ const HeaderEditModal = (props) => {
                 </Col>
                 <Col span={15}>
                   <Form.Item name='branch'>
-                    <Select placeholder='Select your branch'>
+                    <Select
+                      placeholder='Select your branch'
+                      initialValue={data.education[0].branch}
+                    >
                       {branches.map((value, index) => {
                         return (
                           <Option value={value} key={index}>
@@ -112,7 +180,7 @@ const HeaderEditModal = (props) => {
                   <Form.Item name='district'>
                     <Input
                       placeholder='Village, District'
-                      defaultValue={props.data.address[0].district}
+                      initialValue={data.address[0].district}
                     />
                   </Form.Item>
                 </Col>
@@ -120,7 +188,7 @@ const HeaderEditModal = (props) => {
                   <Form.Item name='state'>
                     <Input
                       placeholder='State'
-                      defaultValue={props.data.address[0].state}
+                      initialValue={data.address[0].state}
                     />
                   </Form.Item>
                 </Col>

@@ -505,9 +505,6 @@ a {
     .image {
       height: 100%;
       width: 100%;
-      // background: #8360c3;
-      // background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
-      // background: linear-gradient(to right, #2ebf91, #8360c3);
       padding: 1em;
       @include flex-center();
       img {
@@ -558,7 +555,7 @@ a {
     }
   }
 }
-//profile page design
+//----------------------------------Profile Page-----------------------------
 .profile-page {
   section {
     width: 100%;
@@ -569,6 +566,7 @@ a {
     padding: 1em 1em 0 1em;
     .container {
       display: flex;
+      height: 39vh;
       .profile-picture {
         width: min-content;
         @include flex-center();
@@ -578,7 +576,6 @@ a {
           width: 250px;
           border-radius: 50%;
           background-size: cover;
-          // background-position: center;
         }
       }
       .profile-details {
@@ -1176,7 +1173,7 @@ a {
     }
     .top {
       padding: 1em 1em 0 1em;
-      height: 95vh;
+      height: 86vh;
       .container {
         flex-direction: column;
         height: 100%;

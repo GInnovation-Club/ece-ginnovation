@@ -1,19 +1,57 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Space } from 'antd';
+import { Form, Input, Button, Space, Spin } from 'antd';
 import {
   EditOutlined,
   CloseOutlined,
   MinusCircleOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
+import axios from 'axios';
 const AchievementEditModal = (props) => {
   const [data, setData] = useState(props.data.achievements);
+  const [spin, setSpin] = useState();
   const [form] = Form.useForm();
+  const token = localStorage.getItem('token');
+
   const onFinish = (values) => {
-    console.log(values.achievements);
+    const updatedData = {
+      achievements: values.achievements,
+    };
+    // console.log(values);
+    // console.log(token);
+    // console.log(updatedData);
+    setSpin(true);
+    axios
+      .put(
+        `https://ginnovation-server.herokuapp.com/api/profile/data`,
+        updatedData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((resp) => {
+        setSpin(false);
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          alert('Successfully Edited Data');
+          props.handleClose();
+        } else {
+          alert('Oops! There is a error');
+        }
+      })
+      .catch((err) => {
+        setSpin(false);
+        console.log(err);
+        alert('Something went wrong!');
+      });
   };
   return (
     <div className='modal-container'>
+      {spin && (
+        <div className='modal-container'>
+          <Spin size='large' />
+        </div>
+      )}
       <div className='edit-modal'>
         <h4>
           Edit Achievements <EditOutlined className='icon' />
@@ -39,7 +77,12 @@ const AchievementEditModal = (props) => {
                           label='Achievement Title'
                           name={[field.name, 'title']}
                           fieldKey={[field.fieldKey, 'title']}
-                          rules={[{ message: 'Missing sight' }]}
+                          rules={[
+                            {
+                              required: true,
+                              message: 'Please input the title!',
+                            },
+                          ]}
                         >
                           <Input />
                         </Form.Item>
@@ -49,7 +92,12 @@ const AchievementEditModal = (props) => {
                         label='Certificate Link'
                         name={[field.name, 'link']}
                         fieldKey={[field.fieldKey, 'link']}
-                        rules={[{ message: 'Missing Link' }]}
+                        rules={[
+                          {
+                            required: true,
+                            message: 'Please input the link!',
+                          },
+                        ]}
                       >
                         <Input />
                       </Form.Item>

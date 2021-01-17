@@ -41,6 +41,7 @@ const { Step } = Steps;
 //---------------------------------------------------------------------
 const ProfilePage = () => {
   const [spin, setSpin] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
   const [popConfirm, setPopConfirm] = useState(false);
@@ -52,6 +53,7 @@ const ProfilePage = () => {
   //
   const dispatch = useDispatch();
   let history = useHistory();
+  //
   const userFullName = useSelector((state) => state.userNameReducer.userName);
   const userName = userFullName.split(' ')[0];
   const customDot = (dot, { status, index }) => (
@@ -65,7 +67,6 @@ const ProfilePage = () => {
       {dot}
     </Popover>
   );
-
   //login logic
   useEffect(() => {
     setSpin(true);
@@ -81,16 +82,17 @@ const ProfilePage = () => {
       })
       .then((resp) => {
         setSpin(false);
-        // console.log(resp.data);
         setUserData(resp.data);
         localStorage.setItem('username', resp.data.fullname);
-        dispatch(userNameChange(resp.data.fullname));
+        dispatch(userNameChange(localStorage.getItem('username')));
       })
       .catch((err) => {
         setSpin(false);
         console.log(err);
       });
-  }, []);
+  }, [refreshKey]);
+
+  const userMailAddress = userData ? `mailto:${userData.email}` : '';
 
   return (
     <div>
@@ -179,15 +181,25 @@ const ProfilePage = () => {
                         <p className='education'>
                           <CrownFilled className='icon crown' />
                           {userData.education[0].semester +
+                            ' Semester' +
                             ', ' +
                             userData.education[0].branch}
                         </p>
-                        <p>
-                          <PushpinFilled className='icon' />
-                          {userData.address[0].district +
-                            ', ' +
-                            userData.address[0].state}
-                        </p>
+                        {userData.address[0].district === '' &&
+                        userData.address[0].state === '' ? (
+                          ''
+                        ) : (
+                          <p>
+                            <PushpinFilled className='icon' />
+                            {userData.address[0].district === ''
+                              ? ''
+                              : userData.address[0].district + ', '}
+
+                            {userData.address[0].state === ''
+                              ? ''
+                              : userData.address[0].state}
+                          </p>
+                        )}
                       </div>
                     </header>
                     <Row className='action-bar'>
@@ -242,7 +254,7 @@ const ProfilePage = () => {
                         </a>
                       )}
                     </div>
-                    <a href='mailto:'>
+                    <a href={userMailAddress}>
                       <button className='message'>
                         <MessageFilled className='icon' />
                         Send Message
@@ -391,6 +403,7 @@ const ProfilePage = () => {
                   data={userData}
                   handleClose={() => {
                     setHeaderEdit(false);
+                    setRefreshKey(refreshKey + 1);
                   }}
                 />
               )}
@@ -399,6 +412,7 @@ const ProfilePage = () => {
                   data={userData}
                   handleClose={() => {
                     setBioEdit(false);
+                    setRefreshKey(refreshKey + 1);
                   }}
                 />
               )}
@@ -407,6 +421,7 @@ const ProfilePage = () => {
                   data={userData}
                   handleClose={() => {
                     setAchievementEdit(false);
+                    setRefreshKey(refreshKey + 1);
                   }}
                 />
               )}
