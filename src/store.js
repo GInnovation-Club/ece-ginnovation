@@ -1,16 +1,19 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()
   : (f) => f;
+//------------------------------------------------------------------
+
+const USER_AUTH = 'USER_AUTH';
+const USER_NAME = 'USER_NAME';
+const SPIN = 'SPIN';
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
   userName: localStorage.getItem('username'),
+  spinActive: false,
 };
-const USER_AUTH = 'USER_AUTH';
-const USER_NAME = 'USER_NAME';
 
 //action
 export const authFunction = (data) => (dispatch) => {
@@ -25,7 +28,12 @@ export const userNameChange = (data) => (dispatch) => {
     payload: data,
   });
 };
-
+export const spinActivityChange = (data) => (dispatch) => {
+  dispatch({
+    type: SPIN,
+    payload: data,
+  });
+};
 //reducer
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -51,11 +59,23 @@ const userNameReducer = (state = initialState, action) => {
       return state;
   }
 };
-
+const spinReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SPIN':
+      console.log(action.payload);
+      return {
+        ...state,
+        userName: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 const store = createStore(
   combineReducers({
     loginReducer,
     userNameReducer,
+    spinReducer,
   }),
   compose(applyMiddleware(thunk), devTools)
 );

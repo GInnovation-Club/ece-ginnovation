@@ -46,12 +46,12 @@ const Login = (props) => {
           dispatch(authFunction(true));
           setPopConfirm(true);
         } else {
-          alert('Oops! There is a error');
+          message.warning('Oops! Something went wrong');
         }
       })
       .catch((err) => {
         setSpin(false);
-        alert(
+        message.error(
           err.response.data.status == 'invalid credentials'
             ? 'Invalid Credentials! Check your email and password'
             : 'Something went wrong!'

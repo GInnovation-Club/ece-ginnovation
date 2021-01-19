@@ -23,6 +23,7 @@ import axios from 'axios';
 const SkillEditModal = (props) => {
   const [spin, setSpin] = useState();
   const [data, setData] = useState(props.data.skills);
+  const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
   const token = localStorage.getItem('token');
   const onFinish = (values) => {
@@ -51,7 +52,7 @@ const SkillEditModal = (props) => {
           console.log(resp);
           if (resp.data.status === 'success') {
             alert('Successfully Edited Data');
-            props.handleClose();
+            props.handleClose(true);
           } else {
             alert('Oops! There is a error');
           }
@@ -76,7 +77,12 @@ const SkillEditModal = (props) => {
       <div className='edit-modal skill-edit-modal'>
         <h4>
           Edit Skills <EditOutlined className='icon' />
-          <CloseOutlined className='close-btn' onClick={props.handleClose} />
+          <CloseOutlined
+            className='close-btn'
+            onClick={() => {
+              props.handleClose(dataChanged);
+            }}
+          />
         </h4>
 
         <div className='form-container'>

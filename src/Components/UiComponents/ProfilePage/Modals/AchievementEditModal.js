@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //antd imports
-import { Form, Input, Button, Space, Spin } from 'antd';
+import { Form, Input, Button, Space, Spin, message } from 'antd';
 import {
   EditOutlined,
   CloseOutlined,
@@ -13,6 +13,7 @@ import axios from 'axios';
 const AchievementEditModal = (props) => {
   const [data, setData] = useState(props.data.achievements);
   const [spin, setSpin] = useState();
+  const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
   const token = localStorage.getItem('token');
 
@@ -36,16 +37,16 @@ const AchievementEditModal = (props) => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          alert('Successfully Edited Data');
-          props.handleClose();
+          message.success('Successfully Edited Data');
+          props.handleClose(true);
         } else {
-          alert('Oops! There is a error');
+          message.error('Oops! Something went wrong');
         }
       })
       .catch((err) => {
         setSpin(false);
         console.log(err);
-        alert('Something went wrong!');
+        message.error('An error occured!');
       });
   };
   return (
@@ -58,7 +59,12 @@ const AchievementEditModal = (props) => {
       <div className='edit-modal'>
         <h4>
           Edit Achievements <EditOutlined className='icon' />
-          <CloseOutlined className='close-btn' onClick={props.handleClose} />
+          <CloseOutlined
+            className='close-btn'
+            onClick={() => {
+              props.handleClose(dataChanged);
+            }}
+          />
         </h4>
 
         <div className='form-container'>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 //antd imports
-import { Form, Input, Button, Spin } from 'antd';
+import { Form, Input, Button, Spin, message } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
 //axios
 import axios from 'axios';
+import EditOperation from '../EditOperation';
 //
 const layout = {
   labelCol: { span: 8 },
@@ -13,15 +14,16 @@ const token = localStorage.getItem('token');
 //-----------------------------------------------------------------------
 const BioEditModal = (props) => {
   const [spin, setSpin] = useState(false);
+  const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
   //
   const onFinish = (values) => {
+    setSpin(true);
+    setDataChanged(true);
     const updatedData = {
       biodata: values.bio,
     };
-    console.log(token);
-    console.log(updatedData);
-    setSpin(true);
+    // EditOperation(updatedData);
     axios
       .put(
         `https://ginnovation-server.herokuapp.com/api/profile/data`,
@@ -34,16 +36,16 @@ const BioEditModal = (props) => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          alert('Successfully Edited Data');
-          props.handleClose();
+          message.success('Successfully Edited Data');
+          props.handleClose(true);
         } else {
-          alert('Oops! There is a error');
+          message.warning('Oops! Something went wrong');
         }
       })
       .catch((err) => {
         setSpin(false);
         console.log(err.response);
-        alert('Something went wrong!');
+        message.error('Ouch! An error ocured');
       });
   };
   //
@@ -57,7 +59,12 @@ const BioEditModal = (props) => {
       <div className='edit-modal'>
         <h4>
           Edit Your Bio <EditOutlined className='icon' />
-          <CloseOutlined className='close-btn' onClick={props.handleClose} />
+          <CloseOutlined
+            className='close-btn'
+            onClick={() => {
+              props.handleClose(dataChanged);
+            }}
+          />
         </h4>
 
         <div className='form-container'>

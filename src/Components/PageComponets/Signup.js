@@ -83,13 +83,13 @@ const Signup = () => {
           message.success('Registration Complete');
           setPopConfirm(true);
         } else {
-          alert('Oops! There is a error');
+          message.warning('Oops! Something went wrong');
         }
       })
       .catch((err) => {
         setSpin(false);
         console.log(err.response);
-        alert(err.response.data.message);
+        message.error(err.response.data.message);
       });
   };
 

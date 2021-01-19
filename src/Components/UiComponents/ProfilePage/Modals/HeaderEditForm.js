@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //antd imports
-import { Form, Input, Button, Row, Col, Select, Spin } from 'antd';
+import { Form, Input, Button, Row, Col, Select, Spin, message } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
 //axios
 import axios from 'axios';
@@ -22,6 +22,7 @@ const branches = [
 //-------------------------------------------------------------------
 const HeaderEditModal = (props) => {
   const [spin, setSpin] = useState(false);
+  const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
   const data = props.data;
   const token = localStorage.getItem('token');
@@ -67,16 +68,16 @@ const HeaderEditModal = (props) => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          alert('Successfully Edited Data');
-          props.handleClose();
+          message.success('Successfully Edited Data');
+          props.handleClose(true);
         } else {
-          alert('Oops! There is a error');
+          message.warning('Oops! Something went wrong');
         }
       })
       .catch((err) => {
         setSpin(false);
         console.log(err);
-        alert('Something went wrong!');
+        message.error('Ouch! An error occured');
       });
   };
 
@@ -90,7 +91,12 @@ const HeaderEditModal = (props) => {
       <div className='edit-modal'>
         <h4>
           Edit Your Details <EditOutlined className='icon' />
-          <CloseOutlined className='close-btn' onClick={props.handleClose} />
+          <CloseOutlined
+            className='close-btn'
+            onClick={() => {
+              props.handleClose(dataChanged);
+            }}
+          />
         </h4>
 
         <div className='form-container'>

@@ -577,6 +577,8 @@ a {
           width: 250px;
           border-radius: 50%;
           background-size: cover;
+          border: 10px solid $white;
+          box-shadow: -10px -10px 15px #c6efff, 10px 10px 15px #c6efff;
         }
       }
       .profile-details {
@@ -594,7 +596,7 @@ a {
             span {
               padding: 0.1em 0.5em;
               margin-right: 0.3em;
-              background-color: lightgray;
+              background-color: rgb(255, 255, 255);
               border: 1px solid gray;
               opacity: 0.5;
             }
@@ -670,20 +672,12 @@ a {
           position: absolute;
           top: 50%;
           right: 0;
-          width: 160px;
+          width: 170px;
           transform: translateY(-50%);
           @include flex-center();
         }
         .edit-btn {
-          border-radius: 0;
-          border: none;
-          background-color: $white;
-          position: absolute;
           top: 35%;
-          right: 0;
-          width: 160px;
-          transform: translateY(-50%);
-          @include flex-center();
         }
       }
     }
@@ -743,14 +737,14 @@ a {
           width: 100%;
           padding: 0.3em;
           @include flex-center();
-          border-radius: 0 0 17px 17px;
-          background-color: #cccccc;
+          background-color: $pink;
           cursor: pointer;
         }
       }
     }
   }
   .skills {
+    padding-top: 0.5em;
     .container {
       position: relative;
       .fresh-achievement {
@@ -780,7 +774,6 @@ a {
           background-color: $smoke;
           padding: 1em;
           margin-bottom: 1em;
-          border-radius: 25px;
           .content {
             padding-left: 0.5em;
             .header {
@@ -983,6 +976,7 @@ a {
   }
   .more-achievement-modal {
     .achievement-bar {
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1003,6 +997,12 @@ a {
   }
 }
 //global
+.ant-message {
+  z-index: 999999999999999;
+  .ant-message-custom-content {
+    @include align-center();
+  }
+}
 .modal-container {
   position: absolute;
   top: 0;
@@ -1291,8 +1291,8 @@ a {
             }
           }
           .message {
-            top: 50%;
-            right: -30%;
+            top: 55%;
+            right: -35%;
             transform: rotate(90deg);
           }
           .edit-btn {
@@ -1326,8 +1326,16 @@ a {
         .skill-container {
           .skill-card {
             height: auto;
-            p {
-              height: auto;
+            .content {
+              .header {
+                flex-direction: column;
+                h5 {
+                  margin-bottom: 0.5em;
+                }
+              }
+              p {
+                height: auto;
+              }
             }
           }
         }
