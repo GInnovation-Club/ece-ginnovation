@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ece-ginnovation/static/css/main.95b2935e.chunk.css",
-    "main.js": "/ece-ginnovation/static/js/main.0a8a0054.chunk.js",
-    "main.js.map": "/ece-ginnovation/static/js/main.0a8a0054.chunk.js.map",
+    "main.css": "/ece-ginnovation/static/css/main.c3bfca25.chunk.css",
+    "main.js": "/ece-ginnovation/static/js/main.0ec80c9a.chunk.js",
+    "main.js.map": "/ece-ginnovation/static/js/main.0ec80c9a.chunk.js.map",
     "runtime-main.js": "/ece-ginnovation/static/js/runtime-main.9a030dfe.js",
     "runtime-main.js.map": "/ece-ginnovation/static/js/runtime-main.9a030dfe.js.map",
     "static/css/2.e24bce36.chunk.css": "/ece-ginnovation/static/css/2.e24bce36.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.bcaaf3e9.chunk.js.map": "/ece-ginnovation/static/js/3.bcaaf3e9.chunk.js.map",
     "index.html": "/ece-ginnovation/index.html",
     "static/css/2.e24bce36.chunk.css.map": "/ece-ginnovation/static/css/2.e24bce36.chunk.css.map",
-    "static/css/main.95b2935e.chunk.css.map": "/ece-ginnovation/static/css/main.95b2935e.chunk.css.map",
+    "static/css/main.c3bfca25.chunk.css.map": "/ece-ginnovation/static/css/main.c3bfca25.chunk.css.map",
     "static/js/2.eace0e74.chunk.js.LICENSE.txt": "/ece-ginnovation/static/js/2.eace0e74.chunk.js.LICENSE.txt",
     "static/media/alertPop.50da1a61.png": "/ece-ginnovation/static/media/alertPop.50da1a61.png",
     "static/media/bg1.9decca57.jpg": "/ece-ginnovation/static/media/bg1.9decca57.jpg",
@@ -36,7 +36,7 @@
     "static/js/runtime-main.9a030dfe.js",
     "static/css/2.e24bce36.chunk.css",
     "static/js/2.eace0e74.chunk.js",
-    "static/css/main.95b2935e.chunk.css",
-    "static/js/main.0a8a0054.chunk.js"
+    "static/css/main.c3bfca25.chunk.css",
+    "static/js/main.0ec80c9a.chunk.js"
   ]
 }
