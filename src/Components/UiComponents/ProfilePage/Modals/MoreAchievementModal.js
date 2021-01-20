@@ -14,7 +14,7 @@ const MoreAchievementModal = (props) => {
         <Row gutter={12}>
           {props.data.map((value, index) => {
             return (
-              <Col md={12} sm={24} className='achievement-bar-container'>
+              <Col md={12} className='achievement-bar-container'>
                 <div className='achievement-bar'>
                   <p>{value.title}</p>
                   <a href={value.link} target='_blank' rel='noreferrer'>

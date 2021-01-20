@@ -26,7 +26,11 @@ const ProfileTop = (props) => {
       <div className='container'>
         {
           <div className='profile-picture'>
-            <div style={{ backgroundImage: `url(${dp})` }} className='dp'></div>
+            <div style={{ backgroundImage: `url(${dp})` }} className='dp'>
+              <button className='img-edit'>
+                <EditOutlined />
+              </button>
+            </div>
           </div>
         }
         <div className='profile-details'>

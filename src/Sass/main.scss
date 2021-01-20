@@ -573,12 +573,24 @@ a {
         @include flex-center();
         margin: 1em 0;
         .dp {
+          position: relative;
           height: 250px;
           width: 250px;
           border-radius: 50%;
           background-size: cover;
           border: 10px solid $white;
           box-shadow: -10px -10px 15px #c6efff, 10px 10px 15px #c6efff;
+          .img-edit {
+            position: absolute;
+            bottom: 3%;
+            right: 3%;
+            background-color: $white;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            @include flex-center();
+            border: 1px solid $dark-fade;
+          }
         }
       }
       .profile-details {
@@ -975,23 +987,26 @@ a {
     width: 1000px;
   }
   .more-achievement-modal {
-    .achievement-bar {
+    .achievement-bar-container {
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: $smoke;
-      padding: 0.3em;
-      background-color: $primary-color;
-      margin-bottom: 1em;
-      a {
-        @include align-center();
-        .icon {
-          margin-left: 0.5em;
+      .achievement-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $smoke;
+        padding: 0.3em;
+        background-color: $primary-color;
+        margin-bottom: 1em;
+        a {
+          @include align-center();
+          .icon {
+            margin-left: 0.5em;
+          }
         }
-      }
-      * {
-        margin: 0;
+        * {
+          margin: 0;
+        }
       }
     }
   }
@@ -1242,15 +1257,19 @@ a {
     }
     .top {
       padding: 1em 1em 0 1em;
-      height: 86vh;
+      height: 630px;
       .container {
         flex-direction: column;
         height: 100%;
         .profile-picture {
           margin: 1em auto;
           .dp {
-            height: 130px;
-            width: 130px;
+            height: 150px;
+            width: 150px;
+            .img-edit {
+              bottom: 0;
+              right: 0;
+            }
           }
         }
         .profile-details {
@@ -1285,26 +1304,21 @@ a {
           }
           .social-media {
             width: 100%;
+            justify-content: center;
             img {
-              width: 30%;
-              margin: 0 0.2em;
+              width: 35%;
+              margin: 0 0em;
             }
           }
           .message {
-            top: 55%;
-            right: -35%;
-            transform: rotate(90deg);
+            top: 50%;
+            right: 50%;
+            transform: translateX(50%);
           }
           .edit-btn {
-            border-radius: 0;
-            border: none;
-            background-color: $white;
-            position: absolute;
             top: 30%;
-            right: -10%;
-            width: 40px;
-            transform: translateY(-50%);
-            @include flex-center();
+            right: 0;
+            width: 50px;
           }
         }
       }

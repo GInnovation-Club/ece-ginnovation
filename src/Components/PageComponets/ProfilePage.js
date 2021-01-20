@@ -32,7 +32,7 @@ const ProfilePage = () => {
   const [refreshKey, setRefreshKey] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
-  const [logoutConfirmation, setLogoutConfirmation] = useState(false);
+  const [confirmLogout, setConfirmLogout] = useState(false);
   const [moreAchievements, setMoreAchievements] = useState(false);
   //edit modals
   const [headerEdit, setHeaderEdit] = useState(false);
@@ -85,6 +85,11 @@ const ProfilePage = () => {
 
   return (
     <div>
+      {spin && (
+        <div className='modal-container'>
+          <Spin size='large' />
+        </div>
+      )}
       {loggedIn ? (
         <div className='profile-page'>
           {userData ? (
@@ -115,21 +120,9 @@ const ProfilePage = () => {
                   setSkillEdit(true);
                 }}
               />
+
               {/* ----------------------------------------- */}
-              {spin && (
-                <div className='modal-container'>
-                  <Spin size='large' />
-                </div>
-              )}
-              {logoutConfirmation ? (
-                <LogoutConfirmation
-                  openModal={(value) => {
-                    setLogoutConfirmation(value);
-                  }}
-                />
-              ) : (
-                ''
-              )}
+
               {moreAchievements && (
                 <MoreAchievementModal
                   data={userData.achievements}
@@ -178,6 +171,13 @@ const ProfilePage = () => {
           ) : (
             <ProfileError />
           )}
+          {confirmLogout && (
+            <LogoutConfirmation
+              openModal={(value) => {
+                setConfirmLogout(value);
+              }}
+            />
+          )}
           <ul className='more-options'>
             <motion.li
               initial={{ x: 300 }}
@@ -185,7 +185,7 @@ const ProfilePage = () => {
               transition={{ delay: 0.5 }}
               className='logout'
               onClick={() => {
-                setLogoutConfirmation(true);
+                setConfirmLogout(true);
               }}
             >
               <LogoutOutlined />
