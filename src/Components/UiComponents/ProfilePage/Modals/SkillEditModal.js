@@ -1,16 +1,6 @@
 import React, { useState } from 'react';
 //antd imports
-import {
-  Form,
-  Input,
-  Button,
-  Row,
-  Col,
-  Space,
-  Rate,
-  Spin,
-  message,
-} from 'antd';
+import { Form, Input, Button, Row, Col, Space, Rate, Spin } from 'antd';
 import {
   EditOutlined,
   CloseOutlined,
@@ -33,7 +23,7 @@ const SkillEditModal = (props) => {
 
     if (values.skills.length < 2) {
       alert('You have to atleast add 2 of your best skills');
-    } else if (values.skills.length == 3) {
+    } else if (values.skills.length === 3) {
       alert('You have to add 4 of your best skills');
     } else if (values.skills.length > 4) {
       alert('More than 4! Please add your top 4 skills');

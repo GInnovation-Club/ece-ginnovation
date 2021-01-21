@@ -42,11 +42,13 @@ const ProfileTop = (props) => {
                 : 'Your Designation goes Here'}
             </h6>
             <div className='role'>
-              <span className={data.role === 'Student' && 'active'}>
+              <span className={data.role === 'Student' ? 'active' : ''}>
                 Student
               </span>
-              <span className={data.role === 'Mentor' && 'active'}>Mentor</span>
-              <span className={data.role === 'Teacher' && 'active'}>
+              <span className={data.role === 'Mentor' ? 'active' : ''}>
+                Mentor
+              </span>
+              <span className={data.role === 'Teacher' ? 'active' : ''}>
                 Teacher
               </span>
             </div>

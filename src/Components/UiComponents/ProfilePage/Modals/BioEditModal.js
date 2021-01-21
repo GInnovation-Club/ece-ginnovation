@@ -4,7 +4,6 @@ import { Form, Input, Button, Spin, message } from 'antd';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
 //axios
 import axios from 'axios';
-import EditOperation from '../EditOperation';
 //
 const layout = {
   labelCol: { span: 8 },

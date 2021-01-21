@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 //bootstrap imports
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 //antd imports
 import { Avatar } from 'antd';
 import { LoginOutlined } from '@ant-design/icons';
 //router imports
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //redux
-import { useSelector, useDispatch } from 'react-redux';
-import { authFunction } from '../../../store';
+import { useSelector } from 'react-redux';
 //assets import
 import logo from '../../../assets/logo.png';
 //-------------------------------------------------------------------------
 const Navigation = () => {
-  const [popConfirm, setPopConfirm] = useState(false);
   const auth = useSelector((state) => state.loginReducer.isAuth);
   const userFullName = useSelector((state) => state.userNameReducer.userName);
   const userName = userFullName.split(' ')[0];
   const userIcon = userName.charAt(0);
-  const dispatch = useDispatch();
-  let history = useHistory();
   return (
     <>
       <Navbar bg='light' expand='lg' sticky='top' className='navigation'>

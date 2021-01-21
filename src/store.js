@@ -38,7 +38,6 @@ export const spinActivityChange = (data) => (dispatch) => {
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_AUTH':
-      console.log(action.payload);
       return {
         ...state,
         isAuth: action.payload,
@@ -50,7 +49,6 @@ const loginReducer = (state = initialState, action) => {
 const userNameReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_NAME':
-      console.log(action.payload);
       return {
         ...state,
         userName: action.payload,
@@ -62,7 +60,6 @@ const userNameReducer = (state = initialState, action) => {
 const spinReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SPIN':
-      console.log(action.payload);
       return {
         ...state,
         userName: action.payload,

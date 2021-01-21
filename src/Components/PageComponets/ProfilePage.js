@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 //antd imports
-import { Steps, Popover, Spin, message } from 'antd';
+import { Steps, Spin } from 'antd';
 //icons import
 import { LogoutOutlined } from '@ant-design/icons';
 //redux
 import { useDispatch, useSelector } from 'react-redux';
-import { authFunction, userNameChange } from '../../store';
+import { userNameChange } from '../../store';
 //components import
-import ProfileProjectSwiper from '../UiComponents/CommonUiComponents/VideoSwiper';
+// import ProfileProjectSwiper from '../UiComponents/CommonUiComponents/VideoSwiper';
 import HeaderEditModal from '../UiComponents/ProfilePage/Modals/HeaderEditForm';
 import BioEditModal from '../UiComponents/ProfilePage/Modals/BioEditModal';
 import AchievementEditModal from '../UiComponents/ProfilePage/Modals/AchievementEditModal';
@@ -24,8 +24,9 @@ import BioAchievement from '../SectionComponents/Profile/BioAchievement';
 import Skills from '../SectionComponents/Profile/Skills';
 import ProfileError from '../UiComponents/ProfilePage/ProfileError';
 import LogoutConfirmation from '../UiComponents/ProfilePage/LogoutConfirmation';
+import ProfileBlog from '../SectionComponents/Profile/ProfileBlog';
 //
-const { Step } = Steps;
+// const { Step } = Steps;
 //---------------------------------------------------------------------
 const ProfilePage = () => {
   const [spin, setSpin] = useState(false);
@@ -44,22 +45,22 @@ const ProfilePage = () => {
   //
   const userFullName = useSelector((state) => state.userNameReducer.userName);
   const userName = userFullName.split(' ')[0];
-  const customDot = (dot, { status, index }) => (
-    <Popover
-      content={
-        <span>
-          step {index} status: {status}
-        </span>
-      }
-    >
-      {dot}
-    </Popover>
-  );
+  // const customDot = (dot, { status, index }) => (
+  //   <Popover
+  //     content={
+  //       <span>
+  //         step {index} status: {status}
+  //       </span>
+  //     }
+  //   >
+  //     {dot}
+  //   </Popover>
+  // );
   //login logic
   useEffect(() => {
     setSpin(true);
     const token = localStorage.getItem('token');
-    if (token == null) {
+    if (token === null) {
       setLoggedIn(false);
     } else {
       setLoggedIn(true);
@@ -71,7 +72,6 @@ const ProfilePage = () => {
       .then((resp) => {
         setSpin(false);
         setUserData(resp.data);
-        console.log(resp.data);
         localStorage.setItem('username', resp.data.fullname);
         dispatch(userNameChange(localStorage.getItem('username')));
       })
@@ -120,6 +120,7 @@ const ProfilePage = () => {
                   setSkillEdit(true);
                 }}
               />
+              <ProfileBlog username={userName} />
 
               {/* ----------------------------------------- */}
 

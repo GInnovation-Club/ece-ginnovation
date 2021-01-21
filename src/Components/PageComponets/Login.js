@@ -23,12 +23,12 @@ const Login = (props) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token == null) {
+    if (token === null) {
       setShowLogin(true);
     } else {
       setShowLogin(false);
     }
-  });
+  }, []);
 
   const onFinish = (values) => {
     setSpin(true);
@@ -41,7 +41,7 @@ const Login = (props) => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          message.success('LogIn Successful');
+          alert('LogIn Successful');
           localStorage.setItem('token', resp.data.token);
           dispatch(authFunction(true));
           setPopConfirm(true);

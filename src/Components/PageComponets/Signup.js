@@ -64,7 +64,7 @@ const Signup = () => {
     } else {
       setShowLogin(false);
     }
-  });
+  }, []);
 
   const onFinish = (values) => {
     setSpin(true);
@@ -80,7 +80,7 @@ const Signup = () => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          message.success('Registration Complete');
+          alert('Registration Complete');
           setPopConfirm(true);
         } else {
           message.warning('Oops! Something went wrong');
