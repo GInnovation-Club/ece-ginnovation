@@ -16,7 +16,7 @@ const ProfileBlog = (props) => {
   return (
     <section className='blogs'>
       <div className='container'>
-        <h4>Blogs by {props.username}</h4>
+        <h4 className='section-head'>Blogs by {props.username}</h4>
         <Row gutter={12} className='blog-container'>
           <Col md={8}>
             <div className='blog-card'>
@@ -103,10 +103,10 @@ const ProfileBlog = (props) => {
             </div>
           </Col>
         </Row>
-        <div className='edit-btn add'>
+        <div className='edit-btn type2 add'>
           <PlusOutlined onClick={() => setAddBlog(true)} />
         </div>
-        <div className='edit-btn'>
+        <div className='edit-btn type2'>
           <EditOutlined />
         </div>
       </div>

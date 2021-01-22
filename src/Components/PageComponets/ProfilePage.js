@@ -7,7 +7,6 @@ import { LogoutOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { userNameChange } from '../../store';
 //components import
-// import ProfileProjectSwiper from '../UiComponents/CommonUiComponents/VideoSwiper';
 import HeaderEditModal from '../UiComponents/ProfilePage/Modals/HeaderEditForm';
 import BioEditModal from '../UiComponents/ProfilePage/Modals/BioEditModal';
 import AchievementEditModal from '../UiComponents/ProfilePage/Modals/AchievementEditModal';
@@ -25,6 +24,7 @@ import Skills from '../SectionComponents/Profile/Skills';
 import ProfileError from '../UiComponents/ProfilePage/ProfileError';
 import LogoutConfirmation from '../UiComponents/ProfilePage/LogoutConfirmation';
 import ProfileBlog from '../SectionComponents/Profile/ProfileBlog';
+import ProfileProject from '../SectionComponents/Profile/ProfileProject';
 //
 // const { Step } = Steps;
 //---------------------------------------------------------------------
@@ -120,6 +120,7 @@ const ProfilePage = () => {
                   setSkillEdit(true);
                 }}
               />
+              <ProfileProject username={userName} />
               <ProfileBlog username={userName} />
 
               {/* ----------------------------------------- */}
@@ -201,18 +202,7 @@ const ProfilePage = () => {
 };
 export default ProfilePage;
 {
-  /* <section className='projects'>
-                <div className='container'>
-                  <h4>Projects done by {userName}</h4>
-                  <ProfileProjectSwiper />
-                  <center>
-                    <button>
-                      <EditOutlined className='icon' />
-                      Edit
-                    </button>
-                  </center>
-                </div>
-              </section>
+  /*
               <section className='performance'>
                 <div className='container'>
                   <h4>{userName}'s Performance</h4>

@@ -13,7 +13,7 @@ const Skills = (props) => {
       <div className='container'>
         {data.skills.length !== 0 ? (
           <>
-            <h4>{props.username}'s Skills</h4>
+            <h4 className='section-head'>{props.username}'s Skills</h4>
             <Row className='skill-container'>
               {data.skills.map((value, index) => {
                 return (
@@ -27,7 +27,7 @@ const Skills = (props) => {
                 );
               })}
             </Row>
-            <div className='edit-btn' onClick={props.openModal}>
+            <div className='edit-btn type2' onClick={props.openModal}>
               <EditOutlined />
             </div>
           </>

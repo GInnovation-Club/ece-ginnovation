@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
 //components import
-import ProjectCard from './ProfilePage/ProjectCard';
+import ProjectCard from './ProjectCard';
 //----------------------------------------------------------------
 const ProfileProjectSwiper = () => {
   SwiperCore.use([Autoplay]);
@@ -23,18 +23,14 @@ const ProfileProjectSwiper = () => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
     }
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  // console.log(windowDimensions.width);
   return (
     <Swiper
       spaceBetween={50}
       slidesPerView={windowDimensions.width < 600 ? 1 : 3}
-      // onSlideChange={() => console.log('slide change')}
       loop={true}
-      // onSwiper={(swiper) => console.log(swiper)}
       autoplay={{
         delay: 2000,
         disableOnInteraction: false,
@@ -42,7 +38,10 @@ const ProfileProjectSwiper = () => {
       className='swiper'
     >
       <SwiperSlide>
-        <ProjectCard />
+        <ProjectCard src='https://www.youtube.com/embed/1JxImoxlq_Q' />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ProjectCard src='https://www.youtube.com/embed/JU0zEznezZ4' />
       </SwiperSlide>
     </Swiper>
   );

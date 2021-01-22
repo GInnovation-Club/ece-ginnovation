@@ -1,7 +1,7 @@
 // ---Imports---
 @import '~bootstrap/scss/bootstrap';
 @import 'antd/dist/antd.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap');
 //mixins
 @mixin flex-center {
   display: flex;
@@ -45,6 +45,7 @@
 //colors
 $primary-color: #ec615b;
 $blue: #5222d0;
+$dark-purple: #4d375d;
 $white: #fff;
 $smoke: #ebebfd;
 $pink: #f9d9eb;
@@ -59,6 +60,7 @@ $deep-sky: #10a3ff;
 $light-green: #7fd6c2;
 $light-yellow: #f6e049;
 $success-green: #82d135;
+$pesta: #ccedd2;
 $alert: #fd9a40;
 //others
 $mobile-break-point: 600px;
@@ -575,10 +577,24 @@ a {
 }
 //----------------------------------Profile Page-----------------------------
 .profile-page {
+  //----------------common styles------------------------
   section {
     width: 100%;
     margin: 1em auto;
+    .container {
+      position: relative;
+    }
   }
+  h4.section-head {
+    margin-bottom: 1em;
+    background-color: $pink;
+    color: $dark-fade;
+    padding: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+  }
+  //-----------Individual section stylings-----------------
+  //---top section----
   .top {
     background-color: $light-sky;
     padding: 1em 1em 0 1em;
@@ -711,6 +727,7 @@ a {
       }
     }
   }
+  //---about section----
   .about-section {
     .container {
       h4 {
@@ -766,16 +783,16 @@ a {
           width: 100%;
           padding: 0.3em;
           @include flex-center();
-          background-color: $pink;
+          background-color: $pesta;
           cursor: pointer;
         }
       }
     }
   }
+  //---skills section----
   .skills {
     padding-top: 0.5em;
     .container {
-      position: relative;
       .fresh-achievement {
         height: 150px;
         width: 100%;
@@ -794,9 +811,7 @@ a {
         }
       }
       h4 {
-        border-bottom: 3px solid $primary-color;
-        padding: 0.3em;
-        margin-bottom: 1em;
+        background-color: $pink;
       }
       .skill-container {
         .skill-card {
@@ -829,16 +844,13 @@ a {
       }
     }
   }
+  //---profile project section----
   .projects {
     background-color: transparent;
+    padding-top: 0;
     .container {
-      position: relative;
       h4 {
-        margin-bottom: 1em;
-        background-color: $primary-color;
-        color: $white;
-        padding: 0.3em;
-        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+        background-color: $pesta;
       }
       button {
         border-radius: 0;
@@ -851,8 +863,13 @@ a {
           opacity: 1;
         }
       }
+      .profile-project-cards {
+        background-color: $pesta;
+        padding: 0.5em;
+      }
     }
   }
+  //---profile performance section----
   .performance {
     .container {
       h4 {
@@ -884,26 +901,17 @@ a {
       }
     }
   }
+  //---profile blog section----
   .blogs {
     .container {
-      position: relative;
       h4 {
-        border: 3px solid $primary-color;
-        background-color: $primary-color;
-        color: $smoke;
-        padding: 0.3em;
-        margin-bottom: 1em;
-        text-transform: uppercase;
+        background-color: $light-blue;
       }
-      .edit-btn {
-        background-color: $smoke;
-        right: 2%;
-      }
-      .edit-btn.add {
-        right: 6%;
-      }
+      //blog-card styling is global
     }
   }
+  //-------------------Global Stylings for Profile--------------------
+
   .more-options {
     position: absolute;
     bottom: 0;
@@ -918,25 +926,6 @@ a {
       @include flex-center();
       transition: color 1s ease;
       cursor: pointer;
-    }
-    li.edit {
-      border: 2px solid $dark-fade;
-      color: $dark-fade;
-      &::before {
-        content: 'Edit';
-        position: absolute;
-        left: -40px;
-        color: $light-fade;
-        opacity: 0;
-        transition: all 1s ease;
-      }
-      &:hover {
-        background-color: $dark-fade;
-        color: $white;
-        &::before {
-          opacity: 1;
-        }
-      }
     }
     li.logout {
       border: 2px solid #d84b4b;
@@ -974,11 +963,18 @@ a {
       background-color: $smoke;
     }
   }
+  .edit-btn.type2 {
+    background-color: $smoke;
+    right: 2%;
+  }
+  .edit-btn.edit-btn.type2.add {
+    right: 6%;
+  }
+  //---------Profile Edit Modal----------------
   .edit-modal {
     background-color: $white;
     width: 800px;
     padding: 1em;
-
     h4 {
       padding-bottom: 0.5em;
       border-bottom: 2px solid $light-green;
@@ -1009,9 +1005,11 @@ a {
       background-color: $smoke;
     }
   }
+  //profile-skill-edit
   .skill-edit-modal {
     width: 1000px;
   }
+  //profile-more-achievements
   .more-achievement-modal {
     .achievement-bar-container {
       width: 100%;
@@ -1037,7 +1035,8 @@ a {
     }
   }
 }
-//global
+//***********************Project Global Stlings***********************//
+//----Blog Card Design
 .blog-container {
   .blog-card {
     padding: 0.5em;
@@ -1099,13 +1098,17 @@ a {
     }
   }
 }
+//---------Global ANTD Clearance---------------
 .ant-message {
   z-index: 999999999999999;
   .ant-message-custom-content {
     @include align-center();
   }
 }
-//modal
+.ant-select-dropdown {
+  z-index: 9999999;
+}
+//---------Global Modal Stylings---------------
 .modal-container {
   position: absolute;
   top: 0;
@@ -1179,10 +1182,7 @@ a {
     }
   }
 }
-.ant-select-dropdown {
-  z-index: 9999999;
-}
-//global
+//***********************Project Global Stlings End***********************//
 // error page
 .error-page {
   height: 85vh;
@@ -1349,12 +1349,17 @@ a {
       }
     }
   }
-  //profile page design
+  //--------------Profile Pagae Media Query------------------------
   .profile-page {
+    //---global------------
     section {
       width: 100%;
       margin: 1em auto;
     }
+    h4.section-head {
+      text-align: left;
+    }
+    //----Individual-----------
     .top {
       padding: 1em 1em 0 1em;
       height: 630px;
@@ -1457,11 +1462,6 @@ a {
     }
     .projects {
       padding: 0;
-      .container {
-        h4 {
-          text-align: center;
-        }
-      }
     }
     .performance {
       .container {
@@ -1473,13 +1473,9 @@ a {
     .blogs {
       .container {
         margin-bottom: 5em;
-        h4 {
-          font-size: 1.2em;
-          text-align: center;
-        }
         .edit-btn {
           background-color: $smoke;
-          right: 70%;
+          right: 75%;
           top: 100%;
           transform: translateX(70%);
           margin-top: 1em;
@@ -1488,9 +1484,8 @@ a {
         }
         .edit-btn.add {
           transform: translateX(30%);
-          right: 30%;
+          right: 25%;
           top: 100%;
-          margin-left: 1em;
         }
       }
     }

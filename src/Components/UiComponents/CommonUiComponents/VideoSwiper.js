@@ -8,6 +8,7 @@ import { Avatar } from 'antd';
 import { PlayCircleOutlined } from '@ant-design/icons';
 //assets import
 import projectDemo from '../../../assets/project-demo.jpg';
+import ProjectCard from '../ProfilePage/ProjectCard';
 
 const VideoSwiper = () => {
   SwiperCore.use([Autoplay]);
@@ -39,174 +40,49 @@ const VideoSwiper = () => {
     <Swiper
       spaceBetween={50}
       slidesPerView={windowDimensions.width < 600 ? 1 : 3}
-      // onSlideChange={() => console.log('slide change')}
       loop={true}
-      // onSwiper={(swiper) => console.log(swiper)}
       autoplay={{
         delay: 2000,
-        disableOnInteraction: false,
+        disableOnInteraction: true,
       }}
+      allowTouchMove={true}
+      grabCursor={true}
       className='swiper'
     >
       <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
+        <ProjectCard
+          onMouseEnter={() => Swiper.autoplay.stop()}
+          onMouseLeave={() => Swiper.autoplay.start()}
+          src='https://www.youtube.com/embed/1JxImoxlq_Q'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
+        <ProjectCard
+          onMouseEnter={() => Swiper.autoplay.stop()}
+          onMouseLeave={() => Swiper.autoplay.start()}
+          src='https://www.youtube.com/embed/JU0zEznezZ4'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
+        <ProjectCard
+          onMouseEnter={() => Swiper.autoplay.stop()}
+          onMouseLeave={() => Swiper.autoplay.start()}
+          src='https://www.youtube.com/embed/1JxImoxlq_Q'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
+        <ProjectCard
+          onMouseEnter={() => Swiper.autoplay.stop()}
+          onMouseLeave={() => Swiper.autoplay.start()}
+          src='https://www.youtube.com/embed/JU0zEznezZ4'
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='video-cards'>
-          <div className='card-info'>
-            <div className='img' style={imgStyle}>
-              <PlayCircleOutlined className='play' />
-            </div>
-            <div className='name'>
-              <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>
-                P
-              </Avatar>
-              <h6>Team Pistons</h6>
-            </div>
-            <h4>How to make a spyder robot</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been
-            </p>
-          </div>
-        </div>
+        <ProjectCard
+          onMouseEnter={() => Swiper.autoplay.stop()}
+          onMouseLeave={() => Swiper.autoplay.start()}
+          src='https://www.youtube.com/embed/1JxImoxlq_Q'
+        />
       </SwiperSlide>
     </Swiper>
   );

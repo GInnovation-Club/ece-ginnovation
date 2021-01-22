@@ -41,7 +41,7 @@ const Login = (props) => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          alert('LogIn Successful');
+          message.success('LogIn Successful');
           localStorage.setItem('token', resp.data.token);
           dispatch(authFunction(true));
           setPopConfirm(true);

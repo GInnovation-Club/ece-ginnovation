@@ -1,12 +1,12 @@
 import React from 'react';
 //-----------------------------------------------------------------
-const ProjectCard = () => {
+const ProjectCard = (props) => {
   return (
     <div className='profile-project-cards'>
       <iframe
-        width='350'
-        height='190'
-        src='https://www.youtube.com/embed/1JxImoxlq_Q'
+        width='320'
+        height='180'
+        src={props.src}
         frameBorder='0'
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
         allowFullscreen
