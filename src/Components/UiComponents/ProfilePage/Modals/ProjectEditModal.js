@@ -16,35 +16,37 @@ const ProjectEditModal = (props) => {
   const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
   const token = localStorage.getItem('token');
+  const data = props.data;
 
   const onFinish = (values) => {
     const updatedData = {
       projects: values.projects,
     };
-    // setSpin(true);
-    // axios
-    //   .put(
-    //     `https://ginnovation-server.herokuapp.com/api/profile/data`,
-    //     updatedData,
-    //     {
-    //       headers: { Authorization: `Bearer ${token}` },
-    //     }
-    //   )
-    //   .then((resp) => {
-    //     setSpin(false);
-    //     console.log(resp);
-    //     if (resp.data.status === 'success') {
-    //       message.success('Successfully Edited Data');
-    //       props.handleClose(true);
-    //     } else {
-    //       message.error('Oops! Something went wrong');
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     setSpin(false);
-    //     console.log(err);
-    //     message.error('An error occured!');
-    //   });
+    setDataChanged(true);
+    setSpin(true);
+    axios
+      .put(
+        `https://ginnovation-server.herokuapp.com/api/profile/data`,
+        updatedData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((resp) => {
+        setSpin(false);
+        console.log(resp);
+        if (resp.data.status === 'success') {
+          message.success('Successfully Edited Data');
+          props.handleClose(true);
+        } else {
+          message.error('Oops! Something went wrong');
+        }
+      })
+      .catch((err) => {
+        setSpin(false);
+        console.log(err);
+        message.error('An error occured!');
+      });
   };
   return (
     <div className='modal-container'>
@@ -67,7 +69,7 @@ const ProjectEditModal = (props) => {
         <div className='form-container'>
           <Form
             form={form}
-            // initialValues={{ projects: data }}
+            initialValues={{ projects: data }}
             name='dynamic_form_nest_item'
             onFinish={onFinish}
             autoComplete='off'

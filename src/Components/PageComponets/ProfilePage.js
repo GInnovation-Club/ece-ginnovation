@@ -25,6 +25,7 @@ import ProfileError from '../UiComponents/ProfilePage/ProfileError';
 import LogoutConfirmation from '../UiComponents/ProfilePage/LogoutConfirmation';
 import ProfileBlog from '../SectionComponents/Profile/ProfileBlog';
 import ProfileProject from '../SectionComponents/Profile/ProfileProject';
+import ProjectEditModal from '../UiComponents/ProfilePage/Modals/ProjectEditModal';
 //
 // const { Step } = Steps;
 //---------------------------------------------------------------------
@@ -33,6 +34,7 @@ const ProfilePage = () => {
   const [refreshKey, setRefreshKey] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
+  const [sessionExpired, setsessionExpired] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [moreAchievements, setMoreAchievements] = useState(false);
   //edit modals
@@ -40,22 +42,14 @@ const ProfilePage = () => {
   const [bioEdit, setBioEdit] = useState(false);
   const [achievementEdit, setAchievementEdit] = useState(false);
   const [skillEdit, setSkillEdit] = useState(false);
+  const [projectEdit, setprojectEdit] = useState(false);
   //
   const dispatch = useDispatch();
   //
   const userFullName = useSelector((state) => state.userNameReducer.userName);
+  const tempToken = useSelector((state) => state.tempTokenReducer.tempToken);
   const userName = userFullName.split(' ')[0];
-  // const customDot = (dot, { status, index }) => (
-  //   <Popover
-  //     content={
-  //       <span>
-  //         step {index} status: {status}
-  //       </span>
-  //     }
-  //   >
-  //     {dot}
-  //   </Popover>
-  // );
+
   //login logic
   useEffect(() => {
     setSpin(true);
@@ -77,7 +71,9 @@ const ProfilePage = () => {
       })
       .catch((err) => {
         setSpin(false);
-        console.log(err);
+        if (err.response.data.status == 'invalid') {
+          setsessionExpired(true);
+        }
       });
   }, [refreshKey]);
 
@@ -120,7 +116,13 @@ const ProfilePage = () => {
                   setSkillEdit(true);
                 }}
               />
-              <ProfileProject username={userName} />
+              <ProfileProject
+                username={userName}
+                data={userData}
+                openModal={() => {
+                  setprojectEdit(true);
+                }}
+              />
               <ProfileBlog username={userName} />
 
               {/* ----------------------------------------- */}
@@ -169,10 +171,21 @@ const ProfilePage = () => {
                   }}
                 />
               )}
+              {projectEdit && (
+                <ProjectEditModal
+                  data={userData.projects}
+                  handleClose={(changed) => {
+                    setprojectEdit(false);
+                    // changed && setRefreshKey(refreshKey + 1);
+                    window.location.reload();
+                  }}
+                />
+              )}
             </>
           ) : (
-            <ProfileError />
+            ''
           )}
+          {sessionExpired && <ProfileError />}
           {confirmLogout && (
             <LogoutConfirmation
               openModal={(value) => {
@@ -180,19 +193,23 @@ const ProfilePage = () => {
               }}
             />
           )}
-          <ul className='more-options'>
-            <motion.li
-              initial={{ x: 300 }}
-              animate={{ x: 0 }}
-              transition={{ delay: 0.5 }}
-              className='logout'
-              onClick={() => {
-                setConfirmLogout(true);
-              }}
-            >
-              <LogoutOutlined />
-            </motion.li>
-          </ul>
+          {sessionExpired ? (
+            ''
+          ) : (
+            <ul className='more-options'>
+              <motion.li
+                initial={{ x: 300 }}
+                animate={{ x: 0 }}
+                transition={{ delay: 0.5 }}
+                className='logout'
+                onClick={() => {
+                  setConfirmLogout(true);
+                }}
+              >
+                <LogoutOutlined />
+              </motion.li>
+            </ul>
+          )}
         </div>
       ) : (
         <Redirect to='/ece-ginnovation' />

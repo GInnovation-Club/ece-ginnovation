@@ -3,14 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
-//antd import
-import { Avatar } from 'antd';
-import { PlayCircleOutlined } from '@ant-design/icons';
 //assets import
-import projectDemo from '../../../assets/project-demo.jpg';
-import ProjectCard from '../ProfilePage/ProjectCard';
+import VideoCard from '../../UiComponents/HomePage/VideoCard';
 
-const VideoSwiper = (props) => {
+const FeaturedVideoSwiper = (props) => {
   SwiperCore.use([Autoplay]);
   function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -31,8 +27,6 @@ const VideoSwiper = (props) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  const data = props.data;
   return (
     <Swiper
       spaceBetween={50}
@@ -46,20 +40,22 @@ const VideoSwiper = (props) => {
       grabCursor={true}
       className='swiper'
     >
-      {data.map((value, index) => {
-        const link = value.link;
-        const embedLink = [
-          link.slice(0, 13),
-          'be.com/embed/',
-          link.slice(17),
-        ].join('');
-        return (
-          <SwiperSlide>
-            <ProjectCard src={embedLink} key={index} />
-          </SwiperSlide>
-        );
-      })}
+      <SwiperSlide>
+        <VideoCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <VideoCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <VideoCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <VideoCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <VideoCard />
+      </SwiperSlide>
     </Swiper>
   );
 };
-export default VideoSwiper;
+export default FeaturedVideoSwiper;
