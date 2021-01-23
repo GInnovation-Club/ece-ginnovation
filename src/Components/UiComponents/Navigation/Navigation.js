@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 //antd imports
 import { Avatar } from 'antd';
-import { LoginOutlined } from '@ant-design/icons';
+import { CodepenOutlined, LoginOutlined } from '@ant-design/icons';
 //router imports
 import { Link } from 'react-router-dom';
 //redux
@@ -14,15 +14,20 @@ import logo from '../../../assets/logo.png';
 const Navigation = () => {
   const [userDisplayName, setUserDisplayName] = useState('');
   const [userIcon, setuserIcon] = useState('');
-  const userFullName = useSelector((state) => state.userNameReducer.userName);
+  const userFullNamee = useSelector((state) => state.userNameReducer.userName);
+  console.log('start nav', userDisplayName);
+
   useEffect(() => {
+    const userFullName = userFullNamee;
     if (userFullName !== null) {
       const userName = userFullName.split(' ')[0];
       setUserDisplayName(userName);
       const icon = userName.charAt(0);
       setuserIcon(icon);
     }
-  }, []);
+  }, [userFullNamee]);
+
+  console.log('Username at nav', userDisplayName);
   const auth = useSelector((state) => state.loginReducer.isAuth);
   return (
     <>

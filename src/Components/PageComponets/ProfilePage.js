@@ -35,7 +35,7 @@ const ProfilePage = () => {
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
   const [userName, setUserName] = useState();
-  const [sessionExpired, setsessionExpired] = useState(false);
+  const [sessionActive, setSessionActive] = useState(true);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [moreAchievements, setMoreAchievements] = useState(false);
   //edit modals
@@ -68,11 +68,13 @@ const ProfilePage = () => {
         setUserData(resp.data);
         setUserName(resp.data.fullname);
         localStorage.setItem('username', resp.data.fullname);
+        dispatch(userNameChange(resp.data.fullname));
+        console.log('username at profilepage', resp.data.fullname);
       })
       .catch((err) => {
         setSpin(false);
         if (err.response.data.status == 'invalid') {
-          setsessionExpired(true);
+          setSessionActive(false);
         }
       });
   }, [refreshKey]);
@@ -88,7 +90,7 @@ const ProfilePage = () => {
       )}
       {loggedIn ? (
         <div className='profile-page'>
-          {userData ? (
+          {userData && sessionActive && (
             <>
               <ProfileTop
                 data={userData}
@@ -182,10 +184,8 @@ const ProfilePage = () => {
                 />
               )}
             </>
-          ) : (
-            ''
           )}
-          {sessionExpired && <ProfileError />}
+          {sessionActive ? '' : <ProfileError />}
           {confirmLogout && (
             <LogoutConfirmation
               openModal={(value) => {
@@ -193,9 +193,7 @@ const ProfilePage = () => {
               }}
             />
           )}
-          {sessionExpired ? (
-            ''
-          ) : (
+          {sessionActive && (
             <ul className='more-options'>
               <motion.li
                 initial={{ x: 300 }}
