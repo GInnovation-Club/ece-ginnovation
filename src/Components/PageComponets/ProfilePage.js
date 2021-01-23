@@ -34,6 +34,7 @@ const ProfilePage = () => {
   const [refreshKey, setRefreshKey] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
+  const [userName, setUserName] = useState();
   const [sessionExpired, setsessionExpired] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [moreAchievements, setMoreAchievements] = useState(false);
@@ -46,9 +47,8 @@ const ProfilePage = () => {
   //
   const dispatch = useDispatch();
   //
-  const userFullName = useSelector((state) => state.userNameReducer.userName);
-  const tempToken = useSelector((state) => state.tempTokenReducer.tempToken);
-  const userName = userFullName.split(' ')[0];
+  // const userFullName = useSelector((state) => state.userNameReducer.userName);
+  // const userName = userFullName.split(' ')[0];
 
   //login logic
   useEffect(() => {
@@ -66,8 +66,8 @@ const ProfilePage = () => {
       .then((resp) => {
         setSpin(false);
         setUserData(resp.data);
+        setUserName(resp.data.fullname);
         localStorage.setItem('username', resp.data.fullname);
-        dispatch(userNameChange(localStorage.getItem('username')));
       })
       .catch((err) => {
         setSpin(false);

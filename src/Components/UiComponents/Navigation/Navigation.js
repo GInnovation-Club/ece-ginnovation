@@ -12,17 +12,18 @@ import { useSelector } from 'react-redux';
 import logo from '../../../assets/logo.png';
 //-------------------------------------------------------------------------
 const Navigation = () => {
-  const [userName, setuserName] = useState('user name');
-  const auth = useSelector((state) => state.loginReducer.isAuth);
-  const getUserName = localStorage.getItem('username');
+  const [userDisplayName, setUserDisplayName] = useState('');
+  const [userIcon, setuserIcon] = useState('');
+  const userFullName = useSelector((state) => state.userNameReducer.userName);
   useEffect(() => {
-    if (getUserName !== null) {
-      setuserName(getUserName);
+    if (userFullName !== null) {
+      const userName = userFullName.split(' ')[0];
+      setUserDisplayName(userName);
+      const icon = userName.charAt(0);
+      setuserIcon(icon);
     }
   }, []);
-  // const userFullName = useSelector((state) => state.userNameReducer.userName);
-  const userFirstName = userName.split(' ')[0];
-  const userIcon = userFirstName.charAt(0);
+  const auth = useSelector((state) => state.loginReducer.isAuth);
   return (
     <>
       <Navbar bg='light' expand='lg' sticky='top' className='navigation'>
@@ -43,7 +44,7 @@ const Navigation = () => {
                 >
                   {userIcon}
                 </Avatar>
-                {userName}
+                {userDisplayName}
               </Nav.Link>
             )}
 

@@ -21,7 +21,7 @@ const LogoutConfirmation = (props) => {
             onClick={() => {
               dispatch(authFunction(false));
               localStorage.removeItem('token');
-              localStorage.setItem('username', 'Username');
+              localStorage.setItem('username', 'User Name');
               history.push('/ece-ginnovation');
               props.openModal(false);
             }}

@@ -11,7 +11,7 @@ const TOKEN = 'TOKEN';
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
-  userName: 'asdf',
+  userName: localStorage.getItem('username'),
   tempToken: null,
 };
 
