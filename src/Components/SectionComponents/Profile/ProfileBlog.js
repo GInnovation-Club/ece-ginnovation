@@ -103,10 +103,10 @@ const ProfileBlog = (props) => {
             </div>
           </Col>
         </Row>
-        <div className='edit-btn type2 add'>
+        <div className='edit-btn add'>
           <PlusOutlined onClick={() => setAddBlog(true)} />
         </div>
-        <div className='edit-btn type2'>
+        <div className='edit-btn'>
           <EditOutlined />
         </div>
       </div>

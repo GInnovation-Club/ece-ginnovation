@@ -1357,6 +1357,14 @@ a {
     section {
       width: 100%;
       margin: 1em auto;
+      .container {
+        .edit-btn.type2 {
+          height: 30px;
+          width: 30px;
+          top: 0.6%;
+          right: 5%;
+        }
+      }
     }
     h4.section-head {
       text-align: left;
@@ -1364,7 +1372,7 @@ a {
     //----Individual-----------
     .top {
       padding: 1em 1em 0 1em;
-      height: 630px;
+      height: 650px;
       .container {
         flex-direction: column;
         height: 100%;
@@ -1418,7 +1426,7 @@ a {
             }
           }
           .message {
-            top: 50%;
+            top: 53%;
             right: 50%;
             transform: translateX(50%);
           }
@@ -1464,6 +1472,11 @@ a {
     }
     .projects {
       padding: 0;
+      .container {
+        .edit-btn.type2 {
+          top: 2%;
+        }
+      }
     }
     .performance {
       .container {
@@ -1508,6 +1521,7 @@ a {
       }
     }
   }
+
   //global
   .modal-container {
     overflow-y: scroll;
