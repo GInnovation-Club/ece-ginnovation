@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 //bootstrap imports
 import { Navbar, Nav } from 'react-bootstrap';
 //antd imports
@@ -12,10 +12,17 @@ import { useSelector } from 'react-redux';
 import logo from '../../../assets/logo.png';
 //-------------------------------------------------------------------------
 const Navigation = () => {
+  const [userName, setuserName] = useState('user name');
   const auth = useSelector((state) => state.loginReducer.isAuth);
-  const userFullName = useSelector((state) => state.userNameReducer.userName);
-  const userName = userFullName.split(' ')[0];
-  const userIcon = userName.charAt(0);
+  const getUserName = localStorage.getItem('username');
+  useEffect(() => {
+    if (getUserName !== null) {
+      setuserName(getUserName);
+    }
+  }, []);
+  // const userFullName = useSelector((state) => state.userNameReducer.userName);
+  const userFirstName = userName.split(' ')[0];
+  const userIcon = userFirstName.charAt(0);
   return (
     <>
       <Navbar bg='light' expand='lg' sticky='top' className='navigation'>

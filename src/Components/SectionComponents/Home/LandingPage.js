@@ -41,7 +41,7 @@ const LandingPage = () => {
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries
             </motion.p>
-            <Link to='/ece-ginnovation/login'>
+            <Link to='/ece-ginnovation/signup'>
               <motion.button
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
