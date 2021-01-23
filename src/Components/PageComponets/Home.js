@@ -14,6 +14,7 @@ const Home = () => {
   useEffect(() => {
     Aos.init({ duration: 600 });
   }, []);
+
   return (
     <>
       <LandingPage />

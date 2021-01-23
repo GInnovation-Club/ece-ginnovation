@@ -7,12 +7,12 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
 
 const USER_AUTH = 'USER_AUTH';
 const USER_NAME = 'USER_NAME';
-const SPIN = 'SPIN';
+const TOKEN = 'TOKEN';
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
   userName: localStorage.getItem('username'),
-  spinActive: false,
+  tempToken: null,
 };
 
 //action
@@ -28,9 +28,9 @@ export const userNameChange = (data) => (dispatch) => {
     payload: data,
   });
 };
-export const spinActivityChange = (data) => (dispatch) => {
+export const tempTokenChange = (data) => (dispatch) => {
   dispatch({
-    type: SPIN,
+    type: TOKEN,
     payload: data,
   });
 };
@@ -57,9 +57,9 @@ const userNameReducer = (state = initialState, action) => {
       return state;
   }
 };
-const spinReducer = (state = initialState, action) => {
+const tempTokenReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SPIN':
+    case 'TOKEN':
       return {
         ...state,
         userName: action.payload,
@@ -72,7 +72,7 @@ const store = createStore(
   combineReducers({
     loginReducer,
     userNameReducer,
-    spinReducer,
+    tempTokenReducer,
   }),
   compose(applyMiddleware(thunk), devTools)
 );

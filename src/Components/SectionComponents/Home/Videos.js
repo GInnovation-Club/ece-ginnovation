@@ -1,6 +1,6 @@
 import React from 'react';
+import FeaturedVideoSwiper from '../../UiComponents/HomePage/FeaturedVideoSwiper';
 //componets import
-import VideoSwiper from '../../UiComponents/CommonUiComponents/VideoSwiper';
 //----------------------------------------------------------------
 const Videos = () => {
   return (
@@ -9,7 +9,7 @@ const Videos = () => {
       <div className='square'></div>
       <div className='square-border'></div>
       <div>
-        <VideoSwiper />
+        <FeaturedVideoSwiper />
       </div>
     </section>
   );

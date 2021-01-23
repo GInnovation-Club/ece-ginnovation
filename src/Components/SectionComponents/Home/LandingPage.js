@@ -8,6 +8,7 @@ import GrowAnimation from '../../AnimationComponents/GrowAnimation';
 import FbIcon from '../../../assets/Icons/facebook.png';
 import IgIcon from '../../../assets/Icons/instagram.png';
 import YtIcon from '../../../assets/Icons/youtube.png';
+import { Link } from 'react-router-dom';
 //--------------------------------------------------------------------------
 const LandingPage = () => {
   return (
@@ -40,14 +41,16 @@ const LandingPage = () => {
               type and scrambled it to make a type specimen book. It has
               survived not only five centuries
             </motion.p>
-            <motion.button
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className='btn1'
-            >
-              Join Now
-            </motion.button>
+            <Link to='/ece-ginnovation/login'>
+              <motion.button
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.8 }}
+                className='btn1'
+              >
+                Join Now
+              </motion.button>
+            </Link>
           </header>
         </Col>
         <Col md={6}>

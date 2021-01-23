@@ -435,6 +435,8 @@ a {
         margin-bottom: 1em;
         position: relative;
         @include flex-center();
+        z-index: 9;
+        cursor: pointer;
         .play {
           color: $white;
           font-size: 3em;
