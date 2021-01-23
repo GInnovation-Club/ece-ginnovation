@@ -1,7 +1,7 @@
 // ---Imports---
 @import '~bootstrap/scss/bootstrap';
 @import 'antd/dist/antd.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap');
 //mixins
 @mixin flex-center {
   display: flex;
@@ -24,10 +24,28 @@
     color: rgba(59, 59, 59, 0.705);
   }
 }
+@mixin scrollBarStyle {
+  padding-right: 0.3em;
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $primary-color;
+  }
+}
 //------variables
 //colors
 $primary-color: #ec615b;
 $blue: #5222d0;
+$dark-purple: #4d375d;
 $white: #fff;
 $smoke: #ebebfd;
 $pink: #f9d9eb;
@@ -42,6 +60,7 @@ $deep-sky: #10a3ff;
 $light-green: #7fd6c2;
 $light-yellow: #f6e049;
 $success-green: #82d135;
+$pesta: #ccedd2;
 $alert: #fd9a40;
 //others
 $mobile-break-point: 600px;
@@ -91,9 +110,16 @@ button {
     outline: transparent;
   }
 }
+a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
 //common class styles
 .icon {
-  margin: 0 0.2em;
+  margin: 0 0.3em;
 }
 .trans-btn {
   border: none;
@@ -499,15 +525,22 @@ button {
     .image {
       height: 100%;
       width: 100%;
-      // background: #8360c3;
-      // background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
-      // background: linear-gradient(to right, #2ebf91, #8360c3);
       padding: 1em;
       @include flex-center();
       img {
         width: 80%;
         margin: auto;
       }
+    }
+    .image.login {
+      background: #8360c3;
+      background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);
+      background: linear-gradient(to right, #2ebf91, #8360c3);
+    }
+    .image.signup {
+      background: #00f260;
+      background: -webkit-linear-gradient(to right, #00f260, #0575e6);
+      background: linear-gradient(to right, #00f260, #0575e6);
     }
     .col-div {
       padding: 0;
@@ -542,27 +575,55 @@ button {
     }
   }
 }
-//profile page design
+//----------------------------------Profile Page-----------------------------
 .profile-page {
+  //----------------common styles------------------------
   section {
     width: 100%;
     margin: 1em auto;
+    .container {
+      position: relative;
+    }
   }
+  h4.section-head {
+    margin-bottom: 1em;
+    background-color: $pink;
+    color: $dark-fade;
+    padding: 0.3em;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+  }
+  //-----------Individual section stylings-----------------
+  //---top section----
   .top {
     background-color: $light-sky;
     padding: 1em 1em 0 1em;
     .container {
       display: flex;
+      height: 39vh;
       .profile-picture {
         width: min-content;
         @include flex-center();
         margin: 1em 0;
         .dp {
+          position: relative;
           height: 250px;
           width: 250px;
           border-radius: 50%;
           background-size: cover;
-          // background-position: center;
+          border: 10px solid $white;
+          box-shadow: -10px -10px 15px #c6efff, 10px 10px 15px #c6efff;
+          .img-edit {
+            position: absolute;
+            bottom: 3%;
+            right: 3%;
+            background-color: $white;
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            @include flex-center();
+            border: 1px solid $dark-fade;
+          }
         }
       }
       .profile-details {
@@ -580,7 +641,7 @@ button {
             span {
               padding: 0.1em 0.5em;
               margin-right: 0.3em;
-              background-color: lightgray;
+              background-color: rgb(255, 255, 255);
               border: 1px solid gray;
               opacity: 0.5;
             }
@@ -639,8 +700,14 @@ button {
           top: 0;
           right: 0;
           img {
-            width: 11%;
+            width: 25px;
             margin: 0 0.2em;
+          }
+        }
+        .fresh-social-media {
+          img {
+            filter: grayscale(1);
+            opacity: 0.5;
           }
         }
         .message {
@@ -650,12 +717,17 @@ button {
           position: absolute;
           top: 50%;
           right: 0;
+          width: 170px;
           transform: translateY(-50%);
           @include flex-center();
+        }
+        .edit-btn {
+          top: 35%;
         }
       }
     }
   }
+  //---about section----
   .about-section {
     .container {
       h4 {
@@ -670,14 +742,32 @@ button {
       .bio {
         border: 1px solid #cccccc;
         padding: 1em;
+        height: 100%;
+        position: relative;
         p {
           color: $fade;
+        }
+      }
+      .fresh-bio {
+        height: 130px;
+        @include flex-center();
+        header {
+          text-align: center;
+          opacity: 0.6;
+          p {
+            margin-bottom: 0.1em;
+          }
+          .fresh-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+          }
         }
       }
       .achievements {
         border: 1px solid #cccccc;
         height: 100%;
         padding: 0.5em;
+        position: relative;
         .achievement {
           display: flex;
           justify-content: space-between;
@@ -686,60 +776,100 @@ button {
           margin-bottom: 0.3em;
           padding: 0 0.2em;
         }
+        .more-btn {
+          position: absolute;
+          bottom: -10%;
+          left: 0;
+          width: 100%;
+          padding: 0.3em;
+          @include flex-center();
+          background-color: $pesta;
+          cursor: pointer;
+        }
       }
     }
   }
+  //---skills section----
   .skills {
+    padding-top: 0.5em;
     .container {
+      .fresh-achievement {
+        height: 150px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        @include flex-center();
+        header {
+          text-align: center;
+          opacity: 0.6;
+          p {
+            margin-bottom: 0.1em;
+          }
+          .fresh-icon {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+          }
+        }
+      }
       h4 {
-        border-bottom: 3px solid $primary-color;
-        padding: 0.3em;
-        margin-bottom: 1em;
+        background-color: $pink;
       }
       .skill-container {
-        display: flex;
-        justify-content: space-around;
         .skill-card {
           background-color: $smoke;
           padding: 1em;
           margin-bottom: 1em;
-          border-radius: 25px;
-          height: 270px;
-          .header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5em;
-            h5 {
-              margin: 0;
-            }
-            .icon-container {
+          .content {
+            padding-left: 0.5em;
+            .header {
               display: flex;
-              align-items: center;
-              .icon {
-                color: #ff6900;
+              justify-content: space-between;
+              margin-bottom: 0.5em;
+              h5 {
+                margin: 0;
+              }
+              .icon-container {
+                display: flex;
+                align-items: center;
+                .icon {
+                  color: #ff6900;
+                }
               }
             }
-          }
-          p {
-            height: 150px;
-            color: $fade;
+            p {
+              height: 40px;
+              color: $fade;
+            }
           }
         }
       }
     }
   }
+  //---profile project section----
   .projects {
     background-color: transparent;
+    padding-top: 0;
     .container {
       h4 {
-        margin-bottom: 1em;
-        background-color: $primary-color;
-        color: $white;
-        padding: 0.3em;
-        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+        background-color: $pesta;
+      }
+      button {
+        border-radius: 0;
+        border: 1px solid $light-fade;
+        margin-top: 1em;
+        @include align-center();
+        width: 100%;
+        opacity: 0.5;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .profile-project-cards {
+        background-color: $pesta;
+        padding: 0.5em;
       }
     }
   }
+  //---profile performance section----
   .performance {
     .container {
       h4 {
@@ -771,30 +901,225 @@ button {
       }
     }
   }
+  //---profile blog section----
   .blogs {
     .container {
       h4 {
-        margin-bottom: 2em;
-        background-color: $light-green;
+        background-color: $light-blue;
+      }
+      //blog-card styling is global
+    }
+  }
+  //-------------------Global Stylings for Profile--------------------
+
+  .more-options {
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    position: fixed;
+    list-style: none;
+    li {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin-bottom: 0.5em;
+      @include flex-center();
+      transition: color 1s ease;
+      cursor: pointer;
+    }
+    li.logout {
+      border: 2px solid #d84b4b;
+      color: #d84b4b;
+      &::before {
+        content: 'Logout';
+        position: absolute;
+        left: -30px;
+        transform: translateX(-30px);
+        color: $light-fade;
+        opacity: 0;
+        transition: all 1s ease;
+      }
+      &:hover {
+        background-color: #d84b4b;
         color: $white;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .edit-btn {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 1px solid $smoke;
+    @include flex-center();
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    transition: all 1s ease;
+    cursor: pointer;
+    &:hover {
+      background-color: $smoke;
+    }
+  }
+  .edit-btn.type2 {
+    background-color: $smoke;
+    right: 2%;
+  }
+  .edit-btn.edit-btn.type2.add {
+    right: 6%;
+  }
+  //---------Profile Edit Modal----------------
+  .edit-modal {
+    background-color: $white;
+    width: 800px;
+    padding: 1em;
+    h4 {
+      padding-bottom: 0.5em;
+      border-bottom: 2px solid $light-green;
+      margin-bottom: 1em;
+      color: $fade;
+      @include align-center();
+      position: relative;
+    }
+    .form-container {
+      width: 100%;
+      .ant-row {
+        padding-bottom: 0 !important;
+      }
+    }
+    .btn-container {
+      text-align: right;
+    }
+    .close-btn {
+      position: absolute;
+      top: 50%;
+      right: 2%;
+      transform: translateY(-50%);
+      font-size: 0.5em;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      @include flex-center();
+      background-color: $smoke;
+    }
+  }
+  //profile-skill-edit
+  .skill-edit-modal {
+    width: 1000px;
+  }
+  //profile-more-achievements
+  .more-achievement-modal {
+    .achievement-bar-container {
+      width: 100%;
+      .achievement-bar {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $smoke;
         padding: 0.3em;
-        box-shadow: 10px 10px 22px 0 rgba(102, 102, 102, 0.37);
+        background-color: $primary-color;
+        margin-bottom: 1em;
+        a {
+          @include align-center();
+          .icon {
+            margin-left: 0.5em;
+          }
+        }
+        * {
+          margin: 0;
+        }
       }
     }
   }
 }
-//global
+//***********************Project Global Stlings***********************//
+//----Blog Card Design
+.blog-container {
+  .blog-card {
+    padding: 0.5em;
+    background: linear-gradient(145deg, #ebebeb, #ffffff);
+    // box-shadow: 15px 15px 30px #d9d9d9, -15px -15px 30px #ffffff;
+    border: 1px solid rgb(212, 212, 212);
+    .card-top {
+      height: 150px;
+      background-image: url('../assets/project-demo.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      span {
+        background-color: $primary-color;
+        color: $white;
+        position: absolute;
+        padding: 0.2em 0.5em;
+      }
+      span.about {
+        bottom: 0;
+        left: 0;
+      }
+      span.date {
+        top: 1%;
+        right: 1%;
+        border-radius: 50%;
+        text-align: center;
+        height: 40px;
+        width: 40px;
+        font-size: 0.7em;
+      }
+    }
+    .card-content {
+      padding: 0.5em 1em;
+      .sub-heading {
+        color: #eb4b35;
+      }
+      .content {
+        color: $fade;
+        height: auto;
+      }
+    }
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      span {
+        @include align-center();
+        color: $light-fade;
+      }
+      button {
+        padding: 0 0.5em;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        &:hover {
+          background-color: $primary-color;
+          color: $smoke;
+        }
+      }
+    }
+  }
+}
+//---------Global ANTD Clearance---------------
+.ant-message {
+  z-index: 999999999999999;
+  .ant-message-custom-content {
+    @include align-center();
+  }
+}
+.ant-select-dropdown {
+  z-index: 9999999;
+}
+//---------Global Modal Stylings---------------
 .modal-container {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   backdrop-filter: blur(3px);
   @include flex-center();
-  z-index: 9999;
+  z-index: 99999;
   .ant-spin-dot-item {
     background-color: $white;
   }
@@ -844,8 +1169,51 @@ button {
       }
     }
   }
+  .full-article-modal {
+    width: 800px;
+    .blog-card {
+      .card-content {
+        .content {
+          max-height: 300px;
+          overflow: auto;
+          @include scrollBarStyle();
+        }
+      }
+    }
+  }
 }
-//global
+//***********************Project Global Stlings End***********************//
+// error page
+.error-page {
+  height: 85vh;
+  width: 100%;
+  @include flex-center();
+  header {
+    text-align: center;
+    .container {
+      width: 70%;
+      margin: auto;
+    }
+    h1 {
+      color: $primary-color;
+    }
+    h2 {
+      color: $deep-sky;
+      text-transform: uppercase;
+    }
+    p {
+      color: $dark-fade;
+    }
+    button {
+      border: 1px solid $deep-sky;
+      color: $deep-sky;
+      &:hover {
+        background-color: $deep-sky;
+        color: $white;
+      }
+    }
+  }
+}
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
 //-------------------media query for responsive design--------------------
@@ -981,23 +1349,32 @@ button {
       }
     }
   }
-  //profile page design
+  //--------------Profile Pagae Media Query------------------------
   .profile-page {
+    //---global------------
     section {
       width: 100%;
       margin: 1em auto;
     }
+    h4.section-head {
+      text-align: left;
+    }
+    //----Individual-----------
     .top {
       padding: 1em 1em 0 1em;
-      height: 95vh;
+      height: 630px;
       .container {
         flex-direction: column;
         height: 100%;
         .profile-picture {
           margin: 1em auto;
           .dp {
-            height: 130px;
-            width: 130px;
+            height: 150px;
+            width: 150px;
+            .img-edit {
+              bottom: 0;
+              right: 0;
+            }
           }
         }
         .profile-details {
@@ -1015,7 +1392,7 @@ button {
                 margin-bottom: 0.3em;
                 @include flex-center();
               }
-              .crown {
+              .education {
                 display: none;
               }
             }
@@ -1032,15 +1409,21 @@ button {
           }
           .social-media {
             width: 100%;
+            justify-content: center;
             img {
-              width: 8%;
-              margin: 0 0.2em;
+              width: 35%;
+              margin: 0 0em;
             }
           }
           .message {
             top: 50%;
-            right: -30%;
-            transform: rotate(90deg);
+            right: 50%;
+            transform: translateX(50%);
+          }
+          .edit-btn {
+            top: 30%;
+            right: 0;
+            width: 50px;
           }
         }
       }
@@ -1062,8 +1445,16 @@ button {
         .skill-container {
           .skill-card {
             height: auto;
-            p {
-              height: auto;
+            .content {
+              .header {
+                flex-direction: column;
+                h5 {
+                  margin-bottom: 0.5em;
+                }
+              }
+              p {
+                height: auto;
+              }
             }
           }
         }
@@ -1071,11 +1462,6 @@ button {
     }
     .projects {
       padding: 0;
-      .container {
-        h4 {
-          text-align: center;
-        }
-      }
     }
     .performance {
       .container {
@@ -1084,9 +1470,45 @@ button {
         }
       }
     }
+    .blogs {
+      .container {
+        margin-bottom: 5em;
+        .edit-btn {
+          background-color: $smoke;
+          right: 75%;
+          top: 100%;
+          transform: translateX(70%);
+          margin-top: 1em;
+          width: 100px;
+          border-radius: 0;
+        }
+        .edit-btn.add {
+          transform: translateX(30%);
+          right: 25%;
+          top: 100%;
+        }
+      }
+    }
+    .more-options {
+      li.edit {
+        background-color: $dark-fade;
+        color: $white;
+        &::before {
+          content: '';
+        }
+      }
+      li.logout {
+        background-color: #d84b4b;
+        color: $white;
+        &::before {
+          content: '';
+        }
+      }
+    }
   }
   //global
   .modal-container {
+    overflow-y: scroll;
     .pop-confirm {
       padding: 1em 0;
       width: 95%;
@@ -1097,6 +1519,23 @@ button {
     .pop-confirm.registration {
       width: 95%;
     }
+    .edit-modal {
+      width: 95%;
+      margin: auto;
+    }
   }
   //global
+  // error page
+  .error-page {
+    height: 90vh;
+    header {
+      .container {
+        width: 90%;
+        margin: auto;
+      }
+      h2 {
+        font-size: 0.8em;
+      }
+    }
+  }
 }

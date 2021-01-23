@@ -1,16 +1,20 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()
   : (f) => f;
+//------------------------------------------------------------------
+
+const USER_AUTH = 'USER_AUTH';
+const USER_NAME = 'USER_NAME';
+const SPIN = 'SPIN';
 
 const initialState = {
   isAuth: localStorage.getItem('token'),
-  name: 'Ashutosh Bisoyi',
+  userName: localStorage.getItem('username'),
+  spinActive: false,
 };
 
-const USER_AUTH = 'USER_AUTH';
 //action
 export const authFunction = (data) => (dispatch) => {
   dispatch({
@@ -18,11 +22,22 @@ export const authFunction = (data) => (dispatch) => {
     payload: data,
   });
 };
-
+export const userNameChange = (data) => (dispatch) => {
+  dispatch({
+    type: USER_NAME,
+    payload: data,
+  });
+};
+export const spinActivityChange = (data) => (dispatch) => {
+  dispatch({
+    type: SPIN,
+    payload: data,
+  });
+};
+//reducer
 const loginReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'USER_AUTH':
-      console.log(action.payload);
       return {
         ...state,
         isAuth: action.payload,
@@ -31,18 +46,33 @@ const loginReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const userReducer = (state = initialState, action) => {
+const userNameReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'USER_NAME':
+      return {
+        ...state,
+        userName: action.payload,
+      };
     default:
       return state;
   }
 };
-
+const spinReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SPIN':
+      return {
+        ...state,
+        userName: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 const store = createStore(
   combineReducers({
     loginReducer,
-    userReducer,
+    userNameReducer,
+    spinReducer,
   }),
   compose(applyMiddleware(thunk), devTools)
 );

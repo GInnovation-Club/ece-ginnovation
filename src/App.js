@@ -1,13 +1,18 @@
 import React from 'react';
+//router imports
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//sass imports
 import '../src/Sass/main.scss';
-import Home from './PageComponets/Home';
-import Navigation from './UiComponents/Navigation';
-import Login from './PageComponets/Login';
-import ProfilePage from './PageComponets/ProfilePage';
-import Signup from './PageComponets/Signup';
-import { Provider } from 'react-redux';
+//redux
 import store from './store';
+import { Provider } from 'react-redux';
+//components import
+import Home from './Components/PageComponets/Home';
+import Navigation from './Components/UiComponents/Navigation/Navigation';
+import Login from './Components/PageComponets/Login';
+import ProfilePage from './Components/PageComponets/ProfilePage';
+import Signup from './Components/PageComponets/Signup';
+import Error from './Components/PageComponets/Error';
 function App() {
   return (
     <Provider store={store}>
@@ -23,6 +28,7 @@ function App() {
               path='/ece-ginnovation/profile'
               component={ProfilePage}
             />
+            <Route component={Error} />
           </Switch>
         </Router>
       </div>
