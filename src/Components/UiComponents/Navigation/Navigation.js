@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 //bootstrap imports
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 //antd imports
 import { Avatar } from 'antd';
-import { CodepenOutlined, LoginOutlined } from '@ant-design/icons';
+import { LoginOutlined } from '@ant-design/icons';
 //router imports
 import { Link } from 'react-router-dom';
 //redux
@@ -15,7 +15,6 @@ const Navigation = () => {
   const [userDisplayName, setUserDisplayName] = useState('');
   const [userIcon, setuserIcon] = useState('');
   const userFullNamee = useSelector((state) => state.userNameReducer.userName);
-  console.log('start nav', userDisplayName);
 
   useEffect(() => {
     const userFullName = userFullNamee;
@@ -26,8 +25,6 @@ const Navigation = () => {
       setuserIcon(icon);
     }
   }, [userFullNamee]);
-
-  console.log('Username at nav', userDisplayName);
   const auth = useSelector((state) => state.loginReducer.isAuth);
   return (
     <>
@@ -38,6 +35,21 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
+            <NavDropdown title='About' id='basic-nav-dropdown'>
+              <NavDropdown.Item
+                as={Link}
+                to='/ece-ginnovation/about/developers'
+              >
+                About Developers
+              </NavDropdown.Item>
+              {/* <NavDropdown.Item href='#action/3.1'>
+                About Core Team
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href='#action/3.4'>
+                About Ginnovation
+              </NavDropdown.Item> */}
+            </NavDropdown>
             {auth && (
               <Nav.Link as={Link} to='/ece-ginnovation/profile'>
                 <Avatar
@@ -52,17 +64,6 @@ const Navigation = () => {
                 {userDisplayName}
               </Nav.Link>
             )}
-
-            {/* {auth && (
-              <Nav.Link
-                as={Link}
-                onClick={() => {
-                  setPopConfirm(true);
-                }}
-              >
-                <LogoutOutlined className='icon' /> LogOut
-              </Nav.Link>
-            )} */}
             {auth ? (
               ''
             ) : (

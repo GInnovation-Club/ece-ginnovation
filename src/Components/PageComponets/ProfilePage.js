@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 //antd imports
-import { Steps, Spin } from 'antd';
+import { Spin } from 'antd';
 //icons import
 import { LogoutOutlined } from '@ant-design/icons';
 //redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userNameChange } from '../../store';
 //components import
 import HeaderEditModal from '../UiComponents/ProfilePage/Modals/HeaderEditForm';
@@ -73,7 +73,7 @@ const ProfilePage = () => {
       })
       .catch((err) => {
         setSpin(false);
-        if (err.response.data.status == 'invalid') {
+        if (err.response.data.status === 'invalid') {
           setSessionActive(false);
         }
       });
@@ -216,30 +216,3 @@ const ProfilePage = () => {
   );
 };
 export default ProfilePage;
-{
-  /*
-              <section className='performance'>
-                <div className='container'>
-                  <h4>{userName}'s Performance</h4>
-                  <Steps current={1} progressDot={customDot}>
-                    <Step
-                      title='Beginner'
-                      description='Start of a long journey'
-                    />
-                    <Step
-                      title='Intermediate'
-                      description='5+ Projects and 2+ Blogs'
-                    />
-                    <Step
-                      title='Enthusiastic'
-                      description='10+ Projects and 5+ Blogs'
-                    />
-                    <Step
-                      title='Expert'
-                      description='20+ Projects and 10+ Blogs.'
-                    />
-                  </Steps>
-                </div>
-              </section>
-               */
-}

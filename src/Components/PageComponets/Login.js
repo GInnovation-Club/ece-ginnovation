@@ -52,7 +52,7 @@ const Login = (props) => {
       .catch((err) => {
         setSpin(false);
         message.error(
-          err.response.data.status == 'invalid credentials'
+          err.response.data.status === 'invalid credentials'
             ? 'Invalid Credentials! Check your email and password'
             : 'Something went wrong!'
         );

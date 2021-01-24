@@ -3,11 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/swiper.scss';
-//antd import
-import { Avatar } from 'antd';
-import { PlayCircleOutlined } from '@ant-design/icons';
 //assets import
-import projectDemo from '../../../assets/project-demo.jpg';
 import ProjectCard from '../ProfilePage/ProjectCard';
 
 const VideoSwiper = (props) => {

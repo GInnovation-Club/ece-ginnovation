@@ -9,7 +9,7 @@ const imgStyle = {
 //-----------------------------------------------------------------
 const VideoCard = () => {
   return (
-    <a href='https://youtu.be/p3mLeLMXxE0' target='_blank'>
+    <a href='https://youtu.be/p3mLeLMXxE0' target='_blank' rel='noreferrer'>
       <div className='video-cards'>
         <div className='card-info'>
           <div className='img' style={imgStyle}>
