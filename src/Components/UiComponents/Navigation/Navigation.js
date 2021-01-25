@@ -42,13 +42,16 @@ const Navigation = () => {
               >
                 About Developers
               </NavDropdown.Item>
-              {/* <NavDropdown.Item href='#action/3.1'>
+              {/* <NavDropdown.Item
+                as={Link}
+                to='/ece-ginnovation/about/developers'
+              >
                 About Core Team
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href='#action/3.4'>
-                About Ginnovation
               </NavDropdown.Item> */}
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={Link} to='/ece-ginnovation/about'>
+                About Ginnovation
+              </NavDropdown.Item>
             </NavDropdown>
             {auth && (
               <Nav.Link as={Link} to='/ece-ginnovation/profile'>

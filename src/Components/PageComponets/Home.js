@@ -6,15 +6,8 @@ import Members from '../SectionComponents/Home/Members';
 import Projects from '../SectionComponents/Home/Projects';
 import Videos from '../SectionComponents/Home/Videos';
 import Blogs from '../SectionComponents/Home/Blogs';
-//aos animation
-import Aos from 'aos';
-import 'aos/dist/aos.css';
 //Main Componet
 const Home = () => {
-  useEffect(() => {
-    Aos.init({ duration: 600 });
-  }, []);
-
   return (
     <>
       <LandingPage />

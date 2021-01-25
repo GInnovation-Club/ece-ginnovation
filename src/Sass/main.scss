@@ -2,6 +2,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'antd/dist/antd.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&family=Poppins:wght@400;500&family=Open+Sans&display=swap');
+// Fonts: Montserrat-900, Oswald, Poppins-400&500
 //mixins
 @mixin flex-center {
   display: flex;
@@ -1100,7 +1101,7 @@ a {
   }
 }
 //--------------About Developers Page------------------------------------
-.about-developers {
+.about-common-page {
   .top {
     width: 95%;
     margin: 1em auto;
@@ -1117,14 +1118,11 @@ a {
       text-align: center;
       margin-top: 2em;
       h2 {
-        // font-size: 2em;
         font-weight: 500;
         font-family: 'Poppins', sans-serif;
         color: #2586af;
       }
       p {
-        font-family: 'Open Sans', sans-serif;
-        // font-size: 1.2em;
         color: #2586af;
       }
     }
@@ -1134,6 +1132,78 @@ a {
       text-align: center;
       margin: 2em auto 1em auto;
       font-family: 'Poppins', sans-serif;
+    }
+  }
+}
+.about-ginnovation {
+  .top {
+    background-color: #a3ddcb;
+    .pattern {
+      background-image: url('../assets/Inn.png');
+    }
+    header {
+      h2 {
+        color: #03506f;
+      }
+      p {
+        color: #03506f;
+      }
+    }
+  }
+  .about {
+    padding: 0.5em;
+    figure {
+      text-align: center;
+      img {
+        width: 40%;
+      }
+    }
+    .about-text {
+      font-size: 1.2em;
+      color: $dark-fade;
+    }
+  }
+  .mission {
+    padding: 1em;
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      margin-bottom: 1em;
+      padding-bottom: 0.3em;
+      color: #03506f;
+      border-bottom: 2px solid #03506f80;
+    }
+    .mission-card {
+      padding: 0.5em;
+      text-align: center;
+      color: $fade;
+      background-color: rgb(238, 238, 238);
+      border-radius: 17px;
+      img {
+        width: 60%;
+        margin-bottom: 1em;
+      }
+    }
+  }
+  .vission {
+    padding-bottom: 2em;
+    overflow: hidden;
+    .vission-card-container {
+      .card {
+        width: 80%;
+        padding: 0.5em;
+        margin: 1em 0;
+        background-color: $smoke;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          margin: 0 1em;
+        }
+        &:nth-child(2) {
+          margin-left: auto;
+          justify-content: flex-end;
+        }
+      }
     }
   }
 }
@@ -1518,8 +1588,8 @@ a {
             width: 100%;
             justify-content: center;
             img {
-              width: 35%;
-              margin: 0 0em;
+              width: 55%;
+              margin: 0 0.3em;
             }
           }
           .message {
@@ -1585,7 +1655,10 @@ a {
     .blogs {
       .container {
         margin-bottom: 5em;
-        .edit-btn {
+        .blog-card {
+          margin-bottom: 1em;
+        }
+        .edit-btn.type2 {
           background-color: $smoke;
           right: 75%;
           top: 100%;
@@ -1594,7 +1667,7 @@ a {
           width: 100px;
           border-radius: 0;
         }
-        .edit-btn.add {
+        .edit-btn.type2.add {
           transform: translateX(30%);
           right: 25%;
           top: 100%;
@@ -1638,14 +1711,37 @@ a {
     }
   }
   //--------------About Developers Page------------------------------------
-  .about-developers {
+  .about-common-page {
     .top {
+      width: 100%;
+      border-radius: 0;
+      margin-top: 0;
       header {
         h2 {
           font-size: 1.5em;
         }
         p {
           font-size: 1em;
+        }
+      }
+    }
+  }
+  .about-ginnovation {
+    .about {
+      .about-text {
+        font-size: 1em;
+      }
+    }
+    .mission {
+      .mission-card {
+        background-color: transparent;
+      }
+    }
+    .vission {
+      padding-bottom: 400px;
+      .vission-card-container {
+        .card {
+          width: 100%;
         }
       }
     }
