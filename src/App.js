@@ -3,6 +3,9 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 //sass imports
 import '../src/Sass/main.scss';
+//aos animation
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 //components import
 import Home from './Components/PageComponets/Home';
 import Navigation from './Components/UiComponents/Navigation/Navigation';
@@ -11,7 +14,9 @@ import ProfilePage from './Components/PageComponets/ProfilePage';
 import Signup from './Components/PageComponets/Signup';
 import Error from './Components/PageComponets/Error';
 import AboutDevelopers from './Components/PageComponets/AboutDevelopers';
+import AboutGinnovation from './Components/PageComponets/AboutGinnovation';
 function App() {
+  Aos.init({ duration: 100 });
   return (
     <div className='App'>
       <Router>
@@ -29,6 +34,11 @@ function App() {
             exact
             path='/ece-ginnovation/about/developers'
             component={AboutDevelopers}
+          />
+          <Route
+            exact
+            path='/ece-ginnovation/about'
+            component={AboutGinnovation}
           />
           <Route component={Error} />
         </Switch>

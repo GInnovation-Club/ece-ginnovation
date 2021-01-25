@@ -13,10 +13,7 @@ const PeopleCard = (props) => {
         <div className='profile-picture' id={props.img}></div>
         <h5>{props.name}</h5>
         <p className='headline'>{props.headline}</p>
-        <p className='about'>
-          In publishing and graphic design, Lorem ipsum is a placeholder text
-          commonly
-        </p>
+        <p className='about'>{props.about}</p>
         <div className='sm-container'>
           <a href={props.liLink} target='_blank' rel='noreferrer'>
             <img src={li} alt='social media' />

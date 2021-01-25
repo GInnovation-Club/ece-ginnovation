@@ -9,12 +9,13 @@ const layout = {
   labelCol: { span: 8 },
   wrapperCol: { span: 24 },
 };
-const token = localStorage.getItem('token');
+
 //-----------------------------------------------------------------------
 const BioEditModal = (props) => {
   const [spin, setSpin] = useState(false);
   const [dataChanged, setDataChanged] = useState(false);
   const [form] = Form.useForm();
+  const token = localStorage.getItem('token');
   //
   const onFinish = (values) => {
     setSpin(true);
@@ -22,7 +23,7 @@ const BioEditModal = (props) => {
     const updatedData = {
       biodata: values.bio,
     };
-    // EditOperation(updatedData);
+    console.log(updatedData);
     axios
       .put(
         `https://ginnovation-server.herokuapp.com/api/profile/data`,
