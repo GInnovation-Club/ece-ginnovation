@@ -80,7 +80,7 @@ const Signup = () => {
         setSpin(false);
         console.log(resp);
         if (resp.data.status === 'success') {
-          alert('Registration Complete');
+          message.success('Registration Complete');
           setPopConfirm(true);
         } else {
           message.warning('Oops! Something went wrong');

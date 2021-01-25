@@ -20,7 +20,7 @@ const ProfileError = () => {
           onClick={() => {
             dispatch(authFunction(false));
             localStorage.removeItem('token');
-            localStorage.setItem('username', 'Username');
+            localStorage.removeItem('username');
             history.push('/ece-ginnovation/login');
           }}
         >

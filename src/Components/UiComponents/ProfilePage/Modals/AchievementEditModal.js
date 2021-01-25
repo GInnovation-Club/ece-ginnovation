@@ -21,9 +21,6 @@ const AchievementEditModal = (props) => {
     const updatedData = {
       achievements: values.achievements,
     };
-    // console.log(values);
-    // console.log(token);
-    // console.log(updatedData);
     setSpin(true);
     axios
       .put(

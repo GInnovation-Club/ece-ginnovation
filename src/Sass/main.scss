@@ -1,7 +1,7 @@
 // ---Imports---
 @import '~bootstrap/scss/bootstrap';
 @import 'antd/dist/antd.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald&family=Poppins:wght@400;500&family=Open+Sans&display=swap');
 //mixins
 @mixin flex-center {
   display: flex;
@@ -795,23 +795,6 @@ a {
   .skills {
     padding-top: 0.5em;
     .container {
-      .fresh-achievement {
-        height: 150px;
-        width: 100%;
-        border: 1px solid #cccccc;
-        @include flex-center();
-        header {
-          text-align: center;
-          opacity: 0.6;
-          p {
-            margin-bottom: 0.1em;
-          }
-          .fresh-icon {
-            font-size: 2em;
-            margin-bottom: 0.5em;
-          }
-        }
-      }
       h4 {
         background-color: $pink;
       }
@@ -913,7 +896,23 @@ a {
     }
   }
   //-------------------Global Stylings for Profile--------------------
-
+  .fresh-section {
+    height: 150px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    @include flex-center();
+    header {
+      text-align: center;
+      opacity: 0.6;
+      p {
+        margin-bottom: 0.1em;
+      }
+      .fresh-icon {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+    }
+  }
   .more-options {
     position: absolute;
     bottom: 0;
@@ -1100,6 +1099,44 @@ a {
     }
   }
 }
+//--------------About Developers Page------------------------------------
+.about-developers {
+  .top {
+    width: 95%;
+    margin: 1em auto;
+    border-radius: 17px;
+    background-color: #f4f5db;
+    padding: 1em;
+    .pattern {
+      height: 100px;
+      background-image: url('../assets/Taieri.png');
+      background-size: cover;
+      background-position: center;
+    }
+    header {
+      text-align: center;
+      margin-top: 2em;
+      h2 {
+        // font-size: 2em;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        color: #2586af;
+      }
+      p {
+        font-family: 'Open Sans', sans-serif;
+        // font-size: 1.2em;
+        color: #2586af;
+      }
+    }
+  }
+  .developers {
+    header {
+      text-align: center;
+      margin: 2em auto 1em auto;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+}
 //---------Global ANTD Clearance---------------
 .ant-message {
   z-index: 999999999999999;
@@ -1180,6 +1217,66 @@ a {
           overflow: auto;
           @include scrollBarStyle();
         }
+      }
+    }
+  }
+}
+.people-card {
+  background-color: $smoke;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  .cover {
+    height: 130px;
+    background-color: #2586af;
+  }
+  .people-card-body {
+    position: relative;
+    padding: 4em 0.5em 1em 0.5em;
+    text-align: center;
+    .profile-picture {
+      height: 95px;
+      width: 95px;
+      border-radius: 50%;
+      margin: auto;
+      border: 5px solid $smoke;
+      background-image: url('../assets/student2.jpg');
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -18%;
+    }
+    .profile-picture#ashutosh {
+      background-image: url('../assets/PeopleImages/ashutosh.png');
+    }
+    .profile-picture#amarjeet {
+      background-image: url('../assets/PeopleImages/amarjeet.jpg');
+    }
+    h5 {
+      margin-bottom: 0.2em;
+    }
+    .about {
+      color: $fade;
+      margin-bottom: 1.5em;
+    }
+    .sm-container {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 25px;
+        margin: 0 1em;
+      }
+    }
+    button {
+      background-color: transparent;
+      border: 1px solid#2586af;
+      color: #2586af;
+      margin-top: 1.5em;
+      width: 200px;
+      &:hover {
+        background-color: #2586af;
+        color: $white;
       }
     }
   }
@@ -1357,6 +1454,14 @@ a {
     section {
       width: 100%;
       margin: 1em auto;
+      .container {
+        .edit-btn.type2 {
+          height: 30px;
+          width: 30px;
+          top: 0.6%;
+          right: 5%;
+        }
+      }
     }
     h4.section-head {
       text-align: left;
@@ -1364,7 +1469,7 @@ a {
     //----Individual-----------
     .top {
       padding: 1em 1em 0 1em;
-      height: 630px;
+      height: 650px;
       .container {
         flex-direction: column;
         height: 100%;
@@ -1418,7 +1523,7 @@ a {
             }
           }
           .message {
-            top: 50%;
+            top: 53%;
             right: 50%;
             transform: translateX(50%);
           }
@@ -1464,6 +1569,11 @@ a {
     }
     .projects {
       padding: 0;
+      .container {
+        .edit-btn.type2 {
+          top: 2%;
+        }
+      }
     }
     .performance {
       .container {
@@ -1508,6 +1618,7 @@ a {
       }
     }
   }
+
   //global
   .modal-container {
     overflow-y: scroll;
@@ -1524,6 +1635,19 @@ a {
     .edit-modal {
       width: 95%;
       margin: auto;
+    }
+  }
+  //--------------About Developers Page------------------------------------
+  .about-developers {
+    .top {
+      header {
+        h2 {
+          font-size: 1.5em;
+        }
+        p {
+          font-size: 1em;
+        }
+      }
     }
   }
   //global

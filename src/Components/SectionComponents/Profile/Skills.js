@@ -32,7 +32,7 @@ const Skills = (props) => {
             </div>
           </>
         ) : (
-          <div className='fresh-achievement'>
+          <div className='fresh-section'>
             <header>
               <PlusCircleOutlined
                 className='fresh-icon'

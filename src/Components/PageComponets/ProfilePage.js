@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 //antd imports
-import { Steps, Spin } from 'antd';
+import { Spin } from 'antd';
 //icons import
 import { LogoutOutlined } from '@ant-design/icons';
 //redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userNameChange } from '../../store';
 //components import
 import HeaderEditModal from '../UiComponents/ProfilePage/Modals/HeaderEditForm';
@@ -34,7 +34,8 @@ const ProfilePage = () => {
   const [refreshKey, setRefreshKey] = useState(false);
   const [loggedIn, setLoggedIn] = useState(true);
   const [userData, setUserData] = useState();
-  const [sessionExpired, setsessionExpired] = useState(false);
+  const [userName, setUserName] = useState();
+  const [sessionActive, setSessionActive] = useState(true);
   const [confirmLogout, setConfirmLogout] = useState(false);
   const [moreAchievements, setMoreAchievements] = useState(false);
   //edit modals
@@ -46,9 +47,8 @@ const ProfilePage = () => {
   //
   const dispatch = useDispatch();
   //
-  const userFullName = useSelector((state) => state.userNameReducer.userName);
-  const tempToken = useSelector((state) => state.tempTokenReducer.tempToken);
-  const userName = userFullName.split(' ')[0];
+  // const userFullName = useSelector((state) => state.userNameReducer.userName);
+  // const userName = userFullName.split(' ')[0];
 
   //login logic
   useEffect(() => {
@@ -66,13 +66,15 @@ const ProfilePage = () => {
       .then((resp) => {
         setSpin(false);
         setUserData(resp.data);
+        setUserName(resp.data.fullname);
         localStorage.setItem('username', resp.data.fullname);
-        dispatch(userNameChange(localStorage.getItem('username')));
+        dispatch(userNameChange(resp.data.fullname));
+        console.log('username at profilepage', resp.data.fullname);
       })
       .catch((err) => {
         setSpin(false);
-        if (err.response.data.status == 'invalid') {
-          setsessionExpired(true);
+        if (err.response.data.status === 'invalid') {
+          setSessionActive(false);
         }
       });
   }, [refreshKey]);
@@ -88,7 +90,7 @@ const ProfilePage = () => {
       )}
       {loggedIn ? (
         <div className='profile-page'>
-          {userData ? (
+          {userData && sessionActive && (
             <>
               <ProfileTop
                 data={userData}
@@ -182,10 +184,8 @@ const ProfilePage = () => {
                 />
               )}
             </>
-          ) : (
-            ''
           )}
-          {sessionExpired && <ProfileError />}
+          {sessionActive ? '' : <ProfileError />}
           {confirmLogout && (
             <LogoutConfirmation
               openModal={(value) => {
@@ -193,9 +193,7 @@ const ProfilePage = () => {
               }}
             />
           )}
-          {sessionExpired ? (
-            ''
-          ) : (
+          {sessionActive && (
             <ul className='more-options'>
               <motion.li
                 initial={{ x: 300 }}
@@ -218,30 +216,3 @@ const ProfilePage = () => {
   );
 };
 export default ProfilePage;
-{
-  /*
-              <section className='performance'>
-                <div className='container'>
-                  <h4>{userName}'s Performance</h4>
-                  <Steps current={1} progressDot={customDot}>
-                    <Step
-                      title='Beginner'
-                      description='Start of a long journey'
-                    />
-                    <Step
-                      title='Intermediate'
-                      description='5+ Projects and 2+ Blogs'
-                    />
-                    <Step
-                      title='Enthusiastic'
-                      description='10+ Projects and 5+ Blogs'
-                    />
-                    <Step
-                      title='Expert'
-                      description='20+ Projects and 10+ Blogs.'
-                    />
-                  </Steps>
-                </div>
-              </section>
-               */
-}

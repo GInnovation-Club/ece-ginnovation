@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 //bootstrap imports
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 //antd imports
 import { Avatar } from 'antd';
 import { LoginOutlined } from '@ant-design/icons';
@@ -12,17 +12,20 @@ import { useSelector } from 'react-redux';
 import logo from '../../../assets/logo.png';
 //-------------------------------------------------------------------------
 const Navigation = () => {
-  const [userName, setuserName] = useState('user name');
-  const auth = useSelector((state) => state.loginReducer.isAuth);
-  const getUserName = localStorage.getItem('username');
+  const [userDisplayName, setUserDisplayName] = useState('');
+  const [userIcon, setuserIcon] = useState('');
+  const userFullNamee = useSelector((state) => state.userNameReducer.userName);
+
   useEffect(() => {
-    if (getUserName !== null) {
-      setuserName(getUserName);
+    const userFullName = userFullNamee;
+    if (userFullName !== null) {
+      const userName = userFullName.split(' ')[0];
+      setUserDisplayName(userName);
+      const icon = userName.charAt(0);
+      setuserIcon(icon);
     }
-  }, []);
-  // const userFullName = useSelector((state) => state.userNameReducer.userName);
-  const userFirstName = userName.split(' ')[0];
-  const userIcon = userFirstName.charAt(0);
+  }, [userFullNamee]);
+  const auth = useSelector((state) => state.loginReducer.isAuth);
   return (
     <>
       <Navbar bg='light' expand='lg' sticky='top' className='navigation'>
@@ -32,6 +35,21 @@ const Navigation = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
+            <NavDropdown title='About' id='basic-nav-dropdown'>
+              <NavDropdown.Item
+                as={Link}
+                to='/ece-ginnovation/about/developers'
+              >
+                About Developers
+              </NavDropdown.Item>
+              {/* <NavDropdown.Item href='#action/3.1'>
+                About Core Team
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href='#action/3.4'>
+                About Ginnovation
+              </NavDropdown.Item> */}
+            </NavDropdown>
             {auth && (
               <Nav.Link as={Link} to='/ece-ginnovation/profile'>
                 <Avatar
@@ -43,20 +61,9 @@ const Navigation = () => {
                 >
                   {userIcon}
                 </Avatar>
-                {userName}
+                {userDisplayName}
               </Nav.Link>
             )}
-
-            {/* {auth && (
-              <Nav.Link
-                as={Link}
-                onClick={() => {
-                  setPopConfirm(true);
-                }}
-              >
-                <LogoutOutlined className='icon' /> LogOut
-              </Nav.Link>
-            )} */}
             {auth ? (
               ''
             ) : (

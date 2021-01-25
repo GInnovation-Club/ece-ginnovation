@@ -12,10 +12,10 @@ import {
 } from '@ant-design/icons';
 //assets imports
 import dp from '../../../assets/student2.jpg';
-import fb from '../../../assets/SM-Icons/facebook.png';
-import li from '../../../assets/SM-Icons/linkedin.png';
-import gh from '../../../assets/SM-Icons/github.png';
-import yt from '../../../assets/SM-Icons/youtube.png';
+import fb from '../../../assets/Icons/facebook.png';
+import li from '../../../assets/Icons/linkedin.png';
+import gh from '../../../assets/Icons/github.png';
+import yt from '../../../assets/Icons/youtube.png';
 import { message } from 'antd';
 //----------------------------------------------------------------
 const ProfileTop = (props) => {
@@ -90,7 +90,7 @@ const ProfileTop = (props) => {
           </header>
           <Row className='action-bar'>
             <Col md={3} className='bar'>
-              <h4>22+</h4>Projects
+              <h4>{data.projects.length}</h4>Projects
             </Col>
             <Col md={3} className='bar'>
               <h4>{data.achievements.length}</h4>Achievements

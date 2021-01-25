@@ -5,9 +5,9 @@ import { Col, Row } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 //assets import
 import GrowAnimation from '../../AnimationComponents/GrowAnimation';
-import FbIcon from '../../../assets/Icons/facebook.png';
-import IgIcon from '../../../assets/Icons/instagram.png';
-import YtIcon from '../../../assets/Icons/youtube.png';
+import FbIcon from '../../../assets/Icons/facebook-black.png';
+import TtIcon from '../../../assets/Icons/twitter-black.png';
+import YtIcon from '../../../assets/Icons/youtube-black.png';
 import { Link } from 'react-router-dom';
 //--------------------------------------------------------------------------
 const LandingPage = () => {
@@ -82,7 +82,7 @@ const LandingPage = () => {
           transition={{ delay: 0.6 }}
         >
           <a href='https://www.instagram.com/ashutoshbisoyi/'>
-            <img src={IgIcon} alt='ginnovation-instagram' />
+            <img src={TtIcon} alt='ginnovation-instagram' />
           </a>
         </motion.li>
       </ul>
